@@ -11,17 +11,19 @@
 <body>
   <nav>
     <a href="{{ url_for('home') }}" class="nav-brand">{{ profile.name.split()[-1][:2].upper() }}</a>
-    <ul class="nav-links">
-      <li><a href="{{ url_for('home') }}">Home</a></li>
-      <li><a href="{{ url_for('about') }}">About</a></li>
-      <li><a href="{{ url_for('projects_page') }}">Projects</a></li>
-      <li><a href="{{ url_for('resume_page') }}">Resume</a></li>
-      <li><a href="{{ url_for('contact') }}">Contact</a></li>
-    </ul>
-    <div style="display:flex;gap:1rem;align-items:center;">
-      <a href="{{ profile.social.github }}" class="nav-social" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="{{ profile.social.linkedin }}" class="nav-social" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('mobile-open')" aria-label="Menu">☰</button>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('projects_page') }}">Projects</a></li>
+        <li><a href="{{ url_for('resume_page') }}">Resume</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      </ul>
+      <div class="nav-socials">
+        <a href="{{ profile.social.github }}" class="nav-social" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="{{ profile.social.linkedin }}" class="nav-social" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('mobile-open')" aria-label="Menu">☰</button>
+      </div>
     </div>
   </nav>
 

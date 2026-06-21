@@ -1,191 +1,152 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume — Ezennajiofoeze Jacinta Chinyere</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-    <link rel="stylesheet" href="static/css/style.css">
-    
-<style>
-.resume-section { margin-bottom: 1.5rem; }
-.resume-section h3 { color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 0.3rem; margin-bottom: 1rem; }
-.resume-item { margin-bottom: 1rem; }
-.resume-item h5 { margin-bottom: 0.2rem; }
-.resume-item .meta { color: var(--text-secondary); font-size: 0.9rem; }
-@media print {
-    .navbar, .footer-social, footer, .btn { display: none !important; }
-    body { padding-top: 0; color: #000; background: #fff; }
-    .card { border: 1px solid #ddd; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume — Ezennajiofoeze Jacinta Chinyere</title>
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+<style>@media print { nav, footer, .btn { display:none !important; } body { color:#000; background:#fff; } .card, .skill-group, .cert-badge { border-color:#ddd; } }</style>
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="home.html">Ezennajiofoeze Jacinta Chinyere</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="skills_page.html">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="experience.html">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="projects_page.html">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="certifications.html">Certs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="resume_page.html">Resume</a></li>
-                    <li class="nav-item"><a class="nav-link" href="animations_page.html">Animations</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
-                <div class="d-flex ms-lg-3">
-                    <a href="https://github.com/Jayce198518" class="nav-social" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/ezennajiofoeze-jacinta-8b5471103/" class="nav-social" target="_blank"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <main>
-        
-<section class="py-5">
-    <div class="container">
-        <div class="d-flex justify-content-between align-items-center mb-5" data-aos="fade-up">
-            <h1 class="section-title mb-0">Resume</h1>
-            <button class="btn btn-accent" onclick="window.print()" type="button"><i class="fas fa-print me-2"></i>Print / Save PDF</button>
-        </div>
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <div data-aos="fade-up">
-                    <h2 class="h3 text-accent">Ezennajiofoeze Jacinta Chinyere</h2>
-                    <p class="text-secondary">Cloud & DevOps Engineer · Lagos, Nigeria</p>
-                    <p class="text-secondary"><i class="fas fa-envelope me-2"></i>jacintachinyere@gmail.com</p>
-                    <hr style="border-color: var(--border);">
-                </div>
-                <div class="resume-section" data-aos="fade-up">
-                    <h3>Summary</h3>
-                    <p>I am an Agentic DevOps and Cloud Engineer passionate about building scalable, automated, and intelligent cloud solutions. I have hands-on experience with Agentic AI, Kubernetes, Docker, Terraform, and CI/CD, focusing on reliable and efficient software delivery. I enjoy solving complex problems, optimizing workflows, and continuously learning new technologies that drive innovation.</p>
-                </div>
-                <div class="resume-section" data-aos="fade-up">
-                    <h3>Skills</h3>
-                    <div class="row">
-                        
-                        <div class="col-md-6 mb-3">
-                            <h6 class="text-accent">Cloud & Virtualization</h6>
-                            <p class="text-secondary">AWS, Azure, GCP, Linux</p>
-                        </div>
-                        
-                        <div class="col-md-6 mb-3">
-                            <h6 class="text-accent">Container Orchestration</h6>
-                            <p class="text-secondary">Docker, Kubernetes, Helm</p>
-                        </div>
-                        
-                        <div class="col-md-6 mb-3">
-                            <h6 class="text-accent">Infrastructure as Code</h6>
-                            <p class="text-secondary">Terraform, Ansible, CloudFormation, Pulumi</p>
-                        </div>
-                        
-                        <div class="col-md-6 mb-3">
-                            <h6 class="text-accent">CI/CD & Automation</h6>
-                            <p class="text-secondary">Jenkins, GitHub Actions, GitLab CI, CircleCI, ArgoCD, Azure DevOps</p>
-                        </div>
-                        
-                        <div class="col-md-6 mb-3">
-                            <h6 class="text-accent">Monitoring & Observability</h6>
-                            <p class="text-secondary">Prometheus, Grafana, ELK Stack, Datadog, New Relic</p>
-                        </div>
-                        
-                        <div class="col-md-6 mb-3">
-                            <h6 class="text-accent">Agentic AI & Automation</h6>
-                            <p class="text-secondary">Claude Code, GitHub Copilot</p>
-                        </div>
-                        
-                        <div class="col-md-6 mb-3">
-                            <h6 class="text-accent">Scripting & Languages</h6>
-                            <p class="text-secondary">Python, Bash, PowerShell, YAML, JSON</p>
-                        </div>
-                        
-                        <div class="col-md-6 mb-3">
-                            <h6 class="text-accent">Version Control & Collaboration</h6>
-                            <p class="text-secondary">Git, GitHub, GitLab, Bitbucket</p>
-                        </div>
-                        
-                        <div class="col-md-6 mb-3">
-                            <h6 class="text-accent">Networking & Security</h6>
-                            <p class="text-secondary">SSL-TLS, IAM, VPN, Firewalls, Load Balancers</p>
-                        </div>
-                        
-                        <div class="col-md-6 mb-3">
-                            <h6 class="text-accent">Databases & Storage</h6>
-                            <p class="text-secondary">PostgreSQL, MySQL, MongoDB, AWS S3, AWS EFS, AWS EBS</p>
-                        </div>
-                        
-                        <div class="col-md-6 mb-3">
-                            <h6 class="text-accent">Collaboration & PM</h6>
-                            <p class="text-secondary">Agile, Jira, Confluence</p>
-                        </div>
-                        
-                    </div>
-                </div>
-                <div class="resume-section" data-aos="fade-up">
-                    <h3>Experience</h3>
-                    
-                    <p class="text-secondary">Experience details will be added soon.</p>
-                    
-                </div>
-                <div class="resume-section" data-aos="fade-up">
-                    <h3>Projects</h3>
-                    
-                    <div class="resume-item">
-                        <h5>Spring PetClinic on EKS</h5>
-                        <p>Cloud-native deployment of Spring PetClinic microservices on Amazon EKS using Helm values configuration.</p>
-                    </div>
-                    
-                    <div class="resume-item">
-                        <h5>Ultimate Agentic DevOps with Claude Code</h5>
-                        <p>Build, deploy, and operate AWS infrastructure using AI agents, skills, and safety guardrails.</p>
-                    </div>
-                    
-                    <div class="resume-item">
-                        <h5>DigitalJay</h5>
-                        <p>Personal project showcasing web development skills.</p>
-                    </div>
-                    
-                </div>
-                <div class="resume-section" data-aos="fade-up">
-                    <h3>Certifications</h3>
-                    
-                    <p class="text-secondary">Certifications will be added soon.</p>
-                    
-                </div>
-            </div>
-        </div>
+  <nav>
+    <a href="home.html" class="nav-brand">CH</a>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="projects_page.html">Projects</a></li>
+      <li><a href="resume_page.html">Resume</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="skills_page.html">Skills</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="animations_page.html">Animations</a></li>
+    </ul>
+    <div style="display:flex;gap:1rem;align-items:center;">
+      <a href="https://github.com/Jayce198518" class="nav-social" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/ezennajiofoeze-jacinta-8b5471103/" class="nav-social" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('mobile-open')" aria-label="Menu">☰</button>
     </div>
+  </nav>
+
+  <main>
+    
+<section>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;">
+    <h1 class="page-hero" style="padding:120px 0 0;text-align:left;"><span style="color:var(--white);font-weight:800;">Resume</span></h1>
+    <button class="btn btn-primary" onclick="window.print()">🖨 Print</button>
+  </div>
+  <div class="fade-in" style="margin-bottom:2rem;">
+    <h2 style="color:var(--gold);font-size:1.5rem;">Ezennajiofoeze Jacinta Chinyere</h2>
+    <p style="color:var(--grey);">Cloud & DevOps Engineer · Lagos, Nigeria</p>
+    <p style="color:var(--grey);"><i class="fas fa-envelope"></i> jacintachinyere@gmail.com</p>
+  </div>
+  <div class="fade-in" style="margin-bottom:2rem;">
+    <h3 style="color:var(--gold);border-bottom:2px solid var(--gold);padding-bottom:0.5rem;margin-bottom:1rem;">Summary</h3>
+    <p style="color:var(--grey);">I am an Agentic DevOps and Cloud Engineer passionate about building scalable, automated, and intelligent cloud solutions. I have hands-on experience with Agentic AI, Kubernetes, Docker, Terraform, and CI/CD, focusing on reliable and efficient software delivery. I enjoy solving complex problems, optimizing workflows, and continuously learning new technologies that drive innovation.</p>
+  </div>
+  <div class="fade-in" style="margin-bottom:2rem;">
+    <h3 style="color:var(--gold);border-bottom:2px solid var(--gold);padding-bottom:0.5rem;margin-bottom:1rem;">Skills</h3>
+    <div class="skills-grid">
+      
+      <div class="skill-group">
+        <h3>Cloud & Virtualization</h3>
+        <ul class="skill-list"><li>AWS</li><li>Azure</li><li>GCP</li><li>Linux</li></ul>
+      </div>
+      
+      <div class="skill-group">
+        <h3>Container Orchestration</h3>
+        <ul class="skill-list"><li>Docker</li><li>Kubernetes</li><li>Helm</li></ul>
+      </div>
+      
+      <div class="skill-group">
+        <h3>Infrastructure as Code</h3>
+        <ul class="skill-list"><li>Terraform</li><li>Ansible</li><li>CloudFormation</li><li>Pulumi</li></ul>
+      </div>
+      
+      <div class="skill-group">
+        <h3>CI/CD & Automation</h3>
+        <ul class="skill-list"><li>Jenkins</li><li>GitHub Actions</li><li>GitLab CI</li><li>CircleCI</li><li>ArgoCD</li><li>Azure DevOps</li></ul>
+      </div>
+      
+      <div class="skill-group">
+        <h3>Monitoring & Observability</h3>
+        <ul class="skill-list"><li>Prometheus</li><li>Grafana</li><li>ELK Stack</li><li>Datadog</li><li>New Relic</li></ul>
+      </div>
+      
+      <div class="skill-group">
+        <h3>Agentic AI & Automation</h3>
+        <ul class="skill-list"><li>Claude Code</li><li>GitHub Copilot</li></ul>
+      </div>
+      
+      <div class="skill-group">
+        <h3>Scripting & Languages</h3>
+        <ul class="skill-list"><li>Python</li><li>Bash</li><li>PowerShell</li><li>YAML</li><li>JSON</li></ul>
+      </div>
+      
+      <div class="skill-group">
+        <h3>Version Control & Collaboration</h3>
+        <ul class="skill-list"><li>Git</li><li>GitHub</li><li>GitLab</li><li>Bitbucket</li></ul>
+      </div>
+      
+      <div class="skill-group">
+        <h3>Networking & Security</h3>
+        <ul class="skill-list"><li>SSL-TLS</li><li>IAM</li><li>VPN</li><li>Firewalls</li><li>Load Balancers</li></ul>
+      </div>
+      
+      <div class="skill-group">
+        <h3>Databases & Storage</h3>
+        <ul class="skill-list"><li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li><li>AWS S3</li><li>AWS EFS</li><li>AWS EBS</li></ul>
+      </div>
+      
+      <div class="skill-group">
+        <h3>Collaboration & PM</h3>
+        <ul class="skill-list"><li>Agile</li><li>Jira</li><li>Confluence</li></ul>
+      </div>
+      
+    </div>
+  </div>
+  <div class="fade-in" style="margin-bottom:2rem;">
+    <h3 style="color:var(--gold);border-bottom:2px solid var(--gold);padding-bottom:0.5rem;margin-bottom:1rem;">Experience</h3>
+    
+    <p style="color:var(--grey);">Experience details coming soon.</p>
+    
+  </div>
+  <div class="fade-in" style="margin-bottom:2rem;">
+    <h3 style="color:var(--gold);border-bottom:2px solid var(--gold);padding-bottom:0.5rem;margin-bottom:1rem;">Projects</h3>
+    
+    <div style="margin-bottom:1rem;">
+      <strong style="color:var(--white);">Spring PetClinic on EKS</strong>
+      <p style="color:var(--grey);">Cloud-native deployment of Spring PetClinic microservices on Amazon EKS using Helm values configuration.</p>
+    </div>
+    
+    <div style="margin-bottom:1rem;">
+      <strong style="color:var(--white);">Ultimate Agentic DevOps with Claude Code</strong>
+      <p style="color:var(--grey);">Build, deploy, and operate AWS infrastructure using AI agents, skills, and safety guardrails.</p>
+    </div>
+    
+    <div style="margin-bottom:1rem;">
+      <strong style="color:var(--white);">DigitalJay</strong>
+      <p style="color:var(--grey);">Personal project showcasing web development skills.</p>
+    </div>
+    
+  </div>
+  <div class="fade-in">
+    <h3 style="color:var(--gold);border-bottom:2px solid var(--gold);padding-bottom:0.5rem;margin-bottom:1rem;">Certifications</h3>
+    
+    <p style="color:var(--grey);">Certifications coming soon.</p>
+    
+  </div>
 </section>
 
-    </main>
+  </main>
 
-    <footer class="py-4 mt-5">
-        <div class="container text-center">
-            <p>&copy; 2026 Ezennajiofoeze Jacinta Chinyere. Built with <i class="fas fa-heart text-danger"></i> and Flask.</p>
-            <div class="footer-social">
-                <a href="https://github.com/Jayce198518" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/ezennajiofoeze-jacinta-8b5471103/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://hashnode.com/@jayce89" target="_blank"><i class="fas fa-blog"></i></a>
-                <a href="https://medium.com/@jacintachinyere" target="_blank"><i class="fab fa-medium"></i></a>
-            </div>
-        </div>
-    </footer>
+  <footer>
+    <p>Designed & Built by <span>Ezennajiofoeze Jacinta Chinyere</span> &copy; 2026 &nbsp;|&nbsp; Cloud & DevOps Engineer</p>
+  </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="static/js/main.js"></script>
-    
+  <script src="static/js/main.js"></script>
+  
 </body>
 </html>

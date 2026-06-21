@@ -1,52 +1,24 @@
 {% extends "base.html" %}
 {% block title %}Skills — {{ profile.name }}{% endblock %}
 {% block content %}
-<section class="py-5">
-    <div class="container">
-        <h1 class="section-title" data-aos="fade-up">Skills</h1>
-        <p class="text-center text-secondary mb-4" data-aos="fade-up">
-            Years of experience mapped from my personal <code class="text-accent">requirements.txt</code>
-        </p>
-        <div class="text-center mb-5" data-aos="fade-up">
-            <button class="btn btn-outline-light filter-btn active" onclick="filterSkills('all')">All</button>
-            <button class="btn btn-outline-light filter-btn" onclick="filterSkills('Cloud')">Cloud</button>
-            <button class="btn btn-outline-light filter-btn" onclick="filterSkills('Container')">Containers</button>
-            <button class="btn btn-outline-light filter-btn" onclick="filterSkills('Code')">IaC</button>
-            <button class="btn btn-outline-light filter-btn" onclick="filterSkills('CI')">CI/CD</button>
-            <button class="btn btn-outline-light filter-btn" onclick="filterSkills('Monitor')">Monitoring</button>
-            <button class="btn btn-outline-light filter-btn" onclick="filterSkills('AI')">AI</button>
-            <button class="btn btn-outline-light filter-btn" onclick="filterSkills('Lang')">Languages</button>
-            <button class="btn btn-outline-light filter-btn" onclick="filterSkills('VCS')">VCS</button>
-            <button class="btn btn-outline-light filter-btn" onclick="filterSkills('Net')">Network</button>
-            <button class="btn btn-outline-light filter-btn" onclick="filterSkills('DB')">Database</button>
-        </div>
-        <div class="row g-3" id="skills-grid">
-            {% for skill in skills %}
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="{{ loop.index * 30 % 300 }}" data-category="{{ skill.description }}">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">{{ skill.name }}</h5>
-                        <p class="skill-level mb-1">{{ skill.operator }}{{ skill.level }} years</p>
-                        {% if skill.description %}
-                        <p class="skill-desc mb-0">{{ skill.description }}</p>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
+<section>
+  <div class="page-hero">
+    <h1 class="fade-in">Skills & <span>Tools</span></h1>
+    <p class="fade-in">Years of experience mapped from my personal requirements.txt</p>
+  </div>
+  <div class="skills-grid" style="padding-top:40px;">
+    {% for skill in skills %}
+    <div class="skill-group fade-in">
+      <h3>{{ skill.name }}</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">{{ skill.operator }}{{ skill.level }} years</li>
+        {% if skill.description %}<li style="background:transparent;border:1px solid var(--gold-glow);">{{ skill.description }}</li>{% endif %}
+      </ul>
     </div>
+    {% endfor %}
+  </div>
+  <div class="fade-in" style="text-align:center;margin-top:3rem;">
+    <a href="{{ profile.social.github }}" class="btn btn-primary" target="_blank"><i class="fab fa-github"></i> View GitHub</a>
+  </div>
 </section>
-{% endblock %}
-{% block extra_js %}
-<script>
-function filterSkills(category) {
-    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
-    document.querySelectorAll('.skill-item').forEach(item => {
-        const desc = (item.dataset.category || '').toLowerCase();
-        item.style.display = (category === 'all' || desc.includes(category.toLowerCase())) ? 'block' : 'none';
-    });
-}
-</script>
 {% endblock %}

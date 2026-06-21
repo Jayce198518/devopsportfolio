@@ -1,35 +1,36 @@
 {% extends "base.html" %}
 {% block title %}About — {{ profile.name }}{% endblock %}
 {% block content %}
-<section class="py-5">
-    <div class="container">
-        <h1 class="section-title" data-aos="fade-up">About Me</h1>
-        <div class="row align-items-center">
-            <div class="col-md-4 text-center mb-4" data-aos="fade-right">
-                <div class="d-inline-flex align-items-center justify-content-center rounded-circle" style="width: 200px; height: 200px; background-color: var(--bg-card); border: 3px solid var(--accent);">
-                    <i class="fas fa-user fa-5x text-accent"></i>
-                </div>
-            </div>
-            <div class="col-md-8" data-aos="fade-left">
-                <h2 class="h3 text-accent mb-3">{{ profile.name }}</h2>
-                <p class="text-secondary fs-5">{{ profile.title }}</p>
-                <p class="text-secondary"><i class="fas fa-map-marker-alt text-accent me-2"></i>{{ profile.location }}</p>
-                <hr style="border-color: var(--border);">
-                <p class="fs-5">{{ profile.about }}</p>
-                <div class="mt-4">
-                    <h4 class="h5 text-accent">Available For</h4>
-                    <div class="d-flex flex-wrap gap-2 mt-2">
-                        {% for role in profile.available_for %}
-                        <span class="badge" style="background-color: var(--accent); color: #000;">{{ role }}</span>
-                        {% endfor %}
-                    </div>
-                </div>
-                <div class="mt-4 d-flex gap-3 flex-wrap">
-                    <a href="{{ url_for('resume_page') }}" class="btn btn-accent"><i class="fas fa-download me-2"></i>Resume</a>
-                    <a href="{{ url_for('contact') }}" class="btn btn-outline-light">Get In Touch</a>
-                </div>
-            </div>
-        </div>
+<section>
+  <div class="page-hero">
+    <h1 class="fade-in">About <span>Me</span></h1>
+    <p class="fade-in">{{ profile.title }} · {{ profile.location }}</p>
+  </div>
+  <div class="about-grid" style="padding-top:40px;">
+    <div class="about-text fade-in">
+      <p><span>{{ profile.name }}</span> — {{ profile.about }}</p>
+      <h3 style="color:var(--gold);margin:1.5rem 0 0.8rem;">Available For</h3>
+      <ul class="values-list">
+        {% for role in profile.available_for %}<li><span>➜</span> {{ role }}</li>{% endfor %}
+      </ul>
+      <div class="btn-group" style="margin-top:1.5rem;">
+        <a href="{{ url_for('resume_page') }}" class="btn btn-primary">View Resume</a>
+        <a href="{{ url_for('contact') }}" class="btn btn-outline">Contact Me</a>
+      </div>
     </div>
+    <div class="fade-in">
+      <div style="background:var(--navy-card);border:1px solid var(--gold-glow);border-radius:10px;padding:2rem;">
+        <h3 style="color:var(--gold);margin-bottom:1rem;">Core Skills</h3>
+        <ul class="values-list">
+          <li><span>☁️</span> AWS, Azure, GCP, Linux</li>
+          <li><span>🐳</span> Docker, Kubernetes, Helm</li>
+          <li><span>🏗️</span> Terraform, Ansible, Pulumi</li>
+          <li><span>⚙️</span> Jenkins, GitHub Actions, ArgoCD</li>
+          <li><span>📊</span> Prometheus, Grafana, ELK</li>
+          <li><span>🤖</span> Claude Code, GitHub Copilot</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
 {% endblock %}

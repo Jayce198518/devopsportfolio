@@ -1,531 +1,343 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skills — Ezennajiofoeze Jacinta Chinyere</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-    <link rel="stylesheet" href="static/css/style.css">
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills — Ezennajiofoeze Jacinta Chinyere</title>
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="home.html">Ezennajiofoeze Jacinta Chinyere</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="skills_page.html">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="experience.html">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="projects_page.html">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="certifications.html">Certs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="resume_page.html">Resume</a></li>
-                    <li class="nav-item"><a class="nav-link" href="animations_page.html">Animations</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
-                <div class="d-flex ms-lg-3">
-                    <a href="https://github.com/Jayce198518" class="nav-social" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/ezennajiofoeze-jacinta-8b5471103/" class="nav-social" target="_blank"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <main>
-        
-<section class="py-5">
-    <div class="container">
-        <h1 class="section-title" data-aos="fade-up">Skills</h1>
-        <p class="text-center text-secondary mb-4" data-aos="fade-up">
-            Years of experience mapped from my personal <code class="text-accent">requirements.txt</code>
-        </p>
-        <div class="text-center mb-5" data-aos="fade-up">
-            <button class="btn btn-outline-light filter-btn active" onclick="filterSkills('all')">All</button>
-            <button class="btn btn-outline-light filter-btn" onclick="filterSkills('Cloud')">Cloud</button>
-            <button class="btn btn-outline-light filter-btn" onclick="filterSkills('Container')">Containers</button>
-            <button class="btn btn-outline-light filter-btn" onclick="filterSkills('Code')">IaC</button>
-            <button class="btn btn-outline-light filter-btn" onclick="filterSkills('CI')">CI/CD</button>
-            <button class="btn btn-outline-light filter-btn" onclick="filterSkills('Monitor')">Monitoring</button>
-            <button class="btn btn-outline-light filter-btn" onclick="filterSkills('AI')">AI</button>
-            <button class="btn btn-outline-light filter-btn" onclick="filterSkills('Lang')">Languages</button>
-            <button class="btn btn-outline-light filter-btn" onclick="filterSkills('VCS')">VCS</button>
-            <button class="btn btn-outline-light filter-btn" onclick="filterSkills('Net')">Network</button>
-            <button class="btn btn-outline-light filter-btn" onclick="filterSkills('DB')">Database</button>
-        </div>
-        <div class="row g-3" id="skills-grid">
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="30" data-category="Cloud computing, EC2, S3, VPC, Lambda, IAM">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">AWS</h5>
-                        <p class="skill-level mb-1">>=3 years</p>
-                        
-                        <p class="skill-desc mb-0">Cloud computing, EC2, S3, VPC, Lambda, IAM</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="60" data-category="Virtual machines, AKS, Azure DevOps">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">Azure</h5>
-                        <p class="skill-level mb-1">>=2 years</p>
-                        
-                        <p class="skill-desc mb-0">Virtual machines, AKS, Azure DevOps</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="90" data-category="Google Cloud Compute Engine, Cloud Functions, GKE">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">GCP</h5>
-                        <p class="skill-level mb-1">>=2 years</p>
-                        
-                        <p class="skill-desc mb-0">Google Cloud Compute Engine, Cloud Functions, GKE</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="120" data-category="System administration, shell scripting">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">Linux</h5>
-                        <p class="skill-level mb-1">>=4 years</p>
-                        
-                        <p class="skill-desc mb-0">System administration, shell scripting</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="150" data-category="Containerization, Dockerfiles, multi-stage builds">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">Docker</h5>
-                        <p class="skill-level mb-1">>=3 years</p>
-                        
-                        <p class="skill-desc mb-0">Containerization, Dockerfiles, multi-stage builds</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="180" data-category="Pod scheduling, services, ingress, RBAC">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">Kubernetes</h5>
-                        <p class="skill-level mb-1">>=2 years</p>
-                        
-                        <p class="skill-desc mb-0">Pod scheduling, services, ingress, RBAC</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="210" data-category="Helm charts and values configuration">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">Helm</h5>
-                        <p class="skill-level mb-1">>=1 years</p>
-                        
-                        <p class="skill-desc mb-0">Helm charts and values configuration</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="240" data-category="Declarative cloud resource provisioning">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">Terraform</h5>
-                        <p class="skill-level mb-1">>=2 years</p>
-                        
-                        <p class="skill-desc mb-0">Declarative cloud resource provisioning</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="270" data-category="Configuration management and playbook authoring">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">Ansible</h5>
-                        <p class="skill-level mb-1">>=1 years</p>
-                        
-                        <p class="skill-desc mb-0">Configuration management and playbook authoring</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="0" data-category="AWS-native infrastructure stacks">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">CloudFormation</h5>
-                        <p class="skill-level mb-1">>=1 years</p>
-                        
-                        <p class="skill-desc mb-0">AWS-native infrastructure stacks</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="30" data-category="Infrastructure as code using general-purpose languages">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">Pulumi</h5>
-                        <p class="skill-level mb-1">>=0.5 years</p>
-                        
-                        <p class="skill-desc mb-0">Infrastructure as code using general-purpose languages</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="60" data-category="Self-hosted CI/CD server and pipeline-as-code">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">Jenkins</h5>
-                        <p class="skill-level mb-1">>=2 years</p>
-                        
-                        <p class="skill-desc mb-0">Self-hosted CI/CD server and pipeline-as-code</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="90" data-category="Cloud-native continuous integration">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">CircleCI</h5>
-                        <p class="skill-level mb-1">>=1 years</p>
-                        
-                        <p class="skill-desc mb-0">Cloud-native continuous integration</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="120" data-category="GitOps continuous delivery for Kubernetes">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">ArgoCD</h5>
-                        <p class="skill-level mb-1">>=0.5 years</p>
-                        
-                        <p class="skill-desc mb-0">GitOps continuous delivery for Kubernetes</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="150" data-category="Time-series metrics collection and alerting">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">Prometheus</h5>
-                        <p class="skill-level mb-1">>=1 years</p>
-                        
-                        <p class="skill-desc mb-0">Time-series metrics collection and alerting</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="180" data-category="Dashboards, data visualization, and alert management">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">Grafana</h5>
-                        <p class="skill-level mb-1">>=1 years</p>
-                        
-                        <p class="skill-desc mb-0">Dashboards, data visualization, and alert management</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="210" data-category="Application performance monitoring (APM)">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">Datadog</h5>
-                        <p class="skill-level mb-1">>=0.5 years</p>
-                        
-                        <p class="skill-desc mb-0">Application performance monitoring (APM)</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="240" data-category="Automation scripts, API clients, data processing">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">Python</h5>
-                        <p class="skill-level mb-1">>=3 years</p>
-                        
-                        <p class="skill-desc mb-0">Automation scripts, API clients, data processing</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="270" data-category="Shell scripting, cron jobs, system automation">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">Bash</h5>
-                        <p class="skill-level mb-1">>=4 years</p>
-                        
-                        <p class="skill-desc mb-0">Shell scripting, cron jobs, system automation</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="0" data-category="Windows and Azure administration">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">PowerShell</h5>
-                        <p class="skill-level mb-1">>=1 years</p>
-                        
-                        <p class="skill-desc mb-0">Windows and Azure administration</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="30" data-category="Configuration, CI/CD manifests, Kubernetes specs">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">YAML</h5>
-                        <p class="skill-level mb-1">>=3 years</p>
-                        
-                        <p class="skill-desc mb-0">Configuration, CI/CD manifests, Kubernetes specs</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="60" data-category="API payloads, state files, data interchange">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">JSON</h5>
-                        <p class="skill-level mb-1">>=3 years</p>
-                        
-                        <p class="skill-desc mb-0">API payloads, state files, data interchange</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="90" data-category="Branching strategies, merge conflict resolution">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">Git</h5>
-                        <p class="skill-level mb-1">>=4 years</p>
-                        
-                        <p class="skill-desc mb-0">Branching strategies, merge conflict resolution</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="120" data-category="Pull requests, issues, Actions, and Pages">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">GitHub</h5>
-                        <p class="skill-level mb-1">>=3 years</p>
-                        
-                        <p class="skill-desc mb-0">Pull requests, issues, Actions, and Pages</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="150" data-category="Repositories, CI runners, and container registry">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">GitLab</h5>
-                        <p class="skill-level mb-1">>=1 years</p>
-                        
-                        <p class="skill-desc mb-0">Repositories, CI runners, and container registry</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="180" data-category="Git hosting with Jira integration">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">Bitbucket</h5>
-                        <p class="skill-level mb-1">>=1 years</p>
-                        
-                        <p class="skill-desc mb-0">Git hosting with Jira integration</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="210" data-category="Certificates, HTTPS termination, encryption in transit">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">SSL-TLS</h5>
-                        <p class="skill-level mb-1">>=3 years</p>
-                        
-                        <p class="skill-desc mb-0">Certificates, HTTPS termination, encryption in transit</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="240" data-category="Identity and access management, RBAC, policies">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">IAM</h5>
-                        <p class="skill-level mb-1">>=2 years</p>
-                        
-                        <p class="skill-desc mb-0">Identity and access management, RBAC, policies</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="270" data-category="Site-to-site and remote access solutions">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">VPN</h5>
-                        <p class="skill-level mb-1">>=1 years</p>
-                        
-                        <p class="skill-desc mb-0">Site-to-site and remote access solutions</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="0" data-category="Network security groups, WAF, rule management">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">Firewalls</h5>
-                        <p class="skill-level mb-1">>=2 years</p>
-                        
-                        <p class="skill-desc mb-0">Network security groups, WAF, rule management</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="30" data-category="Relational database design and administration">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">PostgreSQL</h5>
-                        <p class="skill-level mb-1">>=1 years</p>
-                        
-                        <p class="skill-desc mb-0">Relational database design and administration</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="60" data-category="Database tuning and replication">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">MySQL</h5>
-                        <p class="skill-level mb-1">>=1 years</p>
-                        
-                        <p class="skill-desc mb-0">Database tuning and replication</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="90" data-category="Document-oriented NoSQL data modeling">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">MongoDB</h5>
-                        <p class="skill-level mb-1">>=1 years</p>
-                        
-                        <p class="skill-desc mb-0">Document-oriented NoSQL data modeling</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="120" data-category="Scrum, sprints, stand-ups, retrospectives">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">Agile</h5>
-                        <p class="skill-level mb-1">>=3 years</p>
-                        
-                        <p class="skill-desc mb-0">Scrum, sprints, stand-ups, retrospectives</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="150" data-category="Issue tracking, backlog grooming, roadmaps">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">Jira</h5>
-                        <p class="skill-level mb-1">>=2 years</p>
-                        
-                        <p class="skill-desc mb-0">Issue tracking, backlog grooming, roadmaps</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-lg-3 skill-item" data-aos="fade-up" data-aos-delay="180" data-category="Technical documentation and runbooks">
-                <div class="card skill-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-accent mb-1">Confluence</h5>
-                        <p class="skill-level mb-1">>=1 years</p>
-                        
-                        <p class="skill-desc mb-0">Technical documentation and runbooks</p>
-                        
-                    </div>
-                </div>
-            </div>
-            
-        </div>
+  <nav>
+    <a href="home.html" class="nav-brand">CH</a>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="projects_page.html">Projects</a></li>
+      <li><a href="resume_page.html">Resume</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="skills_page.html">Skills</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="animations_page.html">Animations</a></li>
+    </ul>
+    <div style="display:flex;gap:1rem;align-items:center;">
+      <a href="https://github.com/Jayce198518" class="nav-social" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/ezennajiofoeze-jacinta-8b5471103/" class="nav-social" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('mobile-open')" aria-label="Menu">☰</button>
     </div>
+  </nav>
+
+  <main>
+    
+<section>
+  <div class="page-hero">
+    <h1 class="fade-in">Skills & <span>Tools</span></h1>
+    <p class="fade-in">Years of experience mapped from my personal requirements.txt</p>
+  </div>
+  <div class="skills-grid" style="padding-top:40px;">
+    
+    <div class="skill-group fade-in">
+      <h3>AWS</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=3 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Cloud computing, EC2, S3, VPC, Lambda, IAM</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>Azure</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=2 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Virtual machines, AKS, Azure DevOps</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>GCP</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=2 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Google Cloud Compute Engine, Cloud Functions, GKE</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>Linux</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=4 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">System administration, shell scripting</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>Docker</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=3 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Containerization, Dockerfiles, multi-stage builds</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>Kubernetes</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=2 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Pod scheduling, services, ingress, RBAC</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>Helm</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=1 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Helm charts and values configuration</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>Terraform</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=2 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Declarative cloud resource provisioning</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>Ansible</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=1 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Configuration management and playbook authoring</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>CloudFormation</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=1 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">AWS-native infrastructure stacks</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>Pulumi</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=0.5 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Infrastructure as code using general-purpose languages</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>Jenkins</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=2 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Self-hosted CI/CD server and pipeline-as-code</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>CircleCI</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=1 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Cloud-native continuous integration</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>ArgoCD</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=0.5 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">GitOps continuous delivery for Kubernetes</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>Prometheus</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=1 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Time-series metrics collection and alerting</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>Grafana</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=1 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Dashboards, data visualization, and alert management</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>Datadog</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=0.5 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Application performance monitoring (APM)</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>Python</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=3 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Automation scripts, API clients, data processing</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>Bash</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=4 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Shell scripting, cron jobs, system automation</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>PowerShell</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=1 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Windows and Azure administration</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>YAML</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=3 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Configuration, CI/CD manifests, Kubernetes specs</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>JSON</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=3 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">API payloads, state files, data interchange</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>Git</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=4 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Branching strategies, merge conflict resolution</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>GitHub</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=3 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Pull requests, issues, Actions, and Pages</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>GitLab</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=1 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Repositories, CI runners, and container registry</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>Bitbucket</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=1 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Git hosting with Jira integration</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>SSL-TLS</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=3 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Certificates, HTTPS termination, encryption in transit</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>IAM</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=2 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Identity and access management, RBAC, policies</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>VPN</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=1 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Site-to-site and remote access solutions</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>Firewalls</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=2 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Network security groups, WAF, rule management</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>PostgreSQL</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=1 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Relational database design and administration</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>MySQL</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=1 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Database tuning and replication</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>MongoDB</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=1 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Document-oriented NoSQL data modeling</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>Agile</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=3 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Scrum, sprints, stand-ups, retrospectives</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>Jira</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=2 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Issue tracking, backlog grooming, roadmaps</li>
+      </ul>
+    </div>
+    
+    <div class="skill-group fade-in">
+      <h3>Confluence</h3>
+      <ul class="skill-list">
+        <li style="background:var(--gold);color:var(--navy);font-weight:600;">>=1 years</li>
+        <li style="background:transparent;border:1px solid var(--gold-glow);">Technical documentation and runbooks</li>
+      </ul>
+    </div>
+    
+  </div>
+  <div class="fade-in" style="text-align:center;margin-top:3rem;">
+    <a href="https://github.com/Jayce198518" class="btn btn-primary" target="_blank"><i class="fab fa-github"></i> View GitHub</a>
+  </div>
 </section>
 
-    </main>
+  </main>
 
-    <footer class="py-4 mt-5">
-        <div class="container text-center">
-            <p>&copy; 2026 Ezennajiofoeze Jacinta Chinyere. Built with <i class="fas fa-heart text-danger"></i> and Flask.</p>
-            <div class="footer-social">
-                <a href="https://github.com/Jayce198518" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/ezennajiofoeze-jacinta-8b5471103/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://hashnode.com/@jayce89" target="_blank"><i class="fas fa-blog"></i></a>
-                <a href="https://medium.com/@jacintachinyere" target="_blank"><i class="fab fa-medium"></i></a>
-            </div>
-        </div>
-    </footer>
+  <footer>
+    <p>Designed & Built by <span>Ezennajiofoeze Jacinta Chinyere</span> &copy; 2026 &nbsp;|&nbsp; Cloud & DevOps Engineer</p>
+  </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="static/js/main.js"></script>
-    
-<script>
-function filterSkills(category) {
-    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
-    document.querySelectorAll('.skill-item').forEach(item => {
-        const desc = (item.dataset.category || '').toLowerCase();
-        item.style.display = (category === 'all' || desc.includes(category.toLowerCase())) ? 'block' : 'none';
-    });
-}
-</script>
-
+  <script src="static/js/main.js"></script>
+  
 </body>
 </html>

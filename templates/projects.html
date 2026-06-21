@@ -1,29 +1,26 @@
 {% extends "base.html" %}
 {% block title %}Projects — {{ profile.name }}{% endblock %}
 {% block content %}
-<section class="py-5">
-    <div class="container">
-        <h1 class="section-title" data-aos="fade-up">Projects</h1>
-        <div class="text-center mb-4" data-aos="fade-up">
-            <a href="{{ profile.social.github }}" class="btn btn-accent" target="_blank"><i class="fab fa-github me-2"></i>View GitHub Profile</a>
-        </div>
-        <div class="row g-4">
-            {% for project in profile.projects %}
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 % 400 }}">
-                <div class="card h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title text-accent">{{ project.name }}</h5>
-                        <p class="card-text text-secondary flex-grow-1">{{ project.description }}</p>
-                        <div class="mb-3">{% for tag in project.tags %}<span class="badge bg-secondary me-1">{{ tag }}</span>{% endfor %}</div>
-                        <div class="d-flex gap-2">
-                            {% if project.github %}<a href="{{ project.github }}" class="btn btn-sm btn-accent" target="_blank"><i class="fab fa-github me-1"></i>Code</a>{% endif %}
-                            {% if project.demo %}<a href="{{ project.demo }}" class="btn btn-sm btn-outline-light" target="_blank"><i class="fas fa-external-link-alt me-1"></i>Demo</a>{% endif %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
+<section>
+  <div class="page-hero">
+    <h1 class="fade-in">Featured <span>Projects</span></h1>
+    <p class="fade-in">DevOps, Cloud, and Infrastructure projects I've built.</p>
+  </div>
+  <div style="text-align:center;margin-bottom:2rem;" class="fade-in">
+    <a href="{{ profile.social.github }}" class="btn btn-primary" target="_blank"><i class="fab fa-github"></i> GitHub Profile</a>
+  </div>
+  <div class="card-grid">
+    {% for project in profile.projects %}
+    <div class="card fade-in">
+      <h3>{{ project.name }}</h3>
+      <p>{{ project.description }}</p>
+      <div class="card-tags">{% for tag in project.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</div>
+      <div class="card-tags" style="margin-top:0.8rem;">
+        {% if project.github %}<a href="{{ project.github }}" class="btn btn-sm btn-primary" target="_blank">Code</a>{% endif %}
+        {% if project.demo %}<a href="{{ project.demo }}" class="btn btn-sm btn-outline" target="_blank">Demo</a>{% endif %}
+      </div>
     </div>
+    {% endfor %}
+  </div>
 </section>
 {% endblock %}

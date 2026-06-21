@@ -1,63 +1,42 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{{ profile.name }}{% endblock %}</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    {% block extra_css %}{% endblock %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{{ profile.name }}{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  {% block extra_css %}{% endblock %}
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="{{ url_for('home') }}">{{ profile.name }}</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('skills_page') }}">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('experience') }}">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('portfolio') }}">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('projects_page') }}">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('blog') }}">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('certifications') }}">Certs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('resume_page') }}">Resume</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('animations_page') }}">Animations</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
-                </ul>
-                <div class="d-flex ms-lg-3">
-                    <a href="{{ profile.social.github }}" class="nav-social" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="{{ profile.social.linkedin }}" class="nav-social" target="_blank"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
-        </div>
-    </nav>
+  <nav>
+    <a href="{{ url_for('home') }}" class="nav-brand">{{ profile.name.split()[-1][:2].upper() }}</a>
+    <ul class="nav-links">
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('projects_page') }}">Projects</a></li>
+      <li><a href="{{ url_for('resume_page') }}">Resume</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      <li><a href="{{ url_for('skills_page') }}">Skills</a></li>
+      <li><a href="{{ url_for('blog') }}">Blog</a></li>
+      <li><a href="{{ url_for('animations_page') }}">Animations</a></li>
+    </ul>
+    <div style="display:flex;gap:1rem;align-items:center;">
+      <a href="{{ profile.social.github }}" class="nav-social" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="{{ profile.social.linkedin }}" class="nav-social" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('mobile-open')" aria-label="Menu">☰</button>
+    </div>
+  </nav>
 
-    <main>
-        {% block content %}{% endblock %}
-    </main>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
 
-    <footer class="py-4 mt-5">
-        <div class="container text-center">
-            <p>&copy; 2026 {{ profile.name }}. Built with <i class="fas fa-heart text-danger"></i> and Flask.</p>
-            <div class="footer-social">
-                <a href="{{ profile.social.github }}" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="{{ profile.social.linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="{{ profile.social.hashnode }}" target="_blank"><i class="fas fa-blog"></i></a>
-                <a href="{{ profile.social.medium }}" target="_blank"><i class="fab fa-medium"></i></a>
-            </div>
-        </div>
-    </footer>
+  <footer>
+    <p>Designed & Built by <span>{{ profile.name }}</span> &copy; 2026 &nbsp;|&nbsp; {{ profile.title }}</p>
+  </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    {% block extra_js %}{% endblock %}
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  {% block extra_js %}{% endblock %}
 </body>
 </html>

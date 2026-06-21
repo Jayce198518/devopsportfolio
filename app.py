@@ -35,8 +35,21 @@ def parse_requirements():
 @app.route("/")
 def home():
     featured_projects = profile.get("projects", [])[:3]
-    latest_posts = profile.get("blog_posts", [])[:3]
-    return render_template("home.html", profile=profile, featured_projects=featured_projects, latest_posts=latest_posts)
+    latest_posts = profile.get("blog_posts", [])[:2]
+    skills = parse_requirements()
+    total_projects = len(profile.get("projects", []))
+    total_skills = len(skills)
+    cloud_count = len(profile.get("skills", {}).get("Cloud & Virtualization", []))
+    # Get max years
+    max_years = 0
+    for s in skills:
+        try:
+            max_years = max(max_years, int(float(s["level"])))
+        except: pass
+    return render_template("home.html", profile=profile,
+                           featured_projects=featured_projects, latest_posts=latest_posts,
+                           skills=skills, total_projects=total_projects, total_skills=total_skills,
+                           cloud_count=cloud_count, max_years=max_years)
 
 @app.route("/about")
 def about():

@@ -1,28 +1,24 @@
 {% extends "base.html" %}
 {% block title %}Blog — {{ profile.name }}{% endblock %}
 {% block content %}
-<section class="py-5">
-    <div class="container">
-        <h1 class="section-title" data-aos="fade-up">Blog</h1>
-        <div class="text-center mb-5" data-aos="fade-up">
-            <a href="{{ profile.social.hashnode }}" class="btn btn-accent me-2" target="_blank"><i class="fas fa-blog me-2"></i>Hashnode</a>
-            <a href="{{ profile.social.medium }}" class="btn btn-outline-light" target="_blank"><i class="fab fa-medium me-2"></i>Medium</a>
-        </div>
-        <div class="row g-4">
-            {% for post in profile.blog_posts %}
-            <div class="col-md-6" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 % 400 }}">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <span class="badge bg-secondary mb-2">Hashnode</span>
-                        <h5 class="card-title">{{ post.title }}</h5>
-                        <p class="text-secondary small"><i class="far fa-calendar me-1"></i>{{ post.date }}</p>
-                        <p class="card-text text-secondary">{{ post.excerpt }}</p>
-                        <a href="{{ post.url }}" class="btn btn-sm btn-accent" target="_blank">Read Article</a>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
+<section>
+  <div class="page-hero">
+    <h1 class="fade-in">Blog & <span>Articles</span></h1>
+    <p class="fade-in">Thoughts on DevOps, Cloud, and Infrastructure.</p>
+  </div>
+  <div style="text-align:center;margin-bottom:2rem;" class="fade-in">
+    <a href="{{ profile.social.hashnode }}" class="btn btn-primary" target="_blank">Hashnode</a>
+    <a href="{{ profile.social.medium }}" class="btn btn-outline" target="_blank">Medium</a>
+  </div>
+  <div class="card-grid">
+    {% for post in profile.blog_posts %}
+    <div class="card fade-in">
+      <span class="tag">Hashnode</span>
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.excerpt }}</p>
+      <a href="{{ post.url }}" class="card-link" target="_blank">Read Article →</a>
     </div>
+    {% endfor %}
+  </div>
 </section>
 {% endblock %}

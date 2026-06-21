@@ -27,7 +27,7 @@ def build():
     def url_for(endpoint, filename=None):
         if filename:
             return "static/" + filename
-        mapping = {"home": "index", "projects_page": "projects", "contact": "contact"}
+        mapping = {"home": "index", "about": "about", "projects_page": "projects", "resume_page": "resume", "contact": "contact"}
         return mapping.get(endpoint, endpoint) + ".html"
     env.globals["url_for"] = url_for
     env.globals["get_flashed_messages"] = lambda with_categories=False: []
@@ -40,7 +40,9 @@ def build():
 
     pages = {
         "home":     {"template": "home.html",     "output": "index.html",     "ctx": {"profile": profile, "featured_projects": featured_projects}},
+        "about":    {"template": "about.html",    "output": "about.html",     "ctx": {"profile": profile}},
         "projects": {"template": "projects.html", "output": "projects.html",  "ctx": {"profile": profile}},
+        "resume":   {"template": "resume.html",   "output": "resume.html",    "ctx": {"profile": profile}},
         "contact":  {"template": "contact.html",  "output": "contact.html",   "ctx": {"profile": profile}},
     }
 

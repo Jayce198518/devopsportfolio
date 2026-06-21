@@ -13,7 +13,7 @@ with open(os.path.join(os.path.dirname(__file__), "profile.json"), "r") as f:
 # Parse requirements.txt for skills page
 def parse_requirements():
     skills = []
-    req_path = os.path.join(os.path.dirname(__file__), "requirements.txt")
+    req_path = os.path.join(os.path.dirname(__file__), "static", "requirements.txt")
     if os.path.exists(req_path):
         with open(req_path, "r") as f:
             for line in f:

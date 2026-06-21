@@ -22,7 +22,7 @@ def copy_static():
 
 def parse_requirements():
     skills = []
-    req_path = os.path.join(BASE_DIR, "requirements.txt")
+    req_path = os.path.join(BASE_DIR, "static", "requirements.txt")
     if os.path.exists(req_path):
         with open(req_path, "r") as f:
             for line in f:

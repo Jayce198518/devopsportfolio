@@ -1,6 +1,6 @@
 # =============================================================================
 # Portfolio Requirements — Ezennajiofoeze Jacinta Chinyere
-# Cloud & DevOps Engineer | AWS | Azure | Linux | Agentic DevOps
+# Cloud & DevOps Engineer | AWS | Azure | GCP | Linux | Agentic DevOps
 # Build, deploy, and operate cloud infrastructure at scale.
 # =============================================================================
 
@@ -10,6 +10,7 @@
 # ---------------------------------------------------------------------------
 AWS>=3                          # Cloud computing, EC2, S3, VPC, Lambda, IAM
 Azure>=2                        # Virtual machines, AKS, Azure DevOps
+GCP>=2                          # Google Cloud Compute Engine, Cloud Functions, GKE
 Linux>=4                        # System administration, shell scripting
 
 # ---------------------------------------------------------------------------
@@ -34,7 +35,7 @@ Pulumi>=0.5                     # Infrastructure as code using general-purpose l
 # Build, test, and deploy pipelines for reliable software delivery.
 # ---------------------------------------------------------------------------
 Jenkins>=2                      # Self-hosted CI/CD server and pipeline-as-code
-
+GitHub Actions>=2               # Event-driven workflows and reusable actions
 GitLab CI>=1                    # Integrated CI/CD with container registries
 CircleCI>=1                     # Cloud-native continuous integration
 ArgoCD>=0.5                     # GitOps continuous delivery for Kubernetes
@@ -103,3 +104,11 @@ AWS EBS>=1                      # Block storage for EC2 instances
 Agile>=3                        # Scrum, sprints, stand-ups, retrospectives
 Jira>=2                         # Issue tracking, backlog grooming, roadmaps
 Confluence>=1                   # Technical documentation and runbooks
+
+# =============================================================================
+# Python Dependencies (for local development only)
+# =============================================================================
+Flask>=2.0
+Jinja2>=3.0
+Werkzeug>=2.0
+Frozen-Flask>=0.18

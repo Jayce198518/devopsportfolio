@@ -34,7 +34,7 @@ Pulumi>=0.5                     # Infrastructure as code using general-purpose l
 # Build, test, and deploy pipelines for reliable software delivery.
 # ---------------------------------------------------------------------------
 Jenkins>=2                      # Self-hosted CI/CD server and pipeline-as-code
-GitHub Actions>=2               # Event-driven workflows and reusable actions
+
 GitLab CI>=1                    # Integrated CI/CD with container registries
 CircleCI>=1                     # Cloud-native continuous integration
 ArgoCD>=0.5                     # GitOps continuous delivery for Kubernetes

@@ -1,0 +1,183 @@
+:root {
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #12121a;
+    --bg-card: #1a1a2e;
+    --accent: #00bcd4;
+    --accent-hover: #00acc1;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0b0;
+    --border: #2a2a3e;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    padding-top: 70px;
+}
+
+.navbar {
+    background-color: rgba(10, 10, 15, 0.95) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar-brand {
+    color: var(--accent) !important;
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+.nav-link {
+    color: var(--text-secondary) !important;
+    font-weight: 500;
+    margin: 0 0.2rem;
+    transition: color 0.3s;
+    font-size: 0.9rem;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--accent) !important;
+}
+
+.nav-social {
+    color: var(--text-secondary);
+    margin-left: 1rem;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.nav-social:hover {
+    color: var(--accent);
+}
+
+footer {
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+
+.footer-social a {
+    color: var(--text-secondary);
+    margin: 0 0.7rem;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.footer-social a:hover {
+    color: var(--accent);
+}
+
+.section-title {
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.btn-accent {
+    background-color: var(--accent);
+    color: #000;
+    border: none;
+    font-weight: 600;
+    padding: 0.6rem 1.5rem;
+    transition: all 0.3s;
+}
+
+.btn-accent:hover {
+    background-color: var(--accent-hover);
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3);
+}
+
+.btn-outline-accent {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.btn-outline-accent:hover {
+    background-color: var(--accent);
+    color: #000;
+}
+
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 188, 212, 0.15);
+}
+
+.text-accent {
+    color: var(--accent) !important;
+}
+
+.hero {
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+}
+
+.skill-card { padding: 1.2rem; border-radius: 0.5rem; }
+.skill-level { font-size: 0.85rem; color: var(--accent); font-weight: 600; }
+.skill-desc { font-size: 0.8rem; color: var(--text-secondary); }
+.filter-btn { margin: 0.25rem; }
+.filter-btn.active { background-color: var(--accent); color: #000; font-weight: 600; }
+
+.timeline { position: relative; padding-left: 2rem; }
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--accent);
+}
+.timeline-item { position: relative; margin-bottom: 2rem; }
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.35rem;
+    top: 0.3rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 3px solid var(--bg-primary);
+}
+
+.terminal-window {
+    background: #0c0c0c;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    padding: 1rem;
+    font-family: 'Courier New', monospace;
+    min-height: 200px;
+    overflow: hidden;
+}
+.terminal-header { display: flex; gap: 6px; margin-bottom: 0.5rem; }
+.terminal-dot { width: 12px; height: 12px; border-radius: 50%; }
+.terminal-dot.red { background: #ff5f56; }
+.terminal-dot.yellow { background: #ffbd2e; }
+.terminal-dot.green { background: #27c93f; }
+.terminal-content { color: #33ff33; white-space: pre-wrap; min-height: 120px; }
+.pipeline-stage {
+    width: 80px; height: 80px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--bg-card); border: 2px solid var(--accent);
+    margin: 0 1rem; color: var(--accent); font-weight: 600;
+    transition: all 0.3s;
+}
+.pipeline-arrow { color: var(--accent); font-size: 1.5rem; }
+
+.resume-section { margin-bottom: 1.5rem; }
+.resume-section h3 { color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 0.3rem; margin-bottom: 1rem; }
+
+@media print {
+    .navbar, .footer-social, footer p:first-child, .btn { display: none !important; }
+    body { padding-top: 0; color: #000; background: #fff; }
+    .card { border: 1px solid #ddd; background: #fff; }
+}

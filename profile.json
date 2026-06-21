@@ -1,0 +1,75 @@
+{
+  "name": "Ezennajiofoeze Jacinta Chinyere",
+  "title": "Cloud & DevOps Engineer",
+  "subtitle": "AWS | Azure | GCP | Linux | Agentic DevOps",
+  "tagline": "Building scalable, automated, and intelligent cloud solutions.",
+  "location": "Lagos, Nigeria",
+  "email": "jacintachinyere@gmail.com",
+  "available_for": [
+    "DevOps paid internship",
+    "DevOps role",
+    "System administrator",
+    "Cloud engineer role",
+    "Tech roles"
+  ],
+  "social": {
+    "github": "https://github.com/Jayce198518",
+    "linkedin": "https://www.linkedin.com/in/ezennajiofoeze-jacinta-8b5471103/",
+    "hashnode": "https://hashnode.com/@jayce89",
+    "medium": "https://medium.com/@jacintachinyere"
+  },
+  "about": "I am an Agentic DevOps and Cloud Engineer passionate about building scalable, automated, and intelligent cloud solutions. I have hands-on experience with Agentic AI, Kubernetes, Docker, Terraform, and CI/CD, focusing on reliable and efficient software delivery. I enjoy solving complex problems, optimizing workflows, and continuously learning new technologies that drive innovation.",
+  "education": [],
+  "experience": [],
+  "projects": [
+    {
+      "name": "Spring PetClinic on EKS",
+      "description": "Cloud-native deployment of Spring PetClinic microservices on Amazon EKS using Helm values configuration.",
+      "tags": ["Kubernetes", "Helm", "EKS", "AWS"],
+      "github": "https://github.com/Jayce198518",
+      "demo": null
+    },
+    {
+      "name": "Ultimate Agentic DevOps with Claude Code",
+      "description": "Build, deploy, and operate AWS infrastructure using AI agents, skills, and safety guardrails.",
+      "tags": ["Claude Code", "AI Agents", "AWS", "DevOps"],
+      "github": "https://github.com/Jayce198518/Ultimate-Agentic-DevOps-with-Claude-Code",
+      "demo": null
+    },
+    {
+      "name": "DigitalJay",
+      "description": "Personal project showcasing web development skills.",
+      "tags": ["PHP", "Web Development"],
+      "github": "https://github.com/Jayce198518/digitaljay",
+      "demo": null
+    }
+  ],
+  "blog_posts": [
+    {
+      "title": "My Role as a Helm Values Deployment Engineer: Configuring Microservices for Spring PetClinic on EKS",
+      "url": "https://spring-petclinic-microservice.hashnode.dev/my-role-as-a-helm-values-deployment-engineer-configuring-microservices-for-spring-petclinic-on-eks",
+      "date": "Jun 13, 2026",
+      "excerpt": "A few weeks ago, my team and I worked on a cloud-native deployment for the Spring PetClinic microservices application as part of a DevOps capstone project..."
+    },
+    {
+      "title": "The Educational Value of Local Deployment: A Prerequisite for Cloud Migration",
+      "url": "https://spring-petclinic-microservice.hashnode.dev/the-educational-value-of-local-deployment-a-prerequisite-for-cloud-migration",
+      "date": "Jun 13, 2026",
+      "excerpt": "Before deploying the Spring PetClinic microservices application with my team on Amazon Web Services, I first decided to run the project locally using Docker..."
+    }
+  ],
+  "certifications": [],
+  "skills": {
+    "Cloud & Virtualization": ["AWS", "Azure", "GCP", "Linux"],
+    "Container Orchestration": ["Docker", "Kubernetes", "Helm"],
+    "Infrastructure as Code": ["Terraform", "Ansible", "CloudFormation", "Pulumi"],
+    "CI/CD & Automation": ["Jenkins", "GitHub Actions", "GitLab CI", "CircleCI", "ArgoCD", "Azure DevOps"],
+    "Monitoring & Observability": ["Prometheus", "Grafana", "ELK Stack", "Datadog", "New Relic"],
+    "Agentic AI & Automation": ["Claude Code", "GitHub Copilot"],
+    "Scripting & Languages": ["Python", "Bash", "PowerShell", "YAML", "JSON"],
+    "Version Control & Collaboration": ["Git", "GitHub", "GitLab", "Bitbucket"],
+    "Networking & Security": ["SSL-TLS", "IAM", "VPN", "Firewalls", "Load Balancers"],
+    "Databases & Storage": ["PostgreSQL", "MySQL", "MongoDB", "AWS S3", "AWS EFS", "AWS EBS"],
+    "Collaboration & PM": ["Agile", "Jira", "Confluence"]
+  }
+}

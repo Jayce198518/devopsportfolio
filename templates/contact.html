@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}Contact — {{ profile.name }}{% endblock %}
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <h1 class="section-title" data-aos="fade-up">Contact Me</h1>
+        <div class="row g-5">
+            <div class="col-md-6" data-aos="fade-right">
+                <h3 class="text-accent mb-4">Let's Connect</h3>
+                <p class="text-secondary mb-4">Open to DevOps roles, internships, collaborations, and cloud conversations.</p>
+                <div class="mb-4">
+                    <h5 class="text-accent"><i class="fas fa-envelope me-2"></i>Email</h5>
+                    <p class="text-secondary">{{ profile.email }}</p>
+                </div>
+                <div class="mb-4">
+                    <h5 class="text-accent"><i class="fas fa-map-marker-alt me-2"></i>Location</h5>
+                    <p class="text-secondary">{{ profile.location }}</p>
+                </div>
+                <div class="mb-4">
+                    <h5 class="text-accent mb-3">Social</h5>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="{{ profile.social.github }}" class="btn btn-outline-light" target="_blank"><i class="fab fa-github me-2"></i>GitHub</a>
+                        <a href="{{ profile.social.linkedin }}" class="btn btn-outline-light" target="_blank"><i class="fab fa-linkedin me-2"></i>LinkedIn</a>
+                        <a href="{{ profile.social.hashnode }}" class="btn btn-outline-light" target="_blank"><i class="fas fa-blog me-2"></i>Hashnode</a>
+                        <a href="{{ profile.social.medium }}" class="btn btn-outline-light" target="_blank"><i class="fab fa-medium me-2"></i>Medium</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" data-aos="fade-left">
+                <div class="card p-4">
+                    <h4 class="text-accent mb-4">Send a Message</h4>
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                    {% for category, message in messages %}
+                    <div class="alert alert-{{ 'success' if category == 'success' else 'danger' }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                    <form method="POST" action="{{ url_for('contact') }}" data-netlify="true" name="contact">
+                        <div class="mb-3">
+                            <label for="name" class="form-label text-secondary">Name</label>
+                            <input type="text" class="form-control bg-dark text-light border-secondary" id="name" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label text-secondary">Email</label>
+                            <input type="email" class="form-control bg-dark text-light border-secondary" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label text-secondary">Subject</label>
+                            <input type="text" class="form-control bg-dark text-light border-secondary" id="subject" name="subject" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label text-secondary">Message</label>
+                            <textarea class="form-control bg-dark text-light border-secondary" id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-accent w-100"><i class="fas fa-paper-plane me-2"></i>Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Experience — {{ profile.name }}{% endblock %}
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <h1 class="section-title" data-aos="fade-up">Experience</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="timeline" data-aos="fade-up">
+                    {% for job in profile.experience %}
+                    <div class="timeline-item">
+                        <h4 class="text-accent mb-1">{{ job.title }}</h4>
+                        <p class="text-secondary mb-1">{{ job.company }} · {{ job.dates }}</p>
+                        <p>{{ job.description }}</p>
+                        {% if job.achievements %}
+                        <ul>
+                            {% for ach in job.achievements %}<li>{{ ach }}</li>{% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+                    {% else %}
+                    <div class="text-center py-5" data-aos="fade-up">
+                        <i class="fas fa-briefcase fa-3x text-secondary mb-3"></i>
+                        <p class="text-secondary">Experience details will be added soon. Explore my <a href="{{ url_for('projects_page') }}" class="text-accent">projects</a> and <a href="{{ url_for('skills_page') }}" class="text-accent">skills</a>!</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

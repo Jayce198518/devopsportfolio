@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}{{ profile.name }} — {{ profile.title }}{% endblock %}
+{% block content %}
+<section class="hero d-flex align-items-center justify-content-center text-center py-5" style="min-height: 90vh;">
+    <div class="container" data-aos="fade-up">
+        <h1 class="display-2 fw-bold mb-3">{{ profile.name }}</h1>
+        <p class="lead text-accent fs-3">{{ profile.subtitle }}</p>
+        <p class="text-secondary fs-5 mb-4 mx-auto" style="max-width: 700px;">{{ profile.tagline }}</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="{{ url_for('about') }}" class="btn btn-accent">About Me</a>
+            <a href="{{ url_for('portfolio') }}" class="btn btn-outline-light">View My Work</a>
+            <a href="{{ url_for('contact') }}" class="btn btn-outline-accent">Contact Me</a>
+        </div>
+        <div class="mt-5">
+            <a href="{{ profile.social.github }}" class="nav-social mx-2" target="_blank"><i class="fab fa-github fa-2x"></i></a>
+            <a href="{{ profile.social.linkedin }}" class="nav-social mx-2" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+            <a href="{{ profile.social.hashnode }}" class="nav-social mx-2" target="_blank"><i class="fas fa-blog fa-2x"></i></a>
+            <a href="{{ profile.social.medium }}" class="nav-social mx-2" target="_blank"><i class="fab fa-medium fa-2x"></i></a>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">About Me</h2>
+        <div class="row align-items-center justify-content-center">
+            <div class="col-md-8 text-center" data-aos="fade-up">
+                <p class="fs-5 text-secondary">{{ profile.about }}</p>
+                <a href="{{ url_for('about') }}" class="btn btn-accent mt-3">Read More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5" style="background-color: var(--bg-secondary);">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Featured Works</h2>
+        <div class="row g-4">
+            {% for project in featured_projects %}
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title text-accent">{{ project.name }}</h5>
+                        <p class="card-text text-secondary">{{ project.description }}</p>
+                        <div class="mb-3">
+                            {% for tag in project.tags %}
+                            <span class="badge bg-light text-dark me-1">{{ tag }}</span>
+                            {% endfor %}
+                        </div>
+                        <a href="{{ project.github }}" class="btn btn-sm btn-accent" target="_blank">View Code</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-4">
+            <a href="{{ url_for('portfolio') }}" class="btn btn-outline-light">See All Works</a>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Latest Blog Posts</h2>
+        <div class="row g-4">
+            {% for post in latest_posts %}
+            <div class="col-md-6" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="text-secondary small">{{ post.date }}</p>
+                        <p class="card-text text-secondary">{{ post.excerpt }}</p>
+                        <a href="{{ post.url }}" class="btn btn-sm btn-accent" target="_blank">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-4">
+            <a href="{{ url_for('blog') }}" class="btn btn-outline-light">View All Posts</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,105 @@
+# =============================================================================
+# Portfolio Requirements — Ezennajiofoeze Jacinta Chinyere
+# Cloud & DevOps Engineer | AWS | Azure | Linux | Agentic DevOps
+# Build, deploy, and operate cloud infrastructure at scale.
+# =============================================================================
+
+# ---------------------------------------------------------------------------
+# Cloud & Virtualization
+# Multi-cloud infrastructure, compute, networking, and serverless.
+# ---------------------------------------------------------------------------
+AWS>=3                          # Cloud computing, EC2, S3, VPC, Lambda, IAM
+Azure>=2                        # Virtual machines, AKS, Azure DevOps
+Linux>=4                        # System administration, shell scripting
+
+# ---------------------------------------------------------------------------
+# Container Orchestration
+# Building, shipping, and running containerized microservices at scale.
+# ---------------------------------------------------------------------------
+Docker>=3                       # Containerization, Dockerfiles, multi-stage builds
+Kubernetes>=2                   # Pod scheduling, services, ingress, RBAC
+Helm>=1                         # Helm charts and values configuration
+
+# ---------------------------------------------------------------------------
+# Infrastructure as Code
+# Declarative provisioning and immutable infrastructure.
+# ---------------------------------------------------------------------------
+Terraform>=2                    # Declarative cloud resource provisioning
+Ansible>=1                      # Configuration management and playbook authoring
+CloudFormation>=1               # AWS-native infrastructure stacks
+Pulumi>=0.5                     # Infrastructure as code using general-purpose languages
+
+# ---------------------------------------------------------------------------
+# CI/CD & Automation
+# Build, test, and deploy pipelines for reliable software delivery.
+# ---------------------------------------------------------------------------
+Jenkins>=2                      # Self-hosted CI/CD server and pipeline-as-code
+GitHub Actions>=2               # Event-driven workflows and reusable actions
+GitLab CI>=1                    # Integrated CI/CD with container registries
+CircleCI>=1                     # Cloud-native continuous integration
+ArgoCD>=0.5                     # GitOps continuous delivery for Kubernetes
+Azure DevOps>=1                 # Azure Pipelines and boards integration
+
+# ---------------------------------------------------------------------------
+# Monitoring & Observability
+# Metrics, logs, and traces for resilient systems.
+# ---------------------------------------------------------------------------
+Prometheus>=1                   # Time-series metrics collection and alerting
+Grafana>=1                      # Dashboards, data visualization, and alert management
+ELK Stack>=1                    # Elasticsearch, Logstash, Kibana logging pipeline
+Datadog>=0.5                    # Application performance monitoring (APM)
+New Relic>=0.5                  # Full-stack observability and distributed tracing
+
+# ---------------------------------------------------------------------------
+# Agentic AI & Automation
+# AI-driven operations, code generation, and intelligent workflows.
+# ---------------------------------------------------------------------------
+Claude Code>=1                  # Agentic AI coding assistant and DevOps agent
+GitHub Copilot>=1               # AI pair programmer for infrastructure code
+
+# ---------------------------------------------------------------------------
+# Scripting & Languages
+# Automation, glue code, and domain-specific configuration.
+# ---------------------------------------------------------------------------
+Python>=3                       # Automation scripts, API clients, data processing
+Bash>=4                         # Shell scripting, cron jobs, system automation
+PowerShell>=1                   # Windows and Azure administration
+YAML>=3                         # Configuration, CI/CD manifests, Kubernetes specs
+JSON>=3                         # API payloads, state files, data interchange
+
+# ---------------------------------------------------------------------------
+# Version Control & Collaboration
+# Source code management, code review, and team workflows.
+# ---------------------------------------------------------------------------
+Git>=4                          # Branching strategies, merge conflict resolution
+GitHub>=3                       # Pull requests, issues, Actions, and Pages
+GitLab>=1                       # Repositories, CI runners, and container registry
+Bitbucket>=1                    # Git hosting with Jira integration
+
+# ---------------------------------------------------------------------------
+# Networking & Security
+# Secure connectivity, identity management, and traffic control.
+# ---------------------------------------------------------------------------
+SSL-TLS>=3                      # Certificates, HTTPS termination, encryption in transit
+IAM>=2                          # Identity and access management, RBAC, policies
+VPN>=1                          # Site-to-site and remote access solutions
+Firewalls>=2                    # Network security groups, WAF, rule management
+Load Balancers>=2               # Application and network load balancing
+
+# ---------------------------------------------------------------------------
+# Databases & Storage
+# Persistent data management, object storage, and backups.
+# ---------------------------------------------------------------------------
+PostgreSQL>=1                   # Relational database design and administration
+MySQL>=1                        # Database tuning and replication
+MongoDB>=1                      # Document-oriented NoSQL data modeling
+AWS S3>=2                       # Object storage, lifecycle policies, and versioning
+AWS EFS>=1                      # Managed NFS storage for containers
+AWS EBS>=1                      # Block storage for EC2 instances
+
+# ---------------------------------------------------------------------------
+# Collaboration & Project Methodologies
+# ---------------------------------------------------------------------------
+Agile>=3                        # Scrum, sprints, stand-ups, retrospectives
+Jira>=2                         # Issue tracking, backlog grooming, roadmaps
+Confluence>=1                   # Technical documentation and runbooks

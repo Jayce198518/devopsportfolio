@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Certifications — {{ profile.name }}{% endblock %}
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <h1 class="section-title" data-aos="fade-up">Certifications</h1>
+        {% if profile.certifications %}
+        <div class="row g-4">
+            {% for cert in profile.certifications %}
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 % 400 }}">
+                <div class="card h-100 text-center p-4">
+                    <i class="fas fa-certificate fa-3x text-accent mb-3"></i>
+                    <h5 class="card-title">{{ cert.name }}</h5>
+                    <p class="text-secondary mb-1">{{ cert.issuer }}</p>
+                    <p class="text-secondary small"><i class="far fa-calendar me-1"></i>{{ cert.date_earned }}</p>
+                    <a href="{{ cert.verification_url }}" class="btn btn-sm btn-accent mt-2" target="_blank">Verify</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="text-center py-5" data-aos="fade-up">
+            <i class="fas fa-award fa-4x text-secondary mb-4"></i>
+            <h3 class="text-secondary">Certifications Coming Soon</h3>
+            <p class="text-secondary">Actively pursuing AWS, Azure, GCP, and Kubernetes certifications.</p>
+            <a href="{{ url_for('skills_page') }}" class="btn btn-accent mt-3">View My Skills</a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

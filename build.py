@@ -1,7 +1,6 @@
 """Build static site using Jinja2 (no Flask/Frozen-Flask required)."""
 import json
 import os
-import re
 import shutil
 from jinja2 import Environment, FileSystemLoader
 
@@ -20,58 +19,29 @@ def copy_static():
     if os.path.exists(STATIC_DIR):
         shutil.copytree(STATIC_DIR, dest)
 
-def parse_requirements():
-    skills = []
-    req_path = os.path.join(BASE_DIR, "static", "requirements.txt")
-    if os.path.exists(req_path):
-        with open(req_path, "r") as f:
-            for line in f:
-                line = line.strip()
-                if line and not line.startswith("#") and not line.startswith("Flask") and not line.startswith("Jinja2") and not line.startswith("Werkzeug") and not line.startswith("Frozen"):
-                    parts = line.split("#", 1)
-                    dep = parts[0].strip()
-                    desc = parts[1].strip() if len(parts) > 1 else ""
-                    match = re.match(r"([A-Za-z0-9_-]+)([<>=]=?)([\d.]+)", dep)
-                    if match:
-                        skills.append({
-                            "name": match.group(1),
-                            "operator": match.group(2),
-                            "level": match.group(3),
-                            "description": desc
-                        })
-    return skills
-
 def build():
     clean_build()
     copy_static()
 
     env = Environment(loader=FileSystemLoader(TEMPLATES_DIR))
-    env.globals["url_for"] = lambda endpoint, filename=None: ("static/" + filename) if filename else endpoint + ".html"
+    def url_for(endpoint, filename=None):
+        if filename:
+            return "static/" + filename
+        mapping = {"home": "index", "projects_page": "projects", "contact": "contact"}
+        return mapping.get(endpoint, endpoint) + ".html"
+    env.globals["url_for"] = url_for
     env.globals["get_flashed_messages"] = lambda with_categories=False: []
     env.globals["request"] = type("Request", (), {"method": "GET", "form": {}})()
 
     with open(os.path.join(BASE_DIR, "profile.json"), "r") as f:
         profile = json.load(f)
 
-    skills = parse_requirements()
     featured_projects = profile.get("projects", [])[:3]
-    latest_posts = profile.get("blog_posts", [])[:3]
-    works = []
-    for p in profile.get("projects", []):
-        works.append({"type": "project", "name": p["name"], "description": p["description"], "tags": p.get("tags", []), "github": p.get("github")})
 
     pages = {
-        "home": {"template": "home.html", "output": "index.html", "ctx": {"profile": profile, "featured_projects": featured_projects, "latest_posts": latest_posts}},
-        "about": {"template": "about.html", "output": "about.html", "ctx": {"profile": profile}},
-        "skills": {"template": "skills.html", "output": "skills.html", "ctx": {"profile": profile, "skills": skills}},
-        "experience": {"template": "experience.html", "output": "experience.html", "ctx": {"profile": profile}},
-        "portfolio": {"template": "portfolio.html", "output": "portfolio.html", "ctx": {"profile": profile, "works": works}},
-        "projects": {"template": "projects.html", "output": "projects.html", "ctx": {"profile": profile}},
-        "blog": {"template": "blog.html", "output": "blog.html", "ctx": {"profile": profile}},
-        "certifications": {"template": "certifications.html", "output": "certifications.html", "ctx": {"profile": profile}},
-        "resume": {"template": "resume.html", "output": "resume.html", "ctx": {"profile": profile}},
-        "animations": {"template": "animations.html", "output": "animations.html", "ctx": {"profile": profile}},
-        "contact": {"template": "contact.html", "output": "contact.html", "ctx": {"profile": profile}},
+        "home":     {"template": "home.html",     "output": "index.html",     "ctx": {"profile": profile, "featured_projects": featured_projects}},
+        "projects": {"template": "projects.html", "output": "projects.html",  "ctx": {"profile": profile}},
+        "contact":  {"template": "contact.html",  "output": "contact.html",   "ctx": {"profile": profile}},
     }
 
     for name, page in pages.items():

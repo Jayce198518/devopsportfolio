@@ -12,6 +12,7 @@
   <div class="card-grid">
     {% for project in profile.projects %}
     <div class="card fade-in">
+      <span class="card-icon">{{ project.icon | default('🚀') }}</span>
       <h3>{{ project.name }}</h3>
       <p>{{ project.description }}</p>
       <div class="card-tags">{% for tag in project.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</div>

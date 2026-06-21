@@ -2,7 +2,7 @@
   "name": "Ezennajiofoeze Jacinta Chinyere",
   "title": "Cloud & DevOps Engineer",
   "subtitle": "AWS | Azure | GCP | Linux | Agentic DevOps",
-  "tagline": "Building scalable, automated, and intelligent cloud solutions.",
+  "tagline": "I design, build, and operate cloud infrastructure that is secure, scalable, and automated. With hands-on experience across AWS, Azure, Docker, Kubernetes, and Terraform — I turn complex systems into reliable, observable, production-ready platforms.",
   "location": "Lagos, Nigeria",
   "email": "jacintachinyere@gmail.com",
   "available_for": [
@@ -23,24 +23,27 @@
   "experience": [],
   "projects": [
     {
-      "name": "Spring PetClinic on EKS",
-      "description": "Cloud-native deployment of Spring PetClinic microservices on Amazon EKS using Helm values configuration.",
-      "tags": ["Kubernetes", "Helm", "EKS", "AWS"],
+      "name": "Spring PetClinic Microservices",
+      "icon": "🐳",
+      "description": "Built and validated Docker images for microservices using multi-stage Dockerfiles and Maven build profiles. Deployed full stack with Prometheus, Grafana, and Zipkin observability.",
+      "tags": ["Docker", "Docker Compose", "Prometheus", "Grafana"],
       "github": "https://github.com/Jayce198518",
       "demo": null
     },
     {
-      "name": "Ultimate Agentic DevOps with Claude Code",
-      "description": "Build, deploy, and operate AWS infrastructure using AI agents, skills, and safety guardrails.",
-      "tags": ["Claude Code", "AI Agents", "AWS", "DevOps"],
-      "github": "https://github.com/Jayce198518/Ultimate-Agentic-DevOps-with-Claude-Code",
+      "name": "Kubernetes Fundamentals Lab",
+      "icon": "☸️",
+      "description": "Deployed Pods, ReplicaSets, Deployments, HPA, health probes, NodePort and LoadBalancer Services on a kind cluster in WSL2. Performed rolling updates and rollbacks.",
+      "tags": ["Kubernetes", "kind", "HPA", "kubectl"],
+      "github": "https://github.com/Jayce198518",
       "demo": null
     },
     {
-      "name": "DigitalJay",
-      "description": "Personal project showcasing web development skills.",
-      "tags": ["PHP", "Web Development"],
-      "github": "https://github.com/Jayce198518/digitaljay",
+      "name": "EpicBook Azure DevOps Deployment",
+      "icon": "🏗️",
+      "description": "Provisioned Azure infrastructure with Terraform and deployed a Node.js bookstore application using Ansible playbooks through Azure DevOps pipelines with automated CI/CD.",
+      "tags": ["Azure DevOps", "Terraform", "Ansible", "CI/CD"],
+      "github": "https://github.com/Jayce198518",
       "demo": null
     }
   ],
@@ -58,18 +61,24 @@
       "excerpt": "Before deploying the Spring PetClinic microservices application with my team on Amazon Web Services, I first decided to run the project locally using Docker..."
     }
   ],
-  "certifications": [],
+  "certifications": [
+    {
+      "name": "Professional Cloud Security Engineer",
+      "issuer": "Google Cloud Platform"
+    }
+  ],
+  "stats": {
+    "weeks_training": 14,
+    "projects_delivered": 6,
+    "cloud_platforms": 3,
+    "certifications": 1
+  },
   "skills": {
-    "Cloud & Virtualization": ["AWS", "Azure", "GCP", "Linux"],
-    "Container Orchestration": ["Docker", "Kubernetes", "Helm"],
-    "Infrastructure as Code": ["Terraform", "Ansible", "CloudFormation", "Pulumi"],
-    "CI/CD & Automation": ["Jenkins", "GitHub Actions", "GitLab CI", "CircleCI", "ArgoCD", "Azure DevOps"],
-    "Monitoring & Observability": ["Prometheus", "Grafana", "ELK Stack", "Datadog", "New Relic"],
-    "Agentic AI & Automation": ["Claude Code", "GitHub Copilot"],
-    "Scripting & Languages": ["Python", "Bash", "PowerShell", "YAML", "JSON"],
-    "Version Control & Collaboration": ["Git", "GitHub", "GitLab", "Bitbucket"],
-    "Networking & Security": ["SSL-TLS", "IAM", "VPN", "Firewalls", "Load Balancers"],
-    "Databases & Storage": ["PostgreSQL", "MySQL", "MongoDB", "AWS S3", "AWS EFS", "AWS EBS"],
-    "Collaboration & PM": ["Agile", "Jira", "Confluence"]
+    "☁️ Cloud Platforms": ["AWS", "Azure", "Google Cloud"],
+    "🐳 Containers & Orchestration": ["Docker", "Docker Compose", "Kubernetes", "Helm"],
+    "🏗️ Infrastructure as Code": ["Terraform", "Ansible", "Modules", "State Management"],
+    "⚙️ CI/CD & Automation": ["GitHub Actions", "Azure DevOps", "Bash Scripting"],
+    "📊 Observability": ["Prometheus", "Grafana", "Zipkin", "Spring Boot Admin"],
+    "🛠️ Tools & OS": ["Linux", "Git", "VS Code", "WSL2", "GitHub Codespaces"]
   }
 }

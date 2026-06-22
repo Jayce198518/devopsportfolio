@@ -59,11 +59,23 @@ nav {
   letter-spacing:1px;
 }
 
+.nav-right {
+  display:flex;
+  align-items:center;
+  gap:1.8rem;
+}
+
 .nav-links {
   display:flex;
   gap:1.8rem;
   list-style:none;
   flex-wrap:wrap;
+}
+
+.nav-socials {
+  display:flex;
+  gap:1rem;
+  align-items:center;
 }
 
 .nav-links a {
@@ -654,6 +666,7 @@ footer span { color:var(--gold); }
   .skills-grid { grid-template-columns:1fr; }
   .cert-grid { grid-template-columns:1fr; }
   .stats { grid-template-columns:repeat(2,1fr); }
+  .nav-right { gap:1rem; }
   .nav-links { display:none; }
   .mobile-menu-btn { display:block; background:none; border:none; color:var(--gold); font-size:1.5rem; cursor:pointer; }
 }

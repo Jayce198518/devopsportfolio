@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Ezennajiofoeze Jacinta Chinyere</title>
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand">CH</a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+      <div class="nav-socials">
+        <a href="https://github.com/Jayce198518" class="nav-social" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/ezennajiofoeze-jacinta-8b5471103/" class="nav-social" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('mobile-open')" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+<section>
+    <div class="page-hero">
+      <h1 class="fade-in">Let's <span>Connect</span></h1>
+      <p class="fade-in">Open to DevOps roles, internships, and collaborations.</p>
+    </div>
+    <div class="contact-grid" style="padding-top:40px;">
+      <div class="fade-in">
+        <div style="background:var(--navy-card);border:1px solid var(--gold-glow);border-radius:10px;padding:2rem;">
+          <h3 style="color:var(--gold);margin-bottom:1rem;">Reach Out</h3>
+          <div class="contact-item">
+            <span class="contact-icon">📧</span>
+            <a href="mailto:jacintachinyere@gmail.com">jacintachinyere@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <span>Lagos, Nigeria</span>
+          </div>
+          <div class="social-links">
+            <a href="https://github.com/Jayce198518" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/ezennajiofoeze-jacinta-8b5471103/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://hashnode.com/@jayce89" target="_blank"><i class="fas fa-blog"></i> Hashnode</a>
+            <a href="https://medium.com/@jacintachinyere" target="_blank"><i class="fab fa-medium"></i> Medium</a>
+          </div>
+        </div>
+      </div>
+      <div class="fade-in">
+        <div style="background:var(--navy-card);border:1px solid var(--gold-glow);border-radius:10px;padding:2rem;">
+          <h3 style="color:var(--gold);margin-bottom:1rem;">Send a Message</h3>
+          <form name="contact" data-netlify="true">
+            <div class="form-group">
+              <label class="form-label">Name</label>
+              <input type="text" class="form-control" name="name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" name="email" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Subject</label>
+              <input type="text" class="form-control" name="subject" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Message</label>
+              <textarea class="form-control" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <footer>
+    <p>Designed & Built by <span>Ezennajiofoeze Jacinta Chinyere</span> &copy; 2026 &nbsp;|&nbsp; Cloud & DevOps Engineer</p>
+  </footer>
+  <script src="static/js/main.js"></script>
+</body>
+</html>

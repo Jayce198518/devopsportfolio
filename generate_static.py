@@ -124,7 +124,7 @@ roles_html = "\n".join(
 cv_certs = "\n".join(
     f'''          <div class="cv-cert"{f' style="border-color:rgba(0,232,122,0.3)"' if cert.get('current') else ''}>
             <div class="cv-cert-name">{cert['name'].replace("Google Cloud Certified — Professional Cloud Security Engineer", "Google Cloud PCSE")}</div>
-            <div class="cv-cert-year"{' style="color:var(--green)"' if cert.get('current') else ''}>{cert.get('date', '')}</div>
+            <div class="cv-cert-year"{' style="color:var(--green)"' if cert.get('current') else ''}>{cert['issuer']} · {cert.get('date', '')}</div>
           </div>'''
     for cert in p.get("certifications", [])
 )
@@ -149,7 +149,7 @@ footer_social = f'''<a href="{p['social']['linkedin']}" target="_blank">LinkedIn
         <a href="{p['social']['medium']}" target="_blank">Medium</a>'''
 
 # Hero certs
-cert_tags = ["Google Cloud Certified — Professional Cloud Security Engineer", "Cloud Computing & Security", "On Demand IT Skills", "DevOps Micro Internship"]
+cert_tags = ["Google Cloud Certified — Professional Cloud Security Engineer", "Cloud Computing & Security", "On Demand IT Skills", "The CloudAdvisory — DevOps Micro Internship"]
 hero_certs = "\n".join(f'            <span class="cert-tag{' active' if i < 2 else ''}">{c}</span>' for i, c in enumerate(cert_tags))
 
 # ─── ASSEMBLE HTML ───

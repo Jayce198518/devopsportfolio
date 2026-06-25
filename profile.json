@@ -63,6 +63,12 @@
   ],
   "timeline": [
     {
+      "date": "2026",
+      "title": "Build AI Agents for Business",
+      "org": "Self-Directed",
+      "current": false
+    },
+    {
       "date": "Jan 2026 \u2013 Jun 2026",
       "title": "DevOps Micro Internship \u2014 Hands-on Training",
       "org": "The CloudAdvisory",
@@ -150,6 +156,14 @@
     }
   ],
   "certifications": [
+    {
+      "name": "Build AI Agents for Business",
+      "issuer": "Self-Directed",
+      "date": "2026",
+      "note": "Automate work without coding",
+      "current": false,
+      "in_progress": true
+    },
     {
       "name": "Google Cloud Certified \u2014 Professional Cloud Security Engineer",
       "issuer": "Google Cloud",

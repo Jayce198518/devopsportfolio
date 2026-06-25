@@ -55,6 +55,7 @@ skill_icons = {
     "Containers & Orchestration": "🐳",
     "CI/CD & Automation": "⚙",
     "Observability & Tools": "📊",
+    "Agentic AI & Emerging Tech": "🤖",
 }
 skill_colors = ["gold", "green", "amber", "red"]
 skill_domains = "\n".join(
@@ -71,15 +72,22 @@ skill_domains = "\n".join(
 )
 
 # Certifications
-cert_cards = "\n".join(
-    f'''        <div class="cert-card{f'" style="border-color:rgba(0,232,122,0.3)' if cert.get('current') else '"'}>
+def cert_card(cert):
+    border = ''
+    date_style = ''
+    if cert.get('current'):
+        border = ' style="border-color:rgba(0,232,122,0.3)"'
+        date_style = ' style="color:var(--green)"'
+    elif cert.get('in_progress'):
+        border = ' style="border-color:rgba(255,184,0,0.3)"'
+        date_style = ' style="color:var(--amber)"'
+    return f'''        <div class="cert-card"{border}>
           <div class="cert-name">{cert['name']}</div>
-          <div class="cert-date"{' style="color:var(--green)"' if cert.get('current') else ''}>{cert['issuer']} · {cert.get('date', '')}</div>
+          <div class="cert-date"{date_style}>{cert['issuer']} · {cert.get('date', '')}</div>
           <div class="cert-note">{cert.get('note', '')}</div>
         </div>'''
-    for cert in p.get("certifications", [])
-)
 
+cert_cards = "\n".join(cert_card(cert) for cert in p.get("certifications", []))
 # Blog articles
 article_rows = "\n".join(
     f'''        <a class="article-row" href="{art['url']}" target="_blank">

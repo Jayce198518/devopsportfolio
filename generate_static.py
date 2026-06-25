@@ -121,13 +121,22 @@ roles_html = "\n".join(
 )
 
 # CV certs
-cv_certs = "\n".join(
-    f'''          <div class="cv-cert"{f' style="border-color:rgba(0,232,122,0.3)"' if cert.get('current') else ''}>
+# CV certs
+def cv_cert(cert):
+    border = ''
+    year_style = ''
+    if cert.get('current'):
+        border = ' style="border-color:rgba(0,232,122,0.3)"'
+        year_style = ' style="color:var(--green)"'
+    elif cert.get('in_progress'):
+        border = ' style="border-color:rgba(255,184,0,0.3)"'
+        year_style = ' style="color:var(--amber)"'
+    return f'''          <div class="cv-cert"{border}>
             <div class="cv-cert-name">{cert['name'].replace("Google Cloud Certified — Professional Cloud Security Engineer", "Google Cloud PCSE")}</div>
-            <div class="cv-cert-year"{' style="color:var(--green)"' if cert.get('current') else ''}>{cert['issuer']} · {cert.get('date', '')}</div>
+            <div class="cv-cert-year"{year_style}>{cert['issuer']} · {cert.get('date', '')}</div>
           </div>'''
-    for cert in p.get("certifications", [])
-)
+
+cv_certs = "\n".join(cv_cert(cert) for cert in p.get("certifications", []))
 
 # Contact links
 contact_links = f'''<a class="contact-link" href="{p['social']['linkedin']}" target="_blank">

@@ -2,7 +2,7 @@
   "name": "Ezennajiofoeze Jacinta Chinyere",
   "title": "Cloud & DevOps Engineer",
   "subtitle": "AWS | Azure | GCP | Kubernetes | CI/CD",
-  "tagline": "I architect resilient cloud platforms and automated delivery pipelines that bridge infrastructure and application deployment. From containerised microservices to policy-driven Kubernetes clusters, I translate operational complexity into streamlined, observable systems.",
+  "tagline": "I architect resilient cloud platforms and automated delivery pipelines that bridge infrastructure and application deployment. From containerised microservices to agentic AI-assisted workflows, I translate operational complexity into streamlined, observable systems.",
   "location": "Lagos, Nigeria",
   "email": "jullycallis@gmail.com",
   "available_for": [
@@ -16,12 +16,12 @@
     "linkedin": "https://www.linkedin.com/in/jacinta-ezennajiofoeze-8b5471103",
     "medium": "https://medium.com/@jacintachinyere"
   },
-  "about": "I am a platform-focused engineer who treats infrastructure as a product. My work centres on building self-healing, observable systems across AWS, Azure, and GCP using Terraform, Kubernetes, and modern CI/CD practices. I have shipped containerised workloads, automated provisioning pipelines, and security-hardened deployments that run reliably in production. I am particularly drawn to agentic tooling and AI-assisted workflows that accelerate infrastructure delivery without sacrificing control or compliance. Every environment I build is reproducible, monitored, and documented — because operational clarity is not optional.",
+  "about": "I am a platform-focused engineer who treats infrastructure as a product. My work centres on building self-healing, observable systems across AWS, Azure, and GCP using Terraform, Kubernetes, and modern CI/CD practices. I actively leverage agentic AI tools \u2014 Claude Code, Cursor, and OpenAI APIs \u2014 to accelerate infrastructure delivery, automate repetitive provisioning tasks, and embed intelligent security review into pipelines. I have shipped containerised workloads, automated provisioning pipelines, and security-hardened deployments that run reliably in production. Every environment I build is reproducible, monitored, and documented \u2014 because operational clarity is not optional.",
   "approach": [
     {
       "num": "01",
       "title": "Design & Validate",
-      "description": "I begin by modelling the target architecture — network topology, identity boundaries, and failure modes — before writing a single line of provisioning code. Prototyping locally with Docker, kind, and WSL2 lets me catch configuration drift and dependency issues early, long before cloud resources are spun up."
+      "description": "I begin by modelling the target architecture \u2014 network topology, identity boundaries, and failure modes \u2014 before writing a single line of provisioning code. Prototyping locally with Docker, kind, and WSL2 lets me catch configuration drift and dependency issues early, long before cloud resources are spun up."
     },
     {
       "num": "02",
@@ -43,40 +43,40 @@
   ],
   "experience": [
     {
-      "role": "DevOps Micro Internship — Hands-on Training",
+      "role": "DevOps Micro Internship \u2014 Hands-on Training",
       "company": "The CloudAdvisory",
-      "dates": "Jan 2026 – Jun 2026",
+      "dates": "Jan 2026 \u2013 Jun 2026",
       "current": true
     },
     {
-      "role": "Cloud Computing & Security — Hands-on Training",
+      "role": "Cloud Computing & Security \u2014 Hands-on Training",
       "company": "Digital Witch Support Community",
-      "dates": "Apr 2024 – Sep 2024",
+      "dates": "Apr 2024 \u2013 Sep 2024",
       "current": false
     },
     {
-      "role": "On Demand IT Skills — Hands-on Training",
+      "role": "On Demand IT Skills \u2014 Hands-on Training",
       "company": "Digital Witch Support Community",
-      "dates": "Apr 2024 – May 2024",
+      "dates": "Apr 2024 \u2013 May 2024",
       "current": false
     }
   ],
   "timeline": [
     {
-      "date": "Jan 2026 – Jun 2026",
-      "title": "DevOps Micro Internship — Hands-on Training",
+      "date": "Jan 2026 \u2013 Jun 2026",
+      "title": "DevOps Micro Internship \u2014 Hands-on Training",
       "org": "The CloudAdvisory",
       "current": true
     },
     {
-      "date": "Apr 2024 – Sep 2024",
-      "title": "Cloud Computing & Security — Hands-on Training",
+      "date": "Apr 2024 \u2013 Sep 2024",
+      "title": "Cloud Computing & Security \u2014 Hands-on Training",
       "org": "Digital Witch Support Community",
       "current": false
     },
     {
-      "date": "Apr 2024 – May 2024",
-      "title": "On Demand IT Skills — Hands-on Training",
+      "date": "Apr 2024 \u2013 May 2024",
+      "title": "On Demand IT Skills \u2014 Hands-on Training",
       "org": "Digital Witch Support Community",
       "current": false
     }
@@ -85,10 +85,17 @@
     {
       "name": "Spring PetClinic Microservices",
       "tagline": "Production-grade Docker stack with full observability",
-      "icon": "🐳",
+      "icon": "\ud83d\udc33",
       "description": "Engineered optimised Docker images for a polyglot microservices suite using multi-stage build patterns and Maven profile segregation. Orchestrated the complete runtime environment with Docker Compose, wiring Prometheus for metrics collection, Grafana for visualisation, and Zipkin for distributed request tracing across service boundaries.",
-      "impact": "Demonstrates end-to-end container strategy — build optimisation, service mesh telemetry, and local-to-cloud portability — using the same patterns required for enterprise service platforms.",
-      "tags": ["Docker", "Docker Compose", "Prometheus", "Grafana", "Zipkin", "Microservices"],
+      "impact": "Demonstrates end-to-end container strategy \u2014 build optimisation, service mesh telemetry, and local-to-cloud portability \u2014 using the same patterns required for enterprise service platforms.",
+      "tags": [
+        "Docker",
+        "Docker Compose",
+        "Prometheus",
+        "Grafana",
+        "Zipkin",
+        "Microservices"
+      ],
       "github": "https://github.com/Jayce198518",
       "demo": null,
       "featured": true
@@ -96,20 +103,32 @@
     {
       "name": "Kubernetes Fundamentals Lab",
       "tagline": "Scalable workload orchestration on kind clusters",
-      "icon": "☸️",
+      "icon": "\u2638\ufe0f",
       "description": "Provisioned and managed Kubernetes primitives on a kind cluster hosted inside WSL2. Configured ReplicaSets for resilience, Deployments with rolling-update strategies, Horizontal Pod Autoscaler for elasticity, and multi-type Services for internal and external traffic routing. Validated zero-downtime rollouts and rapid rollback procedures.",
       "impact": "Replicates the control-plane and workload patterns every production cluster demands: health probes, resource quotas, autoscaling triggers, and graceful update mechanics.",
-      "tags": ["Kubernetes", "kind", "HPA", "kubectl", "WSL2"],
+      "tags": [
+        "Kubernetes",
+        "kind",
+        "HPA",
+        "kubectl",
+        "WSL2"
+      ],
       "github": "https://github.com/Jayce198518",
       "demo": null
     },
     {
       "name": "EpicBook Azure DevOps Deployment",
       "tagline": "Dual-pipeline infrastructure and application delivery",
-      "icon": "🏗️",
-      "description": "Designed a two-stage delivery pipeline that separates infrastructure lifecycle management from application release automation. Terraform provisions Azure resources — Virtual Networks, App Services, and managed databases — while Ansible playbooks handle Node.js application configuration and secret injection. Azure DevOps pipelines orchestrate the entire flow end-to-end.",
+      "icon": "\ud83c\udfd7\ufe0f",
+      "description": "Designed a two-stage delivery pipeline that separates infrastructure lifecycle management from application release automation. Terraform provisions Azure resources \u2014 Virtual Networks, App Services, and managed databases \u2014 while Ansible playbooks handle Node.js application configuration and secret injection. Azure DevOps pipelines orchestrate the entire flow end-to-end.",
       "impact": "Separation of infrastructure and application concerns reduces blast radius, simplifies auditing, and mirrors the enterprise DevSecOps architectures used by platform teams at scale.",
-      "tags": ["Azure DevOps", "Terraform", "Ansible", "CI/CD", "Node.js"],
+      "tags": [
+        "Azure DevOps",
+        "Terraform",
+        "Ansible",
+        "CI/CD",
+        "Node.js"
+      ],
       "github": "https://github.com/Jayce198518",
       "demo": null
     }
@@ -120,7 +139,7 @@
       "url": "https://spring-petclinic-microservice.hashnode.dev/my-role-as-a-helm-values-deployment-engineer-configuring-microservices-for-spring-petclinic-on-eks",
       "date": "Jun 2026",
       "read_time": "8 min",
-      "excerpt": "Unpacking the Helm values hierarchy used to deploy the Spring PetClinic microservices stack on Amazon EKS — templating strategies, environment overrides, and secrets externalisation."
+      "excerpt": "Unpacking the Helm values hierarchy used to deploy the Spring PetClinic microservices stack on Amazon EKS \u2014 templating strategies, environment overrides, and secrets externalisation."
     },
     {
       "title": "Why Local Deployment Still Matters Before You Touch the Cloud",
@@ -132,7 +151,7 @@
   ],
   "certifications": [
     {
-      "name": "Google Cloud Certified — Professional Cloud Security Engineer",
+      "name": "Google Cloud Certified \u2014 Professional Cloud Security Engineer",
       "issuer": "Google Cloud",
       "date": "2025",
       "note": "Professional-level cloud security certification demonstrating expertise in securing GCP infrastructure"
@@ -153,8 +172,15 @@
       "name": "DevOps Micro Internship",
       "issuer": "The CloudAdvisory",
       "date": "Jun 2026",
-      "note": "Intensive hands-on DevOps internship — pipelines, IaC, container orchestration, and cloud deployments",
+      "note": "Intensive hands-on DevOps internship \u2014 pipelines, IaC, container orchestration, and cloud deployments",
       "current": true
+    },
+    {
+      "name": "Agentic AI & DevOps Automation",
+      "issuer": "Self-Directed",
+      "date": "2026",
+      "note": "Applied agentic tooling (Claude Code, Cursor) to automate CI/CD pipelines, infrastructure provisioning, and security review",
+      "in_progress": true
     }
   ],
   "stats": {
@@ -164,9 +190,54 @@
     "certifications": 4
   },
   "skills": {
-    "Cloud & Infrastructure": ["AWS", "Azure", "Google Cloud", "Terraform", "Ansible", "Pulumi", "VNet / VPC", "IAM", "Security Groups", "Private Subnets"],
-    "Containers & Orchestration": ["Docker", "Docker Compose", "Kubernetes", "Helm", "kind", "Multi-stage Builds", "Container Security"],
-    "CI/CD & Automation": ["GitHub Actions", "Azure DevOps", "Jenkins", "Bash Scripting", "Git", "SPN Auth", "Secrets Management"],
-    "Observability & Tools": ["Prometheus", "Grafana", "Zipkin", "Spring Boot Admin", "Linux", "VS Code", "WSL2", "GitHub Codespaces"]
+    "Cloud & Infrastructure": [
+      "AWS",
+      "Azure",
+      "Google Cloud",
+      "Terraform",
+      "Ansible",
+      "Pulumi",
+      "VNet / VPC",
+      "IAM",
+      "Security Groups",
+      "Private Subnets"
+    ],
+    "Containers & Orchestration": [
+      "Docker",
+      "Docker Compose",
+      "Kubernetes",
+      "Helm",
+      "kind",
+      "Multi-stage Builds",
+      "Container Security"
+    ],
+    "CI/CD & Automation": [
+      "GitHub Actions",
+      "Azure DevOps",
+      "Jenkins",
+      "Bash Scripting",
+      "Git",
+      "SPN Auth",
+      "Secrets Management"
+    ],
+    "Observability & Tools": [
+      "Prometheus",
+      "Grafana",
+      "Zipkin",
+      "Spring Boot Admin",
+      "Linux",
+      "VS Code",
+      "WSL2",
+      "GitHub Codespaces"
+    ],
+    "Agentic AI & Emerging Tech": [
+      "Agentic AI",
+      "Claude Code",
+      "AI-Assisted DevOps",
+      "Cursor",
+      "OpenAI API",
+      "Prompt Engineering",
+      "AI Pair Programming"
+    ]
   }
 }

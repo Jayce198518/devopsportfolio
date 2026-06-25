@@ -104,7 +104,8 @@
       ],
       "github": "https://github.com/Jayce198518",
       "demo": null,
-      "featured": true
+      "featured": true,
+      "images": []
     },
     {
       "name": "Kubernetes Fundamentals Lab",
@@ -120,7 +121,8 @@
         "WSL2"
       ],
       "github": "https://github.com/Jayce198518",
-      "demo": null
+      "demo": null,
+      "images": []
     },
     {
       "name": "EpicBook Azure DevOps Deployment",
@@ -136,7 +138,8 @@
         "Node.js"
       ],
       "github": "https://github.com/Jayce198518",
-      "demo": null
+      "demo": null,
+      "images": []
     }
   ],
   "blog_posts": [
@@ -162,39 +165,45 @@
       "date": "2026",
       "note": "Automate work without coding",
       "current": false,
-      "in_progress": true
+      "in_progress": true,
+      "certificate_url": ""
     },
     {
       "name": "Google Cloud Certified \u2014 Professional Cloud Security Engineer",
       "issuer": "Google Cloud",
       "date": "2025",
-      "note": "Professional-level cloud security certification demonstrating expertise in securing GCP infrastructure"
+      "note": "Professional-level cloud security certification demonstrating expertise in securing GCP infrastructure",
+      "certificate_url": ""
     },
     {
       "name": "Cloud Computing & Security",
       "issuer": "Digital Witch Support Community",
       "date": "Sep 2024",
-      "note": "Comprehensive hands-on training in cloud fundamentals, security practices, and platform operations"
+      "note": "Comprehensive hands-on training in cloud fundamentals, security practices, and platform operations",
+      "certificate_url": ""
     },
     {
       "name": "On Demand IT Skills",
       "issuer": "Digital Witch Support Community",
       "date": "May 2024",
-      "note": "Foundation-level training covering core IT competencies and modern tooling"
+      "note": "Foundation-level training covering core IT competencies and modern tooling",
+      "certificate_url": ""
     },
     {
       "name": "DevOps Micro Internship",
       "issuer": "The CloudAdvisory",
       "date": "Jun 2026",
       "note": "Intensive hands-on DevOps internship \u2014 pipelines, IaC, container orchestration, and cloud deployments",
-      "current": true
+      "current": true,
+      "certificate_url": ""
     },
     {
       "name": "Agentic AI & DevOps Automation",
       "issuer": "Self-Directed",
       "date": "2026",
       "note": "Applied agentic tooling (Claude Code, Cursor) to automate CI/CD pipelines, infrastructure provisioning, and security review",
-      "in_progress": true
+      "in_progress": true,
+      "certificate_url": ""
     }
   ],
   "stats": {

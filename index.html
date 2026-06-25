@@ -3,147 +3,457 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ezennajiofoeze Jacinta Chinyere — Cloud & DevOps Engineer</title>
+  <title>Ezennajiofoeze Jacinta Chinyere | Cloud & DevOps Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&family=Fraunces:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="static/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
+  <!-- NAV -->
   <nav>
-    <a href="index.html" class="nav-brand">CH</a>
-    <div class="nav-right">
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <div class="nav-socials">
-        <a href="https://github.com/Jayce198518" class="nav-social" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/ezennajiofoeze-jacinta-8b5471103/" class="nav-social" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('mobile-open')" aria-label="Menu">☰</button>
+    <div class="nav-inner">
+      <a class="nav-logo" href="#home">EJ <span>Chinyere</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="#home" class="nav-item">Home</a>
+        <a href="#projects" class="nav-item">Projects</a>
+        <a href="#skills" class="nav-item">Skills</a>
+        <a href="#blog" class="nav-item">Blog</a>
+        <a href="#about" class="nav-item">About</a>
+        <a href="#contact" class="nav-item">Contact</a>
+        <a href="#cv" class="cv-btn">View CV</a>
+        <button class="mobile-menu-btn" onclick="document.getElementById('navLinks').classList.toggle('mobile-open')" aria-label="Menu">☰</button>
       </div>
     </div>
   </nav>
 
-  <main>
-<div class="hero">
-    <p class="hero-tag fade-in">Hello, I am</p>
-    <h1 class="fade-in">Ezennajiofoeze<br>Jacinta Chinyere</h1>
-    <h2 class="fade-in">Cloud & DevOps Engineer</h2>
-    <p class="fade-in">I design, build, and operate cloud infrastructure that is secure, scalable, and automated. With hands-on experience across AWS, Azure, Docker, Kubernetes, and Terraform — I turn complex systems into reliable, observable, production-ready platforms.</p>
+  <!-- HERO -->
+  <section id="home">
+    <div class="grid-lines"></div>
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-left fade-up">
+          <div class="hero-tag">
+            <span class="status-badge">Open to Cloud & DevOps Roles</span>
+          </div>
+          <h1 class="hero-name">Ezennajiofoeze<br><span>Jacinta Chinyere</span></h1>
+          <p class="hero-role">Cloud & DevOps Engineer</p>
+          <p class="hero-desc">I architect resilient cloud platforms and automated delivery pipelines that bridge infrastructure and application deployment. From containerised microservices to policy-driven Kubernetes clusters, I translate operational complexity into streamlined, observable systems.</p>
+          <div class="hero-certs">
+            <span class="cert-tag active">Google Cloud Certified — Professional Cloud Security Engineer</span>
+            <span class="cert-tag active">Cloud Computing & Security</span>
+            <span class="cert-tag">On Demand IT Skills</span>
+            <span class="cert-tag">DevOps Micro Internship</span>
+          </div>
+          <div class="hero-btns">
+            <a href="#projects" class="btn-primary">Explore Projects</a>
+            <a href="#contact" class="btn-secondary">Contact Me</a>
+          </div>
+        </div>
+        <div class="hero-right fade-up-2">
+          <div class="stat-card">
+            <div class="stat-num gold">17+</div>
+            <div class="stat-label">Weeks of Intensive<br>Training</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num gold">Google</div>
+            <div class="stat-label">Cloud Certified<br>Professional 2025</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num amber">10+</div>
+            <div class="stat-label">Cloud & DevOps<br>Projects Delivered</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num white">3</div>
+            <div class="stat-label">Cloud Platforms<br>Explored</div>
+          </div>
+        </div>
+      </div>
 
-    <div class="btn-group fade-in">
-      <a href="projects.html" class="btn btn-primary">View My Work</a>
-      <a href="contact.html" class="btn btn-outline">Contact Me</a>
-    </div>
+      <hr class="divider">
 
-    <div class="stats fade-in">
-      <div class="stat-item"><span class="stat-number">14</span><span class="stat-label">Weeks of Training</span></div>
-      <div class="stat-item"><span class="stat-number">6+</span><span class="stat-label">Projects Delivered</span></div>
-      <div class="stat-item"><span class="stat-number">3</span><span class="stat-label">Cloud Platforms</span></div>
-      <div class="stat-item"><span class="stat-number">1</span><span class="stat-label">GCP Certification</span></div>
-    </div>
-  </div>
-
-  <section>
-    <h2 class="section-title fade-in">What I Work <span>With</span></h2>
-    <div class="section-line fade-in"></div>
-    <div class="skills-grid">
-    <div class="skill-group fade-in">
-      <h3>☁️ Cloud Platforms</h3>
-      <ul class="skill-list">
-        <li>AWS</li><li>Azure</li><li>Google Cloud</li>
-      </ul>
-    </div>
-    <div class="skill-group fade-in">
-      <h3>🐳 Containers & Orchestration</h3>
-      <ul class="skill-list">
-        <li>Docker</li><li>Docker Compose</li><li>Kubernetes</li><li>Helm</li>
-      </ul>
-    </div>
-    <div class="skill-group fade-in">
-      <h3>🏗️ Infrastructure as Code</h3>
-      <ul class="skill-list">
-        <li>Terraform</li><li>Ansible</li><li>Modules</li><li>State Management</li>
-      </ul>
-    </div>
-    <div class="skill-group fade-in">
-      <h3>⚙️ CI/CD & Automation</h3>
-      <ul class="skill-list">
-        <li>GitHub Actions</li><li>Azure DevOps</li><li>Bash Scripting</li>
-      </ul>
-    </div>
-    <div class="skill-group fade-in">
-      <h3>📊 Observability</h3>
-      <ul class="skill-list">
-        <li>Prometheus</li><li>Grafana</li><li>Zipkin</li><li>Spring Boot Admin</li>
-      </ul>
-    </div>
-    <div class="skill-group fade-in">
-      <h3>🛠️ Tools & OS</h3>
-      <ul class="skill-list">
-        <li>Linux</li><li>Git</li><li>VS Code</li><li>WSL2</li><li>GitHub Codespaces</li>
-      </ul>
-    </div>
+      <!-- How I Work -->
+      <div class="fade-up-3">
+        <p class="section-label">Approach</p>
+        <h2 class="section-title">How I <em>Work</em></h2>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-num">01</div>
+            <div class="step-title">Design & Validate</div>
+            <p class="step-desc">I begin by modelling the target architecture — network topology, identity boundaries, and failure modes — before writing a single line of provisioning code. Prototyping locally with Docker, kind, and WSL2 lets me catch configuration drift and dependency issues early, long before cloud resources are spun up.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">02</div>
+            <div class="step-title">Automate & Secure</div>
+            <p class="step-desc">Infrastructure is codified in Terraform, application state is managed through Ansible or Helm, and pipelines enforce quality gates before anything reaches a cluster. Secrets stay out of repositories, IAM follows least-privilege principles, and every deployment is traceable from commit to runtime.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">03</div>
+            <div class="step-title">Observe & Iterate</div>
+            <p class="step-desc">Production readiness means more than green health checks. I instrument services with Prometheus metrics, Grafana dashboards, and distributed tracing so anomalies surface before they escalate. Post-deployment feedback loops inform the next iteration, turning operational data into architectural improvements.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section>
-    <h2 class="section-title fade-in">Featured <span>Projects</span></h2>
-    <div class="section-line fade-in"></div>
-    <div class="card-grid">
-    <div class="card fade-in">
-      <span class="card-icon">🐳</span>
-      <h3>Spring PetClinic Microservices</h3>
-      <p>Built and validated Docker images for microservices using multi-stage Dockerfiles and Maven build profiles. Deployed full stack with Prometheus, Grafana, and Zipkin observability.</p>
-      <div class="card-tags">
-        <span class="tag">Docker</span><span class="tag">Docker Compose</span><span class="tag">Prometheus</span><span class="tag">Grafana</span>
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <p class="section-label">Selected Work</p>
+      <h2 class="section-title">Featured <em>Projects</em></h2>
+      <p style="color:var(--ghost);font-size:var(--fs-sm);margin-top:0.5rem">Cloud infrastructure, container orchestration, and automated deployment pipelines — designed, built, and documented.</p>
+
+      <div class="projects-grid">
+        <!-- Spring PetClinic Microservices -->
+        <div class="project-card featured">
+          <div class="project-top">
+            <div class="project-badges">
+              <span class="badge">Docker</span><span class="badge">Docker Compose</span><span class="badge">Prometheus</span><span class="badge">Grafana</span><span class="badge">Zipkin</span>
+            </div>
+            <h3 class="project-title">Spring PetClinic Microservices</h3>
+            <p class="project-desc">Engineered optimised Docker images for a polyglot microservices suite using multi-stage build patterns and Maven profile segregation. Orchestrated the complete runtime environment with Docker Compose, wiring Prometheus for metrics collection, Grafana for visualisation, and Zipkin for distributed request tracing across service boundaries.</p>
+          </div>
+          <div class="project-impact">
+            <strong>Engineering Impact</strong>
+            Demonstrates end-to-end container strategy — build optimisation, service mesh telemetry, and local-to-cloud portability — using the same patterns required for enterprise service platforms.
+          </div>
+          <div class="project-footer">
+            <div class="project-tags">
+              <span class="project-tag">Docker</span><span class="project-tag">Docker Compose</span><span class="project-tag">Prometheus</span><span class="project-tag">Grafana</span><span class="project-tag">Zipkin</span><span class="project-tag">Microservices</span>
+            </div>
+            <a href="https://github.com/Jayce198518" target="_blank" class="project-link">GitHub ↗</a>
+          </div>
+        </div>
+        <!-- Kubernetes Fundamentals Lab -->
+        <div class="project-card">
+          <div class="project-top">
+            <div class="project-badges">
+              <span class="badge">Kubernetes</span><span class="badge">kind</span><span class="badge">HPA</span><span class="badge">kubectl</span><span class="badge">WSL2</span>
+            </div>
+            <h3 class="project-title">Kubernetes Fundamentals Lab</h3>
+            <p class="project-desc">Provisioned and managed Kubernetes primitives on a kind cluster hosted inside WSL2. Configured ReplicaSets for resilience, Deployments with rolling-update strategies, Horizontal Pod Autoscaler for elasticity, and multi-type Services for internal and external traffic routing. Validated zero-downtime rollouts and rapid rollback procedures.</p>
+          </div>
+          <div class="project-impact">
+            <strong>Engineering Impact</strong>
+            Replicates the control-plane and workload patterns every production cluster demands: health probes, resource quotas, autoscaling triggers, and graceful update mechanics.
+          </div>
+          <div class="project-footer">
+            <div class="project-tags">
+              <span class="project-tag">Kubernetes</span><span class="project-tag">kind</span><span class="project-tag">HPA</span><span class="project-tag">kubectl</span><span class="project-tag">WSL2</span>
+            </div>
+            <a href="https://github.com/Jayce198518" target="_blank" class="project-link">GitHub ↗</a>
+          </div>
+        </div>
+        <!-- EpicBook Azure DevOps Deployment -->
+        <div class="project-card">
+          <div class="project-top">
+            <div class="project-badges">
+              <span class="badge">Azure DevOps</span><span class="badge">Terraform</span><span class="badge">Ansible</span><span class="badge">CI/CD</span><span class="badge">Node.js</span>
+            </div>
+            <h3 class="project-title">EpicBook Azure DevOps Deployment</h3>
+            <p class="project-desc">Designed a two-stage delivery pipeline that separates infrastructure lifecycle management from application release automation. Terraform provisions Azure resources — Virtual Networks, App Services, and managed databases — while Ansible playbooks handle Node.js application configuration and secret injection. Azure DevOps pipelines orchestrate the entire flow end-to-end.</p>
+          </div>
+          <div class="project-impact">
+            <strong>Engineering Impact</strong>
+            Separation of infrastructure and application concerns reduces blast radius, simplifies auditing, and mirrors the enterprise DevSecOps architectures used by platform teams at scale.
+          </div>
+          <div class="project-footer">
+            <div class="project-tags">
+              <span class="project-tag">Azure DevOps</span><span class="project-tag">Terraform</span><span class="project-tag">Ansible</span><span class="project-tag">CI/CD</span><span class="project-tag">Node.js</span>
+            </div>
+            <a href="https://github.com/Jayce198518" target="_blank" class="project-link">GitHub ↗</a>
+          </div>
+        </div>
       </div>
-      <a href="projects.html" class="card-link">View Details →</a>
-    </div>
-    <div class="card fade-in">
-      <span class="card-icon">☸️</span>
-      <h3>Kubernetes Fundamentals Lab</h3>
-      <p>Deployed Pods, ReplicaSets, Deployments, HPA, health probes, NodePort and LoadBalancer Services on a kind cluster in WSL2. Performed rolling updates and rollbacks.</p>
-      <div class="card-tags">
-        <span class="tag">Kubernetes</span><span class="tag">kind</span><span class="tag">HPA</span><span class="tag">kubectl</span>
-      </div>
-      <a href="projects.html" class="card-link">View Details →</a>
-    </div>
-    <div class="card fade-in">
-      <span class="card-icon">🏗️</span>
-      <h3>EpicBook Azure DevOps Deployment</h3>
-      <p>Provisioned Azure infrastructure with Terraform and deployed a Node.js bookstore application using Ansible playbooks through Azure DevOps pipelines with automated CI/CD.</p>
-      <div class="card-tags">
-        <span class="tag">Azure DevOps</span><span class="tag">Terraform</span><span class="tag">Ansible</span><span class="tag">CI/CD</span>
-      </div>
-      <a href="projects.html" class="card-link">View Details →</a>
-    </div>
-    </div>
-    <div style="text-align:center;margin-top:2.5rem;">
-      <a href="projects.html" class="btn btn-outline">See All Projects</a>
     </div>
   </section>
 
-  <section>
-    <h2 class="section-title fade-in">Certifications</h2>
-    <div class="section-line fade-in"></div>
-    <div class="cert-grid">
-    <div class="cert-badge fade-in">
-      <span class="cert-icon">🏅</span>
-      <div>
-        <h4>Professional Cloud Security Engineer</h4>
-        <p>Google Cloud Platform</p>
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <p class="section-label">Technical Stack</p>
+      <h2 class="section-title">Skills & <em>Technologies</em></h2>
+      <p style="color:var(--ghost);font-size:var(--fs-sm);margin-top:0.5rem">Hands-on experience across cloud platforms, containerisation, infrastructure as code, and continuous delivery — applied in real projects and professional environments.</p>
+
+      <div class="skills-domains">
+        <div class="domain-card">
+          <div class="domain-header">
+            <div class="domain-icon gold">☁</div>
+            <div class="domain-name">Cloud & Infrastructure</div>
+          </div>
+          <div class="skill-pills">
+            <span class="skill-pill">AWS</span><span class="skill-pill">Azure</span><span class="skill-pill">Google Cloud</span><span class="skill-pill">Terraform</span><span class="skill-pill">Ansible</span><span class="skill-pill">Pulumi</span><span class="skill-pill">VNet / VPC</span><span class="skill-pill">IAM</span><span class="skill-pill">Security Groups</span><span class="skill-pill">Private Subnets</span>
+          </div>
+        </div>
+        <div class="domain-card">
+          <div class="domain-header">
+            <div class="domain-icon green">🐳</div>
+            <div class="domain-name">Containers & Orchestration</div>
+          </div>
+          <div class="skill-pills">
+            <span class="skill-pill">Docker</span><span class="skill-pill">Docker Compose</span><span class="skill-pill">Kubernetes</span><span class="skill-pill">Helm</span><span class="skill-pill">kind</span><span class="skill-pill">Multi-stage Builds</span><span class="skill-pill">Container Security</span>
+          </div>
+        </div>
+        <div class="domain-card">
+          <div class="domain-header">
+            <div class="domain-icon amber">⚙</div>
+            <div class="domain-name">CI/CD & Automation</div>
+          </div>
+          <div class="skill-pills">
+            <span class="skill-pill">GitHub Actions</span><span class="skill-pill">Azure DevOps</span><span class="skill-pill">Jenkins</span><span class="skill-pill">Bash Scripting</span><span class="skill-pill">Git</span><span class="skill-pill">SPN Auth</span><span class="skill-pill">Secrets Management</span>
+          </div>
+        </div>
+        <div class="domain-card">
+          <div class="domain-header">
+            <div class="domain-icon red">📊</div>
+            <div class="domain-name">Observability & Tools</div>
+          </div>
+          <div class="skill-pills">
+            <span class="skill-pill">Prometheus</span><span class="skill-pill">Grafana</span><span class="skill-pill">Zipkin</span><span class="skill-pill">Spring Boot Admin</span><span class="skill-pill">Linux</span><span class="skill-pill">VS Code</span><span class="skill-pill">WSL2</span><span class="skill-pill">GitHub Codespaces</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="section-label" style="margin-top:3rem">Certifications</p>
+      <div class="certs-grid">
+        <div class="cert-card">
+          <div class="cert-name">Google Cloud Certified — Professional Cloud Security Engineer</div>
+          <div class="cert-date">Google Cloud · 2025</div>
+          <div class="cert-note">Professional-level cloud security certification demonstrating expertise in securing GCP infrastructure</div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-name">Cloud Computing & Security</div>
+          <div class="cert-date">Digital Witch Support Community · Sep 2024</div>
+          <div class="cert-note">Comprehensive hands-on training in cloud fundamentals, security practices, and platform operations</div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-name">On Demand IT Skills</div>
+          <div class="cert-date">Digital Witch Support Community · May 2024</div>
+          <div class="cert-note">Foundation-level training covering core IT competencies and modern tooling</div>
+        </div>
+        <div class="cert-card" style="border-color:rgba(0,232,122,0.3)>
+          <div class="cert-name">DevOps Micro Internship</div>
+          <div class="cert-date" style="color:var(--green)">The CloudAdvisory · Jun 2026</div>
+          <div class="cert-note">Intensive hands-on DevOps internship — pipelines, IaC, container orchestration, and cloud deployments</div>
+        </div>
       </div>
     </div>
+  </section>
+
+  <!-- BLOG -->
+  <section id="blog">
+    <div class="container">
+      <p class="section-label">Writing & Research</p>
+      <h2 class="section-title">Published <em>Articles</em></h2>
+      <p style="color:var(--ghost);font-size:var(--fs-sm);margin-top:0.5rem">Lessons learned from real deployments, local experiments, and production missteps — written for engineers, readable by anyone.</p>
+
+      <div class="articles-list">
+        <a class="article-row" href="https://spring-petclinic-microservice.hashnode.dev/my-role-as-a-helm-values-deployment-engineer-configuring-microservices-for-spring-petclinic-on-eks" target="_blank">
+          <div class="article-date">Jun 2026</div>
+          <div>
+            <div class="article-title">Configuring Microservices for Spring PetClinic on EKS: A Helm Values Approach</div>
+            <div class="article-tags">
+              
+            </div>
+          </div>
+          <div class="article-min">8 min</div>
+        </a>
+        <a class="article-row" href="https://spring-petclinic-microservice.hashnode.dev/the-educational-value-of-local-deployment-a-prerequisite-for-cloud-migration" target="_blank">
+          <div class="article-date">Jun 2026</div>
+          <div>
+            <div class="article-title">Why Local Deployment Still Matters Before You Touch the Cloud</div>
+            <div class="article-tags">
+              
+            </div>
+          </div>
+          <div class="article-min">6 min</div>
+        </a>
+      </div>
+      <div class="articles-cta">
+        <a href="https://medium.com/@jacintachinyere" target="_blank" class="view-all">View All on Medium ↗</a>
+      </div>
     </div>
   </section>
-  </main>
 
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <p class="section-label">Background</p>
+      <h2 class="section-title">About <em>Me</em></h2>
+      <div class="about-grid">
+        <div class="about-left">
+          <div class="about-text">
+            <p>I am a platform-focused engineer who treats infrastructure as a product. My work centres on building self-healing, observable systems across AWS, Azure, and GCP using Terraform, Kubernetes, and modern CI/CD practices. I have shipped containerised workloads, automated provisioning pipelines, and security-hardened deployments that run reliably in production. I am particularly drawn to agentic tooling and AI-assisted workflows that accelerate infrastructure delivery without sacrificing control or compliance. Every environment I build is reproducible, monitored, and documented — because operational clarity is not optional.</p>
+            <p>My journey into tech started with intensive hands-on training at Digital Witch Support Community, where I built a solid foundation in cloud computing and security. I further honed my skills through a DevOps Micro Internship at The CloudAdvisory, working on real-world pipeline automation and cloud deployments. I am committed to continuous learning and delivering production-grade infrastructure.</p>
+          </div>
+
+          <p class="section-label" style="margin-top:2rem">Career Timeline</p>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="tl-date current">Jan 2026 – Jun 2026</div>
+              <div>
+                <div class="tl-title">DevOps Micro Internship — Hands-on Training</div>
+                <div class="tl-org">The CloudAdvisory</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="tl-date">Apr 2024 – Sep 2024</div>
+              <div>
+                <div class="tl-title">Cloud Computing & Security — Hands-on Training</div>
+                <div class="tl-org">Digital Witch Support Community</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="tl-date">Apr 2024 – May 2024</div>
+              <div>
+                <div class="tl-title">On Demand IT Skills — Hands-on Training</div>
+                <div class="tl-org">Digital Witch Support Community</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-right">
+          <div class="about-meta">
+            <div class="meta-label">Location</div>
+            <div class="meta-value">Lagos, Nigeria<br><span style="color:var(--green);font-size:var(--fs-xs)">Open to remote, hybrid, and relocation opportunities</span></div>
+          </div>
+          <div class="about-meta">
+            <div class="meta-label">Education</div>
+            <div class="meta-value">BSc Economics<br><span style="color:var(--ghost);font-size:var(--fs-xs)">National Open University of Nigeria, 2026</span></div>
+          </div>
+          <div class="about-meta">
+            <div class="meta-label">What I am Looking For</div>
+            <div class="community-badges">
+              <div class="community-badge">⚙ <span>DevOps engineering roles</span></div>
+              <div class="community-badge">☁ <span>Cloud infrastructure consulting</span></div>
+              <div class="community-badge">🏗 <span>Platform engineering contracts</span></div>
+              <div class="community-badge">📈 <span>SRE and automation engagements</span></div>
+            </div>
+          </div>
+          <div class="about-meta">
+            <div class="meta-label">Connect</div>
+            <div class="community-badges">
+              <div class="community-badge">🔗 <span>GitHub</span> — github.com/Jayce198518</div>
+              <div class="community-badge">💼 <span>LinkedIn</span> — linkedin.com/in/jacinta-ezennajiofoeze</div>
+              <div class="community-badge">✍ <span>Medium</span> — medium.com/@jacintachinyere</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <p class="section-label">Get in Touch</p>
+      <h2 class="section-title">Let's Build Something <em>Together</em></h2>
+      <div class="contact-grid">
+        <div>
+          <p class="contact-desc">Cloud & DevOps Engineer · Lagos, Nigeria — if you need someone who bridges infrastructure expertise with hands-on engineering, let's talk.</p>
+          <div class="contact-links">
+<a class="contact-link" href="https://www.linkedin.com/in/jacinta-ezennajiofoeze-8b5471103" target="_blank">
+              <div><span class="link-label">LinkedIn</span><span class="link-val">linkedin.com/in/jacinta-ezennajiofoeze</span></div>
+            </a>
+            <a class="contact-link" href="https://github.com/Jayce198518" target="_blank">
+              <div><span class="link-label">GitHub</span><span class="link-val">github.com/Jayce198518</span></div>
+            </a>
+            <a class="contact-link" href="https://medium.com/@jacintachinyere" target="_blank">
+              <div><span class="link-label">Medium</span><span class="link-val">medium.com/@jacintachinyere</span></div>
+            </a>
+            <a class="contact-link" href="mailto:jullycallis@gmail.com">
+              <div><span class="link-label">Email</span><span class="link-val">jullycallis@gmail.com</span></div>
+            </a>
+          </div>
+        </div>
+        <form class="contact-form" name="contact" data-netlify="true">
+          <p style="display:none">
+            <input name="bot-field">
+          </p>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell me about the opportunity or project..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- CV -->
+  <section id="cv">
+    <div class="container">
+      <p class="section-label">Curriculum Vitae</p>
+      <h2 class="section-title">View My <em>CV</em></h2>
+      <div class="cv-box">
+        <div class="cv-header">
+          <div class="cv-title">Ezennajiofoeze Jacinta Chinyere — CV</div>
+          <div class="cv-btns">
+            <a href="https://www.linkedin.com/in/jacinta-ezennajiofoeze-8b5471103" target="_blank" class="cv-btn-li">View on LinkedIn ↗</a>
+          </div>
+        </div>
+        <div class="cv-preview">
+          <div class="icon">📄</div>
+          <p>Downloadable PDF coming soon</p>
+          <p style="font-size:0.7rem">For now, view full details on LinkedIn</p>
+        </div>
+        <div class="cv-certs">
+          <div class="cv-cert">
+            <div class="cv-cert-name">Google Cloud PCSE</div>
+            <div class="cv-cert-year">2025</div>
+          </div>
+          <div class="cv-cert">
+            <div class="cv-cert-name">Cloud Computing & Security</div>
+            <div class="cv-cert-year">Sep 2024</div>
+          </div>
+          <div class="cv-cert">
+            <div class="cv-cert-name">On Demand IT Skills</div>
+            <div class="cv-cert-year">May 2024</div>
+          </div>
+          <div class="cv-cert" style="border-color:rgba(0,232,122,0.3)">
+            <div class="cv-cert-name">DevOps Micro Internship</div>
+            <div class="cv-cert-year" style="color:var(--green)">Jun 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <p>Designed & Built by <span>Ezennajiofoeze Jacinta Chinyere</span> &copy; 2026 &nbsp;|&nbsp; Cloud & DevOps Engineer</p>
+    <div class="footer-inner">
+      <div class="footer-name">Ezennajiofoeze Jacinta Chinyere</div>
+      <div class="footer-subtitle">Cloud · DevOps · Infrastructure Engineering</div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#blog">Blog</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#cv">CV</a>
+      </div>
+      <div class="footer-links">
+<a href="https://www.linkedin.com/in/jacinta-ezennajiofoeze-8b5471103" target="_blank">LinkedIn</a>
+        <a href="https://github.com/Jayce198518" target="_blank">GitHub</a>
+        <a href="https://medium.com/@jacintachinyere" target="_blank">Medium</a>
+      </div>
+      <div class="footer-copy">© 2026 Ezennajiofoeze Jacinta Chinyere. All rights reserved.</div>
+    </div>
   </footer>
+
   <script src="static/js/main.js"></script>
 </body>
 </html>

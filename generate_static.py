@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate pure static HTML files from profile.json. No Jinja, no Flask."""
+"""Generate a single-page static portfolio from profile.json."""
 import json
 import os
 
@@ -8,373 +8,422 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 with open(os.path.join(BASE, "profile.json"), "r", encoding="utf-8") as f:
     p = json.load(f)
 
-# ------------------------------------------------------------------ helpers
+first_name = p['name'].split()[0]
+last_name = ' '.join(p['name'].split()[1:])
 
-def head(title):
-    return f'''<!DOCTYPE html>
+# ─── BUILD SECTIONS ───
+
+# Approach (How I Work)
+approach_items = "\n".join(
+    f'''          <div class="step-card">
+            <div class="step-num">{step['num']}</div>
+            <div class="step-title">{step['title']}</div>
+            <p class="step-desc">{step['description']}</p>
+          </div>'''
+    for step in p.get("approach", [])
+)
+
+# Projects
+project_cards = "\n".join(
+    f'''        <!-- {proj['name']} -->
+        <div class="project-card{' featured' if proj.get('featured') else ''}">
+          <div class="project-top">
+            <div class="project-badges">
+              {''.join(f'<span class="badge">{tag}</span>' for tag in proj.get('tags', [])[:5])}
+            </div>
+            <h3 class="project-title">{proj['name']}</h3>
+            <p class="project-desc">{proj['description']}</p>
+          </div>
+          <div class="project-impact">
+            <strong>Engineering Impact</strong>
+            {proj.get('impact', '')}
+          </div>
+          <div class="project-footer">
+            <div class="project-tags">
+              {''.join(f'<span class="project-tag">{tag}</span>' for tag in proj.get('tags', []))}
+            </div>
+            {'<a href="' + proj['github'] + '" target="_blank" class="project-link">GitHub ↗</a>' if proj.get('github') else ''}
+          </div>
+        </div>'''
+    for proj in p.get("projects", [])
+)
+
+# Skills domains
+# Map emoji icons per category
+skill_icons = {
+    "Cloud & Infrastructure": "☁",
+    "Containers & Orchestration": "🐳",
+    "CI/CD & Automation": "⚙",
+    "Observability & Tools": "📊",
+}
+skill_colors = ["gold", "green", "amber", "red"]
+skill_domains = "\n".join(
+    f'''        <div class="domain-card">
+          <div class="domain-header">
+            <div class="domain-icon {skill_colors[i % len(skill_colors)]}">{skill_icons.get(cat, "🔧")}</div>
+            <div class="domain-name">{cat}</div>
+          </div>
+          <div class="skill-pills">
+            {''.join(f'<span class="skill-pill">{item}</span>' for item in items)}
+          </div>
+        </div>'''
+    for i, (cat, items) in enumerate(p.get("skills", {}).items())
+)
+
+# Certifications
+cert_cards = "\n".join(
+    f'''        <div class="cert-card{f'" style="border-color:rgba(0,232,122,0.3)' if cert.get('current') else '"'}>
+          <div class="cert-name">{cert['name']}</div>
+          <div class="cert-date"{' style="color:var(--green)"' if cert.get('current') else ''}>{cert['issuer']} · {cert.get('date', '')}</div>
+          <div class="cert-note">{cert.get('note', '')}</div>
+        </div>'''
+    for cert in p.get("certifications", [])
+)
+
+# Blog articles
+article_rows = "\n".join(
+    f'''        <a class="article-row" href="{art['url']}" target="_blank">
+          <div class="article-date">{art['date']}</div>
+          <div>
+            <div class="article-title">{art['title']}</div>
+            <div class="article-tags">
+              {''.join(f'<span class="article-tag">{tag}</span>' for tag in art.get('tags', []))}
+            </div>
+          </div>
+          <div class="article-min">{art.get('read_time', '')}</div>
+        </a>'''
+    for art in p.get("blog_posts", [])
+)
+
+# Timeline
+timeline_items = "\n".join(
+    f'''            <div class="timeline-item">
+              <div class="tl-date{' current' if item.get('current') else ''}">{item['date']}</div>
+              <div>
+                <div class="tl-title">{item['title']}</div>
+                <div class="tl-org">{item['org']}</div>
+              </div>
+            </div>'''
+    for item in p.get("timeline", [])
+)
+
+# Education
+edu = p.get("education", [])
+edu_html = ""
+if edu:
+    e = edu[0]
+    edu_html = f"""BSc Economics<br><span style="color:var(--ghost);font-size:var(--fs-xs)">National Open University of Nigeria, 2026</span>"""
+
+# Available for roles
+roles_html = "\n".join(
+    f'''              <div class="community-badge">{'⚙' if 'DevOps' in role else '☁' if 'Cloud' in role else '🏗' if 'Platform' in role else '📈'} <span>{role}</span></div>'''
+    for role in p.get("available_for", [])
+)
+
+# CV certs
+cv_certs = "\n".join(
+    f'''          <div class="cv-cert"{f' style="border-color:rgba(0,232,122,0.3)"' if cert.get('current') else ''}>
+            <div class="cv-cert-name">{cert['name'].replace("Google Cloud Certified — Professional Cloud Security Engineer", "Google Cloud PCSE")}</div>
+            <div class="cv-cert-year"{' style="color:var(--green)"' if cert.get('current') else ''}>{cert.get('date', '')}</div>
+          </div>'''
+    for cert in p.get("certifications", [])
+)
+
+# Contact links
+contact_links = f'''<a class="contact-link" href="{p['social']['linkedin']}" target="_blank">
+              <div><span class="link-label">LinkedIn</span><span class="link-val">linkedin.com/in/jacinta-ezennajiofoeze</span></div>
+            </a>
+            <a class="contact-link" href="{p['social']['github']}" target="_blank">
+              <div><span class="link-label">GitHub</span><span class="link-val">github.com/Jayce198518</span></div>
+            </a>
+            <a class="contact-link" href="{p['social']['medium']}" target="_blank">
+              <div><span class="link-label">Medium</span><span class="link-val">medium.com/@jacintachinyere</span></div>
+            </a>
+            <a class="contact-link" href="mailto:{p['email']}">
+              <div><span class="link-label">Email</span><span class="link-val">{p['email']}</span></div>
+            </a>'''
+
+# Footer social links
+footer_social = f'''<a href="{p['social']['linkedin']}" target="_blank">LinkedIn</a>
+        <a href="{p['social']['github']}" target="_blank">GitHub</a>
+        <a href="{p['social']['medium']}" target="_blank">Medium</a>'''
+
+# Hero certs
+cert_tags = ["Google Cloud Certified — Professional Cloud Security Engineer", "Cloud Computing & Security", "On Demand IT Skills", "DevOps Micro Internship"]
+hero_certs = "\n".join(f'            <span class="cert-tag{' active' if i < 2 else ''}">{c}</span>' for i, c in enumerate(cert_tags))
+
+# ─── ASSEMBLE HTML ───
+
+html = f'''<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title}</title>
+  <title>{p['name']} | {p['title']}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&family=Fraunces:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="static/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>'''
-
-
-def nav(page):
-    """page is the current filename, e.g. 'index.html'."""
-    links = [
-        ("index.html", "Home"),
-        ("about.html", "About"),
-        ("projects.html", "Projects"),
-        ("resume.html", "Resume"),
-        ("contact.html", "Contact"),
-    ]
-    items = ""
-    for href, label in links:
-        cls = ' class="active"' if page == href else ""
-        items += f'        <li><a href="{href}"{cls}>{label}</a></li>\n'
-    return f'''<nav>
-    <a href="index.html" class="nav-brand">{p['name'].split()[-1][:2].upper()}</a>
-    <div class="nav-right">
-      <ul class="nav-links">
-{items}      </ul>
-      <div class="nav-socials">
-        <a href="{p['social']['github']}" class="nav-social" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="{p['social']['linkedin']}" class="nav-social" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('mobile-open')" aria-label="Menu">☰</button>
-      </div>
-    </div>
-  </nav>'''
-
-
-def footer():
-    return f'''<footer>
-    <p>Designed & Built by <span>{p['name']}</span> &copy; 2026 &nbsp;|&nbsp; {p['title']}</p>
-  </footer>
-  <script src="static/js/main.js"></script>'''
-
-
-def page(title, filename, body):
-    return f"""{head(title)}
+</head>
 <body>
-  {nav(filename)}
 
-  <main>
-{body}
-  </main>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="#home">{first_name[0]}{p['name'].split()[1][0]} <span>Chinyere</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="#home" class="nav-item">Home</a>
+        <a href="#projects" class="nav-item">Projects</a>
+        <a href="#skills" class="nav-item">Skills</a>
+        <a href="#blog" class="nav-item">Blog</a>
+        <a href="#about" class="nav-item">About</a>
+        <a href="#contact" class="nav-item">Contact</a>
+        <a href="#cv" class="cv-btn">View CV</a>
+        <button class="mobile-menu-btn" onclick="document.getElementById('navLinks').classList.toggle('mobile-open')" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </nav>
 
-  {footer()}
+  <!-- HERO -->
+  <section id="home">
+    <div class="grid-lines"></div>
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-left fade-up">
+          <div class="hero-tag">
+            <span class="status-badge">Open to Cloud & DevOps Roles</span>
+          </div>
+          <h1 class="hero-name">{first_name}<br><span>{last_name}</span></h1>
+          <p class="hero-role">{p['title']}</p>
+          <p class="hero-desc">{p['tagline']}</p>
+          <div class="hero-certs">
+{hero_certs}
+          </div>
+          <div class="hero-btns">
+            <a href="#projects" class="btn-primary">Explore Projects</a>
+            <a href="#contact" class="btn-secondary">Contact Me</a>
+          </div>
+        </div>
+        <div class="hero-right fade-up-2">
+          <div class="stat-card">
+            <div class="stat-num gold">{p['stats']['weeks_training']}+</div>
+            <div class="stat-label">Weeks of Intensive<br>Training</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num gold">Google</div>
+            <div class="stat-label">Cloud Certified<br>Professional 2025</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num amber">{p['stats']['projects_delivered']}+</div>
+            <div class="stat-label">Cloud & DevOps<br>Projects Delivered</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num white">{p['stats']['cloud_platforms']}</div>
+            <div class="stat-label">Cloud Platforms<br>Explored</div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- How I Work -->
+      <div class="fade-up-3">
+        <p class="section-label">Approach</p>
+        <h2 class="section-title">How I <em>Work</em></h2>
+        <div class="steps-grid">
+{approach_items}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <p class="section-label">Selected Work</p>
+      <h2 class="section-title">Featured <em>Projects</em></h2>
+      <p style="color:var(--ghost);font-size:var(--fs-sm);margin-top:0.5rem">Cloud infrastructure, container orchestration, and automated deployment pipelines — designed, built, and documented.</p>
+
+      <div class="projects-grid">
+{project_cards}
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <p class="section-label">Technical Stack</p>
+      <h2 class="section-title">Skills & <em>Technologies</em></h2>
+      <p style="color:var(--ghost);font-size:var(--fs-sm);margin-top:0.5rem">Hands-on experience across cloud platforms, containerisation, infrastructure as code, and continuous delivery — applied in real projects and professional environments.</p>
+
+      <div class="skills-domains">
+{skill_domains}
+      </div>
+
+      <p class="section-label" style="margin-top:3rem">Certifications</p>
+      <div class="certs-grid">
+{cert_cards}
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section id="blog">
+    <div class="container">
+      <p class="section-label">Writing & Research</p>
+      <h2 class="section-title">Published <em>Articles</em></h2>
+      <p style="color:var(--ghost);font-size:var(--fs-sm);margin-top:0.5rem">Lessons learned from real deployments, local experiments, and production missteps — written for engineers, readable by anyone.</p>
+
+      <div class="articles-list">
+{article_rows}
+      </div>
+      <div class="articles-cta">
+        <a href="{p['social']['medium']}" target="_blank" class="view-all">View All on Medium ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <p class="section-label">Background</p>
+      <h2 class="section-title">About <em>Me</em></h2>
+      <div class="about-grid">
+        <div class="about-left">
+          <div class="about-text">
+            <p>{p['about']}</p>
+            <p>My journey into tech started with intensive hands-on training at Digital Witch Support Community, where I built a solid foundation in cloud computing and security. I further honed my skills through a DevOps Micro Internship at The CloudAdvisory, working on real-world pipeline automation and cloud deployments. I am committed to continuous learning and delivering production-grade infrastructure.</p>
+          </div>
+
+          <p class="section-label" style="margin-top:2rem">Career Timeline</p>
+          <div class="timeline">
+{timeline_items}
+          </div>
+        </div>
+
+        <div class="about-right">
+          <div class="about-meta">
+            <div class="meta-label">Location</div>
+            <div class="meta-value">{p['location']}<br><span style="color:var(--green);font-size:var(--fs-xs)">Open to remote, hybrid, and relocation opportunities</span></div>
+          </div>
+          <div class="about-meta">
+            <div class="meta-label">Education</div>
+            <div class="meta-value">{edu_html}</div>
+          </div>
+          <div class="about-meta">
+            <div class="meta-label">What I am Looking For</div>
+            <div class="community-badges">
+{roles_html}
+            </div>
+          </div>
+          <div class="about-meta">
+            <div class="meta-label">Connect</div>
+            <div class="community-badges">
+              <div class="community-badge">🔗 <span>GitHub</span> — github.com/Jayce198518</div>
+              <div class="community-badge">💼 <span>LinkedIn</span> — linkedin.com/in/jacinta-ezennajiofoeze</div>
+              <div class="community-badge">✍ <span>Medium</span> — medium.com/@jacintachinyere</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <p class="section-label">Get in Touch</p>
+      <h2 class="section-title">Let's Build Something <em>Together</em></h2>
+      <div class="contact-grid">
+        <div>
+          <p class="contact-desc">{p['title']} · {p['location']} — if you need someone who bridges infrastructure expertise with hands-on engineering, let's talk.</p>
+          <div class="contact-links">
+{contact_links}
+          </div>
+        </div>
+        <form class="contact-form" name="contact" data-netlify="true">
+          <p style="display:none">
+            <input name="bot-field">
+          </p>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell me about the opportunity or project..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- CV -->
+  <section id="cv">
+    <div class="container">
+      <p class="section-label">Curriculum Vitae</p>
+      <h2 class="section-title">View My <em>CV</em></h2>
+      <div class="cv-box">
+        <div class="cv-header">
+          <div class="cv-title">{p['name']} — CV</div>
+          <div class="cv-btns">
+            <a href="{p['social']['linkedin']}" target="_blank" class="cv-btn-li">View on LinkedIn ↗</a>
+          </div>
+        </div>
+        <div class="cv-preview">
+          <div class="icon">📄</div>
+          <p>Downloadable PDF coming soon</p>
+          <p style="font-size:0.7rem">For now, view full details on LinkedIn</p>
+        </div>
+        <div class="cv-certs">
+{cv_certs}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-name">{p['name']}</div>
+      <div class="footer-subtitle">Cloud · DevOps · Infrastructure Engineering</div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#blog">Blog</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#cv">CV</a>
+      </div>
+      <div class="footer-links">
+{footer_social}
+      </div>
+      <div class="footer-copy">© 2026 {p['name']}. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="static/js/main.js"></script>
 </body>
-</html>"""
+</html>
+'''
 
+with open(os.path.join(BASE, "index.html"), "w", encoding="utf-8") as f:
+    f.write(html)
+print("Generated index.html")
 
-# ------------------------------------------------------------------ pages
+# Clean up any old redirect pages
+for page in ["about.html", "projects.html", "resume.html", "contact.html"]:
+    path = os.path.join(BASE, page)
+    if os.path.exists(path):
+        os.remove(path)
+        print(f"Removed old {page}")
 
-# ---------- HOME ----------
-featured = p.get("projects", [])[:3]
-
-featured_cards = "\n    ".join(
-    f'''<div class="card fade-in">
-      <span class="card-icon">{proj.get('icon', '🚀')}</span>
-      <h3>{proj['name']}</h3>
-      <p>{proj['description']}</p>
-      <div class="card-tags">
-        {''.join(f'<span class="tag">{tag}</span>' for tag in proj.get('tags', []))}
-      </div>
-      <a href="projects.html" class="card-link">View Details →</a>
-    </div>'''
-    for proj in featured
-)
-
-skills_grid = "\n    ".join(
-    f'''<div class="skill-group fade-in">
-      <h3>{cat}</h3>
-      <ul class="skill-list">
-        {''.join(f'<li>{item}</li>' for item in items)}
-      </ul>
-    </div>'''
-    for cat, items in p["skills"].items()
-)
-
-if p.get("certifications"):
-    certs_html = "\n    ".join(
-        f'''<div class="cert-badge fade-in">
-      <span class="cert-icon">🏅</span>
-      <div>
-        <h4>{cert['name']}</h4>
-        <p>{cert['issuer']}</p>
-      </div>
-    </div>'''
-        for cert in p["certifications"]
-    )
-else:
-    certs_html = '''<div class="cert-badge fade-in">
-      <span class="cert-icon">📜</span>
-      <div>
-        <h4>Certifications Coming Soon</h4>
-        <p>Pursuing AWS, GCP & Kubernetes certs</p>
-      </div>
-    </div>'''
-
-home_body = f'''<div class="hero">
-    <p class="hero-tag fade-in">Hello, I am</p>
-    <h1 class="fade-in">{p['name'].split()[0]}<br>{' '.join(p['name'].split()[1:])}</h1>
-    <h2 class="fade-in">{p['title']}</h2>
-    <p class="fade-in">{p['tagline']}</p>
-
-    <div class="btn-group fade-in">
-      <a href="projects.html" class="btn btn-primary">View My Work</a>
-      <a href="contact.html" class="btn btn-outline">Contact Me</a>
-    </div>
-
-    <div class="stats fade-in">
-      <div class="stat-item"><span class="stat-number">{p['stats']['weeks_training']}</span><span class="stat-label">Weeks of Training</span></div>
-      <div class="stat-item"><span class="stat-number">{p['stats']['projects_delivered']}+</span><span class="stat-label">Projects Delivered</span></div>
-      <div class="stat-item"><span class="stat-number">{p['stats']['cloud_platforms']}</span><span class="stat-label">Cloud Platforms</span></div>
-      <div class="stat-item"><span class="stat-number">{p['stats']['certifications']}</span><span class="stat-label">GCP Certification</span></div>
-    </div>
-  </div>
-
-  <section>
-    <h2 class="section-title fade-in">What I Work <span>With</span></h2>
-    <div class="section-line fade-in"></div>
-    <div class="skills-grid">
-    {skills_grid}
-    </div>
-  </section>
-
-  <section>
-    <h2 class="section-title fade-in">Featured <span>Projects</span></h2>
-    <div class="section-line fade-in"></div>
-    <div class="card-grid">
-    {featured_cards}
-    </div>
-    <div style="text-align:center;margin-top:2.5rem;">
-      <a href="projects.html" class="btn btn-outline">See All Projects</a>
-    </div>
-  </section>
-
-  <section>
-    <h2 class="section-title fade-in">Certifications</h2>
-    <div class="section-line fade-in"></div>
-    <div class="cert-grid">
-    {certs_html}
-    </div>
-  </section>'''
-
-# ---------- ABOUT ----------
-available = "\n        ".join(
-    f'<li><span>➜</span> {role}</li>' for role in p.get("available_for", [])
-)
-
-about_body = f'''<section>
-    <div class="page-hero">
-      <h1 class="fade-in">About <span>Me</span></h1>
-      <p class="fade-in">{p['title']} · {p['location']}</p>
-    </div>
-    <div class="about-grid" style="padding-top:40px;">
-      <div class="about-text fade-in">
-        <p><span>{p['name']}</span> — {p['about']}</p>
-        <h3 style="color:var(--gold);margin:1.5rem 0 0.8rem;">Available For</h3>
-        <ul class="values-list">
-        {available}
-        </ul>
-        <div class="btn-group" style="margin-top:1.5rem;">
-          <a href="resume.html" class="btn btn-primary">View Resume</a>
-          <a href="contact.html" class="btn btn-outline">Contact Me</a>
-        </div>
-      </div>
-      <div class="fade-in">
-        <div style="background:var(--navy-card);border:1px solid var(--gold-glow);border-radius:10px;padding:2rem;">
-          <h3 style="color:var(--gold);margin-bottom:1rem;">Core Skills</h3>
-          <ul class="values-list">
-            <li><span>☁️</span> AWS, Azure, GCP, Linux</li>
-            <li><span>🐳</span> Docker, Kubernetes, Helm</li>
-            <li><span>🏗️</span> Terraform, Ansible, Pulumi</li>
-            <li><span>⚙️</span> Jenkins, GitHub Actions, ArgoCD</li>
-            <li><span>📊</span> Prometheus, Grafana, ELK</li>
-            <li><span>🤖</span> Claude Code, GitHub Copilot</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>'''
-
-# ---------- PROJECTS ----------
-project_cards = "\n    ".join(
-    f'''<div class="card fade-in">
-      <span class="card-icon">{proj.get('icon', '🚀')}</span>
-      <h3>{proj['name']}</h3>
-      <p>{proj['description']}</p>
-      <div class="card-tags">
-        {''.join(f'<span class="tag">{tag}</span>' for tag in proj.get('tags', []))}
-      </div>
-      <div class="card-tags" style="margin-top:0.8rem;">
-        {f'<a href="{proj["github"]}" class="btn btn-sm btn-primary" target="_blank">Code</a>' if proj.get('github') else ''}
-        {f'<a href="{proj["demo"]}" class="btn btn-sm btn-outline" target="_blank">Demo</a>' if proj.get('demo') else ''}
-      </div>
-    </div>'''
-    for proj in p.get("projects", [])
-)
-
-projects_body = f'''<section>
-    <div class="page-hero">
-      <h1 class="fade-in">Featured <span>Projects</span></h1>
-      <p class="fade-in">DevOps, Cloud, and Infrastructure projects I've built.</p>
-    </div>
-    <div style="text-align:center;margin-bottom:2rem;" class="fade-in">
-      <a href="{p['social']['github']}" class="btn btn-primary" target="_blank"><i class="fab fa-github"></i> GitHub Profile</a>
-    </div>
-    <div class="card-grid">
-    {project_cards}
-    </div>
-  </section>'''
-
-# ---------- RESUME ----------
-skill_groups = "\n    ".join(
-    f'''<div class="skill-group">
-      <h3>{cat}</h3>
-      <ul class="skill-list">
-        {''.join(f'<li>{item}</li>' for item in items)}
-      </ul>
-    </div>'''
-    for cat, items in p["skills"].items()
-)
-
-exp_items = "\n    ".join(
-    f'''<div style="margin-bottom:1.5rem;">
-      <strong style="color:var(--white);">{job['title']}</strong>
-      <p style="color:var(--grey);font-size:0.9rem;">{job['company']} · {job['dates']}</p>
-      <p style="color:var(--grey);">{job['description']}</p>
-    </div>'''
-    for job in p.get("experience", [])
-)
-if not p.get("experience"):
-    exp_items = '<p style="color:var(--grey);">Experience details coming soon.</p>'
-
-proj_items = "\n    ".join(
-    f'''<div style="margin-bottom:1rem;">
-      <strong style="color:var(--white);">{proj['name']}</strong>
-      <p style="color:var(--grey);">{proj['description']}</p>
-    </div>'''
-    for proj in p.get("projects", [])
-)
-
-cert_list = "\n    ".join(
-    f'<li>{cert["name"]} — {cert["issuer"]}</li>'
-    for cert in p.get("certifications", [])
-)
-if cert_list:
-    cert_html = f'<ul style="color:var(--grey);">\n    {cert_list}\n    </ul>'
-else:
-    cert_html = '<p style="color:var(--grey);">Certifications coming soon.</p>'
-
-resume_body = f'''<section>
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;">
-      <h1 class="page-hero" style="padding:120px 0 0;text-align:left;"><span style="color:var(--white);font-weight:800;">Resume</span></h1>
-      <button class="btn btn-primary" onclick="window.print()">🖨 Print</button>
-    </div>
-    <div class="fade-in" style="margin-bottom:2rem;">
-      <h2 style="color:var(--gold);font-size:1.5rem;">{p['name']}</h2>
-      <p style="color:var(--grey);">{p['title']} · {p['location']}</p>
-      <p style="color:var(--grey);"><i class="fas fa-envelope"></i> {p['email']}</p>
-    </div>
-    <div class="fade-in" style="margin-bottom:2rem;">
-      <h3 style="color:var(--gold);border-bottom:2px solid var(--gold);padding-bottom:0.5rem;margin-bottom:1rem;">Summary</h3>
-      <p style="color:var(--grey);">{p['about']}</p>
-    </div>
-    <div class="fade-in" style="margin-bottom:2rem;">
-      <h3 style="color:var(--gold);border-bottom:2px solid var(--gold);padding-bottom:0.5rem;margin-bottom:1rem;">Skills</h3>
-      <div class="skills-grid">
-    {skill_groups}
-      </div>
-    </div>
-    <div class="fade-in" style="margin-bottom:2rem;">
-      <h3 style="color:var(--gold);border-bottom:2px solid var(--gold);padding-bottom:0.5rem;margin-bottom:1rem;">Experience</h3>
-    {exp_items}
-    </div>
-    <div class="fade-in" style="margin-bottom:2rem;">
-      <h3 style="color:var(--gold);border-bottom:2px solid var(--gold);padding-bottom:0.5rem;margin-bottom:1rem;">Projects</h3>
-    {proj_items}
-    </div>
-    <div class="fade-in">
-      <h3 style="color:var(--gold);border-bottom:2px solid var(--gold);padding-bottom:0.5rem;margin-bottom:1rem;">Certifications</h3>
-    {cert_html}
-    </div>
-  </section>
-  <style>
-    @media print {{ nav, footer, .btn {{ display:none !important; }} body {{ color:#000; background:#fff; }} .card, .skill-group, .cert-badge {{ border-color:#ddd; }} }}
-  </style>'''
-
-# ---------- CONTACT ----------
-contact_body = f'''<section>
-    <div class="page-hero">
-      <h1 class="fade-in">Let's <span>Connect</span></h1>
-      <p class="fade-in">Open to DevOps roles, internships, and collaborations.</p>
-    </div>
-    <div class="contact-grid" style="padding-top:40px;">
-      <div class="fade-in">
-        <div style="background:var(--navy-card);border:1px solid var(--gold-glow);border-radius:10px;padding:2rem;">
-          <h3 style="color:var(--gold);margin-bottom:1rem;">Reach Out</h3>
-          <div class="contact-item">
-            <span class="contact-icon">📧</span>
-            <a href="mailto:{p['email']}">{p['email']}</a>
-          </div>
-          <div class="contact-item">
-            <span class="contact-icon">📍</span>
-            <span>{p['location']}</span>
-          </div>
-          <div class="social-links">
-            <a href="{p['social']['github']}" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-            <a href="{p['social']['linkedin']}" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            <a href="{p['social']['hashnode']}" target="_blank"><i class="fas fa-blog"></i> Hashnode</a>
-            <a href="{p['social']['medium']}" target="_blank"><i class="fab fa-medium"></i> Medium</a>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in">
-        <div style="background:var(--navy-card);border:1px solid var(--gold-glow);border-radius:10px;padding:2rem;">
-          <h3 style="color:var(--gold);margin-bottom:1rem;">Send a Message</h3>
-          <form name="contact" data-netlify="true">
-            <div class="form-group">
-              <label class="form-label">Name</label>
-              <input type="text" class="form-control" name="name" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Email</label>
-              <input type="email" class="form-control" name="email" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Subject</label>
-              <input type="text" class="form-control" name="subject" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Message</label>
-              <textarea class="form-control" name="message" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary w-100">Send Message</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>'''
-
-# ------------------------------------------------------------------ write
-
-pages = [
-    ("index.html", f"{p['name']} — {p['title']}", home_body),
-    ("about.html", f"About — {p['name']}", about_body),
-    ("projects.html", f"Projects — {p['name']}", projects_body),
-    ("resume.html", f"Resume — {p['name']}", resume_body),
-    ("contact.html", f"Contact — {p['name']}", contact_body),
-]
-
-for filename, title, body in pages:
-    path = os.path.join(BASE, filename)
-    with open(path, "w", encoding="utf-8") as f:
-        f.write(page(title, filename, body))
-    print(f"Generated {filename}")
-
-print("All static files generated.")
+print("All done.")

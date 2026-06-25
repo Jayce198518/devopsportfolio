@@ -1,84 +1,172 @@
 {
   "name": "Ezennajiofoeze Jacinta Chinyere",
   "title": "Cloud & DevOps Engineer",
-  "subtitle": "AWS | Azure | GCP | Linux | Agentic DevOps",
-  "tagline": "I design, build, and operate cloud infrastructure that is secure, scalable, and automated. With hands-on experience across AWS, Azure, Docker, Kubernetes, and Terraform — I turn complex systems into reliable, observable, production-ready platforms.",
+  "subtitle": "AWS | Azure | GCP | Kubernetes | CI/CD",
+  "tagline": "I architect resilient cloud platforms and automated delivery pipelines that bridge infrastructure and application deployment. From containerised microservices to policy-driven Kubernetes clusters, I translate operational complexity into streamlined, observable systems.",
   "location": "Lagos, Nigeria",
-  "email": "jacintachinyere@gmail.com",
+  "email": "jullycallis@gmail.com",
   "available_for": [
-    "DevOps paid internship",
-    "DevOps role",
-    "System administrator",
-    "Cloud engineer role",
-    "Tech roles"
+    "DevOps engineering roles",
+    "Cloud infrastructure consulting",
+    "Platform engineering contracts",
+    "SRE and automation engagements"
   ],
   "social": {
     "github": "https://github.com/Jayce198518",
-    "linkedin": "https://www.linkedin.com/in/ezennajiofoeze-jacinta-8b5471103/",
-    "hashnode": "https://hashnode.com/@jayce89",
+    "linkedin": "https://www.linkedin.com/in/jacinta-ezennajiofoeze-8b5471103",
     "medium": "https://medium.com/@jacintachinyere"
   },
-  "about": "I am an Agentic DevOps and Cloud Engineer passionate about building scalable, automated, and intelligent cloud solutions. I have hands-on experience with Agentic AI, Kubernetes, Docker, Terraform, and CI/CD, focusing on reliable and efficient software delivery. I enjoy solving complex problems, optimizing workflows, and continuously learning new technologies that drive innovation.",
-  "education": [],
-  "experience": [],
+  "about": "I am a platform-focused engineer who treats infrastructure as a product. My work centres on building self-healing, observable systems across AWS, Azure, and GCP using Terraform, Kubernetes, and modern CI/CD practices. I have shipped containerised workloads, automated provisioning pipelines, and security-hardened deployments that run reliably in production. I am particularly drawn to agentic tooling and AI-assisted workflows that accelerate infrastructure delivery without sacrificing control or compliance. Every environment I build is reproducible, monitored, and documented — because operational clarity is not optional.",
+  "approach": [
+    {
+      "num": "01",
+      "title": "Design & Validate",
+      "description": "I begin by modelling the target architecture — network topology, identity boundaries, and failure modes — before writing a single line of provisioning code. Prototyping locally with Docker, kind, and WSL2 lets me catch configuration drift and dependency issues early, long before cloud resources are spun up."
+    },
+    {
+      "num": "02",
+      "title": "Automate & Secure",
+      "description": "Infrastructure is codified in Terraform, application state is managed through Ansible or Helm, and pipelines enforce quality gates before anything reaches a cluster. Secrets stay out of repositories, IAM follows least-privilege principles, and every deployment is traceable from commit to runtime."
+    },
+    {
+      "num": "03",
+      "title": "Observe & Iterate",
+      "description": "Production readiness means more than green health checks. I instrument services with Prometheus metrics, Grafana dashboards, and distributed tracing so anomalies surface before they escalate. Post-deployment feedback loops inform the next iteration, turning operational data into architectural improvements."
+    }
+  ],
+  "education": [
+    {
+      "institution": "National Open University of Nigeria",
+      "degree": "BSc Economics",
+      "year": "2026"
+    }
+  ],
+  "experience": [
+    {
+      "role": "DevOps Micro Internship — Hands-on Training",
+      "company": "The CloudAdvisory",
+      "dates": "Jan 2026 – Jun 2026",
+      "current": true
+    },
+    {
+      "role": "Cloud Computing & Security — Hands-on Training",
+      "company": "Digital Witch Support Community",
+      "dates": "Apr 2024 – Sep 2024",
+      "current": false
+    },
+    {
+      "role": "On Demand IT Skills — Hands-on Training",
+      "company": "Digital Witch Support Community",
+      "dates": "Apr 2024 – May 2024",
+      "current": false
+    }
+  ],
+  "timeline": [
+    {
+      "date": "Jan 2026 – Jun 2026",
+      "title": "DevOps Micro Internship — Hands-on Training",
+      "org": "The CloudAdvisory",
+      "current": true
+    },
+    {
+      "date": "Apr 2024 – Sep 2024",
+      "title": "Cloud Computing & Security — Hands-on Training",
+      "org": "Digital Witch Support Community",
+      "current": false
+    },
+    {
+      "date": "Apr 2024 – May 2024",
+      "title": "On Demand IT Skills — Hands-on Training",
+      "org": "Digital Witch Support Community",
+      "current": false
+    }
+  ],
   "projects": [
     {
       "name": "Spring PetClinic Microservices",
+      "tagline": "Production-grade Docker stack with full observability",
       "icon": "🐳",
-      "description": "Built and validated Docker images for microservices using multi-stage Dockerfiles and Maven build profiles. Deployed full stack with Prometheus, Grafana, and Zipkin observability.",
-      "tags": ["Docker", "Docker Compose", "Prometheus", "Grafana"],
+      "description": "Engineered optimised Docker images for a polyglot microservices suite using multi-stage build patterns and Maven profile segregation. Orchestrated the complete runtime environment with Docker Compose, wiring Prometheus for metrics collection, Grafana for visualisation, and Zipkin for distributed request tracing across service boundaries.",
+      "impact": "Demonstrates end-to-end container strategy — build optimisation, service mesh telemetry, and local-to-cloud portability — using the same patterns required for enterprise service platforms.",
+      "tags": ["Docker", "Docker Compose", "Prometheus", "Grafana", "Zipkin", "Microservices"],
       "github": "https://github.com/Jayce198518",
-      "demo": null
+      "demo": null,
+      "featured": true
     },
     {
       "name": "Kubernetes Fundamentals Lab",
+      "tagline": "Scalable workload orchestration on kind clusters",
       "icon": "☸️",
-      "description": "Deployed Pods, ReplicaSets, Deployments, HPA, health probes, NodePort and LoadBalancer Services on a kind cluster in WSL2. Performed rolling updates and rollbacks.",
-      "tags": ["Kubernetes", "kind", "HPA", "kubectl"],
+      "description": "Provisioned and managed Kubernetes primitives on a kind cluster hosted inside WSL2. Configured ReplicaSets for resilience, Deployments with rolling-update strategies, Horizontal Pod Autoscaler for elasticity, and multi-type Services for internal and external traffic routing. Validated zero-downtime rollouts and rapid rollback procedures.",
+      "impact": "Replicates the control-plane and workload patterns every production cluster demands: health probes, resource quotas, autoscaling triggers, and graceful update mechanics.",
+      "tags": ["Kubernetes", "kind", "HPA", "kubectl", "WSL2"],
       "github": "https://github.com/Jayce198518",
       "demo": null
     },
     {
       "name": "EpicBook Azure DevOps Deployment",
+      "tagline": "Dual-pipeline infrastructure and application delivery",
       "icon": "🏗️",
-      "description": "Provisioned Azure infrastructure with Terraform and deployed a Node.js bookstore application using Ansible playbooks through Azure DevOps pipelines with automated CI/CD.",
-      "tags": ["Azure DevOps", "Terraform", "Ansible", "CI/CD"],
+      "description": "Designed a two-stage delivery pipeline that separates infrastructure lifecycle management from application release automation. Terraform provisions Azure resources — Virtual Networks, App Services, and managed databases — while Ansible playbooks handle Node.js application configuration and secret injection. Azure DevOps pipelines orchestrate the entire flow end-to-end.",
+      "impact": "Separation of infrastructure and application concerns reduces blast radius, simplifies auditing, and mirrors the enterprise DevSecOps architectures used by platform teams at scale.",
+      "tags": ["Azure DevOps", "Terraform", "Ansible", "CI/CD", "Node.js"],
       "github": "https://github.com/Jayce198518",
       "demo": null
     }
   ],
   "blog_posts": [
     {
-      "title": "My Role as a Helm Values Deployment Engineer: Configuring Microservices for Spring PetClinic on EKS",
+      "title": "Configuring Microservices for Spring PetClinic on EKS: A Helm Values Approach",
       "url": "https://spring-petclinic-microservice.hashnode.dev/my-role-as-a-helm-values-deployment-engineer-configuring-microservices-for-spring-petclinic-on-eks",
-      "date": "Jun 13, 2026",
-      "excerpt": "A few weeks ago, my team and I worked on a cloud-native deployment for the Spring PetClinic microservices application as part of a DevOps capstone project..."
+      "date": "Jun 2026",
+      "read_time": "8 min",
+      "excerpt": "Unpacking the Helm values hierarchy used to deploy the Spring PetClinic microservices stack on Amazon EKS — templating strategies, environment overrides, and secrets externalisation."
     },
     {
-      "title": "The Educational Value of Local Deployment: A Prerequisite for Cloud Migration",
+      "title": "Why Local Deployment Still Matters Before You Touch the Cloud",
       "url": "https://spring-petclinic-microservice.hashnode.dev/the-educational-value-of-local-deployment-a-prerequisite-for-cloud-migration",
-      "date": "Jun 13, 2026",
-      "excerpt": "Before deploying the Spring PetClinic microservices application with my team on Amazon Web Services, I first decided to run the project locally using Docker..."
+      "date": "Jun 2026",
+      "read_time": "6 min",
+      "excerpt": "Before migrating workloads to AWS, I ran every service locally with Docker Compose. Here is what the process revealed about hidden assumptions, environment parity, and the real cost of skipping the dry run."
     }
   ],
   "certifications": [
     {
-      "name": "Professional Cloud Security Engineer",
-      "issuer": "Google Cloud Platform"
+      "name": "Google Cloud Certified — Professional Cloud Security Engineer",
+      "issuer": "Google Cloud",
+      "date": "2025",
+      "note": "Professional-level cloud security certification demonstrating expertise in securing GCP infrastructure"
+    },
+    {
+      "name": "Cloud Computing & Security",
+      "issuer": "Digital Witch Support Community",
+      "date": "Sep 2024",
+      "note": "Comprehensive hands-on training in cloud fundamentals, security practices, and platform operations"
+    },
+    {
+      "name": "On Demand IT Skills",
+      "issuer": "Digital Witch Support Community",
+      "date": "May 2024",
+      "note": "Foundation-level training covering core IT competencies and modern tooling"
+    },
+    {
+      "name": "DevOps Micro Internship",
+      "issuer": "The CloudAdvisory",
+      "date": "Jun 2026",
+      "note": "Intensive hands-on DevOps internship — pipelines, IaC, container orchestration, and cloud deployments",
+      "current": true
     }
   ],
   "stats": {
-    "weeks_training": 14,
-    "projects_delivered": 6,
+    "weeks_training": 17,
+    "projects_delivered": 10,
     "cloud_platforms": 3,
-    "certifications": 1
+    "certifications": 4
   },
   "skills": {
-    "☁️ Cloud Platforms": ["AWS", "Azure", "Google Cloud"],
-    "🐳 Containers & Orchestration": ["Docker", "Docker Compose", "Kubernetes", "Helm"],
-    "🏗️ Infrastructure as Code": ["Terraform", "Ansible", "Modules", "State Management"],
-    "⚙️ CI/CD & Automation": ["GitHub Actions", "Azure DevOps", "Bash Scripting"],
-    "📊 Observability": ["Prometheus", "Grafana", "Zipkin", "Spring Boot Admin"],
-    "🛠️ Tools & OS": ["Linux", "Git", "VS Code", "WSL2", "GitHub Codespaces"]
+    "Cloud & Infrastructure": ["AWS", "Azure", "Google Cloud", "Terraform", "Ansible", "Pulumi", "VNet / VPC", "IAM", "Security Groups", "Private Subnets"],
+    "Containers & Orchestration": ["Docker", "Docker Compose", "Kubernetes", "Helm", "kind", "Multi-stage Builds", "Container Security"],
+    "CI/CD & Automation": ["GitHub Actions", "Azure DevOps", "Jenkins", "Bash Scripting", "Git", "SPN Auth", "Secrets Management"],
+    "Observability & Tools": ["Prometheus", "Grafana", "Zipkin", "Spring Boot Admin", "Linux", "VS Code", "WSL2", "GitHub Codespaces"]
   }
 }

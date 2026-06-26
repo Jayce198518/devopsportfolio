@@ -166,28 +166,32 @@
       "note": "Automate work without coding",
       "current": false,
       "in_progress": true,
-      "certificate_url": ""
+      "certificate_url": "static/images/certs/build-ai-agents-for-business.jpg",
+      "image": "static/images/certs/build-ai-agents-for-business.jpg"
     },
     {
       "name": "Google Cloud Certified \u2014 Professional Cloud Security Engineer",
       "issuer": "Google Cloud",
       "date": "2025",
       "note": "Professional-level cloud security certification demonstrating expertise in securing GCP infrastructure",
-      "certificate_url": ""
+      "certificate_url": "static/images/certs/google-cloud-pcse.jpg",
+      "image": "static/images/certs/google-cloud-pcse.jpg"
     },
     {
       "name": "Cloud Computing & Security",
       "issuer": "Digital Witch Support Community",
       "date": "Sep 2024",
       "note": "Comprehensive hands-on training in cloud fundamentals, security practices, and platform operations",
-      "certificate_url": ""
+      "certificate_url": "static/images/certs/cloud-computing-security.jpg",
+      "image": "static/images/certs/cloud-computing-security.jpg"
     },
     {
       "name": "On Demand IT Skills",
       "issuer": "Digital Witch Support Community",
       "date": "May 2024",
       "note": "Foundation-level training covering core IT competencies and modern tooling",
-      "certificate_url": ""
+      "certificate_url": "static/images/certs/on-demand-it-skills.jpg",
+      "image": "static/images/certs/on-demand-it-skills.jpg"
     },
     {
       "name": "DevOps Micro Internship",
@@ -195,7 +199,8 @@
       "date": "Jun 2026",
       "note": "Intensive hands-on DevOps internship \u2014 pipelines, IaC, container orchestration, and cloud deployments",
       "current": true,
-      "certificate_url": ""
+      "certificate_url": "static/images/certs/devops-micro-internship.jpg",
+      "image": "static/images/certs/devops-micro-internship.jpg"
     },
     {
       "name": "Agentic AI & DevOps Automation",
@@ -203,7 +208,8 @@
       "date": "2026",
       "note": "Applied agentic tooling (Claude Code, Cursor) to automate CI/CD pipelines, infrastructure provisioning, and security review",
       "in_progress": true,
-      "certificate_url": ""
+      "certificate_url": "static/images/certs/agentic-ai-devops-automation.jpg",
+      "image": "static/images/certs/agentic-ai-devops-automation.jpg"
     }
   ],
   "stats": {

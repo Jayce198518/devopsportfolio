@@ -81,10 +81,30 @@ def cert_card(cert):
     elif cert.get('in_progress'):
         border = ' style="border-color:rgba(255,184,0,0.3)"'
         date_style = ' style="color:var(--amber)"'
-    return f'''        <div class="cert-card"{border}>
+
+    url = cert.get('certificate_url') or cert.get('image', '')
+    img = cert.get('image', '')
+
+    if img:
+        thumb = f'''          <div class="cert-thumb">
+            <img src="{img}" alt="Certificate: {cert['name']}" loading="lazy">
+          </div>'''
+    else:
+        thumb = '''          <div class="cert-thumb cert-thumb-placeholder">
+            <span>📜</span>
+          </div>'''
+
+    inner = f'''{thumb}
           <div class="cert-name">{cert['name']}</div>
           <div class="cert-date"{date_style}>{cert['issuer']} · {cert.get('date', '')}</div>
-          <div class="cert-note">{cert.get('note', '')}</div>
+          <div class="cert-note">{cert.get('note', '')}</div>'''
+
+    if url:
+        return f'''        <a class="cert-card" href="{url}" target="_blank" rel="noopener noreferrer"{border}>
+{inner}
+        </a>'''
+    return f'''        <div class="cert-card"{border}>
+{inner}
         </div>'''
 
 cert_cards = "\n".join(cert_card(cert) for cert in p.get("certifications", []))

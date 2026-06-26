@@ -54,4 +54,52 @@ document.addEventListener('DOMContentLoaded', function() {
   }, { threshold: 0.1 });
 
   document.querySelectorAll('.fade-up, .fade-up-2, .fade-up-3').forEach(el => observer.observe(el));
+
+  // Certificate modal
+  const certModal = document.getElementById('certModal');
+  const certModalImg = document.getElementById('certModalImg');
+  const certModalClose = certModal ? certModal.querySelector('.cert-modal-close') : null;
+  const certModalBackdrop = certModal ? certModal.querySelector('.cert-modal-backdrop') : null;
+
+  function openCertModal(imageSrc) {
+    if (!certModal || !certModalImg) return;
+    certModalImg.src = imageSrc;
+    certModal.classList.add('active');
+    certModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCertModal() {
+    if (!certModal) return;
+    certModal.classList.remove('active');
+    certModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    certModalImg.src = '';
+  }
+
+  document.querySelectorAll('.cert-card-clickable').forEach(card => {
+    card.addEventListener('click', function(e) {
+      // Don't trigger if the user is selecting text
+      if (window.getSelection().toString().length > 0) return;
+      const imageSrc = this.getAttribute('data-image');
+      if (imageSrc) {
+        e.preventDefault();
+        openCertModal(imageSrc);
+      }
+    });
+  });
+
+  if (certModalClose) {
+    certModalClose.addEventListener('click', closeCertModal);
+  }
+
+  if (certModalBackdrop) {
+    certModalBackdrop.addEventListener('click', closeCertModal);
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && certModal && certModal.classList.contains('active')) {
+      closeCertModal();
+    }
+  });
 });

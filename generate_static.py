@@ -71,7 +71,7 @@ skill_domains = "\n".join(
     for i, (cat, items) in enumerate(p.get("skills", {}).items())
 )
 
-# Certifications
+# Certifications (modal preview)
 def cert_card(cert):
     border = ''
     date_style = ''
@@ -82,27 +82,28 @@ def cert_card(cert):
         border = ' style="border-color:rgba(255,184,0,0.3)"'
         date_style = ' style="color:var(--amber)"'
 
-    url = cert.get('certificate_url') or cert.get('image', '')
     img = cert.get('image', '')
 
     if img:
         thumb = f'''          <div class="cert-thumb">
             <img src="{img}" alt="Certificate: {cert['name']}" loading="lazy">
           </div>'''
+        data_attr = f' data-image="{img}"'
     else:
         thumb = '''          <div class="cert-thumb cert-thumb-placeholder">
             <span>📜</span>
           </div>'''
+        data_attr = ''
 
     inner = f'''{thumb}
           <div class="cert-name">{cert['name']}</div>
           <div class="cert-date"{date_style}>{cert['issuer']} · {cert.get('date', '')}</div>
           <div class="cert-note">{cert.get('note', '')}</div>'''
 
-    if url:
-        return f'''        <a class="cert-card" href="{url}" target="_blank" rel="noopener noreferrer"{border}>
+    if data_attr:
+        return f'''        <div class="cert-card cert-card-clickable"{data_attr}{border}>
 {inner}
-        </a>'''
+        </div>'''
     return f'''        <div class="cert-card"{border}>
 {inner}
         </div>'''
@@ -446,6 +447,15 @@ html = f'''<!DOCTYPE html>
       <div class="footer-copy">© 2026 {p['name']}. All rights reserved.</div>
     </div>
   </footer>
+
+  <!-- Certificate Modal -->
+  <div id="certModal" class="cert-modal" aria-hidden="true">
+    <div class="cert-modal-backdrop"></div>
+    <div class="cert-modal-content">
+      <button class="cert-modal-close" aria-label="Close certificate preview">&times;</button>
+      <img id="certModalImg" src="" alt="Certificate preview">
+    </div>
+  </div>
 
   <script src="static/js/main.js"></script>
 </body>

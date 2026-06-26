@@ -1,7 +1,7 @@
 # Clickable Certificates with Image Thumbnails
 
 ## Goal
-Make the certificates section in the portfolio interactive: each certificate card should be clickable and open a larger certificate image or PDF in a new tab, with a preview thumbnail displayed at the top of each card.
+Make the certificates section in the portfolio interactive: each certificate card should be clickable and show the larger certificate image in an on-page modal/lightbox, with a preview thumbnail displayed at the top of each card.
 
 ## Current State
 - `index.html` contains a `.certs-grid` with 6 `.cert-card` elements.
@@ -45,22 +45,23 @@ Extend each certification entry in `profile.json`:
 Update `cert_card()` to:
 
 1. Render an optional `<img>` thumbnail at the top of the card.
-2. Wrap the entire `.cert-card` in an `<a>` element when `certificate_url` is present.
-3. Add `target="_blank"` and `rel="noopener noreferrer"` to the link.
+2. Render the `.cert-card` as a `<div>` with a `data-image` attribute when an image is present.
+3. Add a `.cert-card-clickable` class to indicate the card is interactive.
 4. Keep existing border and date color logic.
 5. Use a placeholder visual when no image is provided (a styled badge/icon area so the layout does not collapse).
+6. Add a hidden modal element at the bottom of the page for displaying the full certificate image.
 
-HTML structure for linked cards:
+HTML structure for clickable cards:
 
 ```html
-<a class="cert-card" href="static/images/certs/..." target="_blank" rel="noopener noreferrer" style="...">
+<div class="cert-card cert-card-clickable" data-image="static/images/certs/..." style="...">
   <div class="cert-thumb">
     <img src="static/images/certs/..." alt="Certificate: Name" loading="lazy">
   </div>
   <div class="cert-name">...</div>
   <div class="cert-date">...</div>
   <div class="cert-note">...</div>
-</a>
+</div>
 ```
 
 HTML structure for unlinked cards (no image yet):
@@ -76,15 +77,30 @@ HTML structure for unlinked cards (no image yet):
 </div>
 ```
 
+Modal element:
+
+```html
+<div id="certModal" class="cert-modal" aria-hidden="true">
+  <div class="cert-modal-backdrop"></div>
+  <div class="cert-modal-content">
+    <button class="cert-modal-close" aria-label="Close certificate preview">&times;</button>
+    <img id="certModalImg" src="" alt="Certificate preview">
+  </div>
+</div>
+```
+
 ### 4. CSS Updates (`static/css/style.css`)
 Add styles for:
 
-- `.cert-card` as an inline block with no underline and inherited color when it is an `<a>`.
-- `.cert-thumb` container with fixed aspect ratio (e.g., 16:10), rounded top corners, overflow hidden, and subtle border.
+- `.cert-card` as a flex column with inherited color.
+- `.cert-card-clickable` with `cursor: pointer` to indicate interactivity.
+- `.cert-thumb` container with fixed aspect ratio (e.g., 16:10), rounded corners, overflow hidden, and subtle border.
 - `.cert-thumb img` with `width: 100%; height: 100%; object-fit: cover;`.
 - `.cert-thumb-placeholder` with a muted background, centered icon, and same aspect ratio.
-- Hover state for the linked card: border color change plus a slight lift/shadow.
+- Hover state for the clickable card: border color change plus a slight lift/shadow.
 - Focus state for accessibility.
+- Modal backdrop, content container, close button, and image sizing.
+- Responsive modal padding for mobile.
 
 Example CSS:
 
@@ -96,13 +112,17 @@ Example CSS:
   color: inherit;
 }
 
+.cert-card-clickable {
+  cursor: pointer;
+}
+
 .cert-thumb {
   width: 100%;
   aspect-ratio: 16 / 10;
   border-radius: 8px;
   overflow: hidden;
   border: 1px solid var(--border);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
   background: var(--panel2);
 }
 
@@ -122,8 +142,22 @@ Example CSS:
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   color: var(--ghost2);
+}
+
+.cert-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.cert-modal.active {
+  display: flex;
 }
 ```
 
@@ -136,15 +170,26 @@ python3 generate_static.py
 
 This rebuilds `index.html` with the new certificate cards.
 
+### 5. JavaScript Updates (`static/js/main.js`)
+Add modal behavior:
+
+1. Select modal elements (`#certModal`, `#certModalImg`, close button, backdrop).
+2. Attach click listeners to `.cert-card-clickable` cards to open the modal with the image from `data-image`.
+3. Close the modal when clicking the close button, clicking the backdrop, or pressing Escape.
+4. Prevent body scroll when the modal is open.
+5. Ignore clicks when the user is selecting text.
+
 ### 6. Responsive Behavior
 - The existing `.certs-grid` is 3 columns on desktop, 2 on tablet, 1 on mobile.
 - Thumbnails will scale with the card width and maintain the 16:10 ratio.
+- Modal uses reduced padding on small screens and keeps the image within viewport bounds.
 
 ## Success Criteria
 - [ ] Each certificate card with an image path is clickable.
-- [ ] Clicking opens the certificate image/PDF in a new tab.
+- [ ] Clicking opens the certificate image in an on-page modal/lightbox.
 - [ ] Each card has a preview thumbnail area at the top.
 - [ ] Cards without an image show a placeholder instead of a broken image.
+- [ ] The modal closes via close button, backdrop click, or Escape key.
 - [ ] The site regenerates from `profile.json` without losing the changes.
 - [ ] No new external dependencies are introduced.
 

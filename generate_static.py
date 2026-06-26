@@ -23,6 +23,16 @@ approach_items = "\n".join(
     for step in p.get("approach", [])
 )
 
+def project_images_html(proj):
+    images = proj.get('images', [])
+    if not images:
+        return ''
+    imgs = ''.join(
+        f'<img src="{img}" alt="{proj["name"]} screenshot {i+1}" class="project-image" loading="lazy">'
+        for i, img in enumerate(images)
+    )
+    return f'<div class="project-images">{imgs}</div>'
+
 # Projects
 project_cards = "\n".join(
     f'''        <!-- {proj['name']} -->
@@ -34,6 +44,7 @@ project_cards = "\n".join(
             <h3 class="project-title">{proj['name']}</h3>
             <p class="project-desc">{proj['description']}</p>
           </div>
+          {project_images_html(proj)}
           <div class="project-impact">
             <strong>Engineering Impact</strong>
             {proj.get('impact', '')}

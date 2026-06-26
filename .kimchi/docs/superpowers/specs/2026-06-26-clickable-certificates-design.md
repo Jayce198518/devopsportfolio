@@ -1,28 +1,32 @@
-# Clickable Certificates with Image Thumbnails
+# Clickable Certificates & Projects with Image Previews
 
 ## Goal
-Make the certificates section in the portfolio interactive: each certificate card should be clickable and show the larger certificate image in an on-page modal/lightbox, with a preview thumbnail displayed at the top of each card.
+Make the certificates and projects sections interactive: each certificate card and each project screenshot should be clickable and show the larger image in an on-page modal/lightbox. Certificate cards display a preview thumbnail at the top; project cards display a screenshot gallery.
 
 ## Current State
 - `index.html` contains a `.certs-grid` with 6 `.cert-card` elements.
 - Cards display name, issuer/date, and a short note only.
-- `profile.json` has a `certifications` array with an empty `certificate_url` field per entry.
+- `profile.json` has a `certifications` array with an empty `certificate_url` field per entry, and a `projects` array with an empty `images` array per entry.
 - `generate_static.py` renders `profile.json` into `index.html`.
-- `static/css/style.css` styles `.cert-card` but does not support images or link wrapping.
+- `static/css/style.css` styles `.cert-card` and `.project-images` but does not support modal previews.
 
 ## Design
 
 ### 1. Image Storage
-Certificate images/PDFs must be added to the repository so they are accessible when the site is deployed.
+Certificate and project images/PDFs must be added to the repository so they are accessible when the site is deployed.
 
-- **Location:** `static/images/certs/`
-- **Naming convention:** lowercase, hyphenated filenames based on certificate name, e.g.:
+- **Certificates:** `static/images/certs/`
   - `google-cloud-pcse.jpg`
   - `cloud-computing-security.jpg`
   - `on-demand-it-skills.jpg`
   - `devops-micro-internship.jpg`
   - `build-ai-agents-for-business.jpg`
   - `agentic-ai-devops-automation.jpg`
+- **Projects:** `static/images/projects/`
+  - One folder or set of filenames per project, e.g.:
+    - `spring-petclinic-1.jpg`, `spring-petclinic-2.jpg`, ...
+    - `kubernetes-lab-1.jpg`, `kubernetes-lab-2.jpg`, ...
+    - `epicbook-azure-1.jpg`, `epicbook-azure-2.jpg`, ...
 
 ### 2. Data Model
 Extend each certification entry in `profile.json`:
@@ -39,7 +43,19 @@ Extend each certification entry in `profile.json`:
 ```
 
 - `certificate_url` / `image`: path to the certificate image or PDF.
-- If `certificate_url` is empty, the card will not be wrapped in a link and will remain non-clickable until an image is provided.
+- If `image` is empty, the card will not be clickable until an image is provided.
+
+Extend each project entry with an `images` array:
+
+```json
+{
+  "name": "Spring PetClinic Microservices",
+  "images": [
+    "static/images/projects/spring-petclinic-1.jpg",
+    "static/images/projects/spring-petclinic-2.jpg"
+  ]
+}
+```
 
 ### 3. Generator Update (`generate_static.py`)
 Update `cert_card()` to:
@@ -49,9 +65,15 @@ Update `cert_card()` to:
 3. Add a `.cert-card-clickable` class to indicate the card is interactive.
 4. Keep existing border and date color logic.
 5. Use a placeholder visual when no image is provided (a styled badge/icon area so the layout does not collapse).
-6. Add a hidden modal element at the bottom of the page for displaying the full certificate image.
 
-HTML structure for clickable cards:
+Add a `project_images_html()` helper and update the project card template to:
+
+1. Render a `.project-images` grid when a project has images.
+2. Each screenshot is an `<img class="project-image">`.
+
+Add a hidden modal element at the bottom of the page for displaying the full image.
+
+HTML structure for clickable certificate cards:
 
 ```html
 <div class="cert-card cert-card-clickable" data-image="static/images/certs/..." style="...">
@@ -64,7 +86,7 @@ HTML structure for clickable cards:
 </div>
 ```
 
-HTML structure for unlinked cards (no image yet):
+HTML structure for unlinked certificate cards (no image yet):
 
 ```html
 <div class="cert-card" style="...">
@@ -77,14 +99,23 @@ HTML structure for unlinked cards (no image yet):
 </div>
 ```
 
+HTML structure for project screenshot gallery:
+
+```html
+<div class="project-images">
+  <img src="static/images/projects/..." alt="Project Name screenshot 1" class="project-image" loading="lazy">
+  <img src="static/images/projects/..." alt="Project Name screenshot 2" class="project-image" loading="lazy">
+</div>
+```
+
 Modal element:
 
 ```html
 <div id="certModal" class="cert-modal" aria-hidden="true">
   <div class="cert-modal-backdrop"></div>
   <div class="cert-modal-content">
-    <button class="cert-modal-close" aria-label="Close certificate preview">&times;</button>
-    <img id="certModalImg" src="" alt="Certificate preview">
+    <button class="cert-modal-close" aria-label="Close image preview">&times;</button>
+    <img id="certModalImg" src="" alt="Image preview">
   </div>
 </div>
 ```
@@ -171,13 +202,14 @@ python3 generate_static.py
 This rebuilds `index.html` with the new certificate cards.
 
 ### 5. JavaScript Updates (`static/js/main.js`)
-Add modal behavior:
+Add a generic image modal behavior:
 
 1. Select modal elements (`#certModal`, `#certModalImg`, close button, backdrop).
 2. Attach click listeners to `.cert-card-clickable` cards to open the modal with the image from `data-image`.
-3. Close the modal when clicking the close button, clicking the backdrop, or pressing Escape.
-4. Prevent body scroll when the modal is open.
-5. Ignore clicks when the user is selecting text.
+3. Attach click listeners to `.project-image` screenshots to open the modal with the clicked image.
+4. Close the modal when clicking the close button, clicking the backdrop, or pressing Escape.
+5. Prevent body scroll when the modal is open.
+6. Ignore clicks when the user is selecting text.
 
 ### 6. Responsive Behavior
 - The existing `.certs-grid` is 3 columns on desktop, 2 on tablet, 1 on mobile.
@@ -186,14 +218,18 @@ Add modal behavior:
 
 ## Success Criteria
 - [ ] Each certificate card with an image path is clickable.
-- [ ] Clicking opens the certificate image in an on-page modal/lightbox.
-- [ ] Each card has a preview thumbnail area at the top.
-- [ ] Cards without an image show a placeholder instead of a broken image.
+- [ ] Each project screenshot is clickable.
+- [ ] Clicking opens the image in an on-page modal/lightbox.
+- [ ] Each certificate card has a preview thumbnail area at the top.
+- [ ] Each project with images shows a screenshot gallery.
+- [ ] Cards/images without a provided file show a placeholder instead of a broken image.
 - [ ] The modal closes via close button, backdrop click, or Escape key.
 - [ ] The site regenerates from `profile.json` without losing the changes.
 - [ ] No new external dependencies are introduced.
 
 ## Open Questions / Next Steps for User
 1. Copy certificate image/PDF files into `static/images/certs/`.
-2. Update the `image`/`certificate_url` fields in `profile.json` with the actual filenames.
-3. Re-run `generate_static.py` after adding images.
+2. Copy project screenshot files into `static/images/projects/`.
+3. Update the `image`/`certificate_url` fields in `profile.json` with the actual certificate filenames.
+4. Update the `images` arrays in `profile.json` with the actual project screenshot filenames.
+5. Re-run `generate_static.py` after adding images.

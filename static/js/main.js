@@ -55,26 +55,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
   document.querySelectorAll('.fade-up, .fade-up-2, .fade-up-3').forEach(el => observer.observe(el));
 
-  // Certificate modal
+  // Image modal (certificates + project screenshots)
   const certModal = document.getElementById('certModal');
   const certModalImg = document.getElementById('certModalImg');
   const certModalClose = certModal ? certModal.querySelector('.cert-modal-close') : null;
   const certModalBackdrop = certModal ? certModal.querySelector('.cert-modal-backdrop') : null;
 
-  function openCertModal(imageSrc) {
+  function openImageModal(imageSrc, altText) {
     if (!certModal || !certModalImg) return;
     certModalImg.src = imageSrc;
+    certModalImg.alt = altText || 'Image preview';
     certModal.classList.add('active');
     certModal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
   }
 
-  function closeCertModal() {
+  function closeImageModal() {
     if (!certModal) return;
     certModal.classList.remove('active');
     certModal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
     certModalImg.src = '';
+    certModalImg.alt = '';
   }
 
   document.querySelectorAll('.cert-card-clickable').forEach(card => {
@@ -82,24 +84,32 @@ document.addEventListener('DOMContentLoaded', function() {
       // Don't trigger if the user is selecting text
       if (window.getSelection().toString().length > 0) return;
       const imageSrc = this.getAttribute('data-image');
+      const altText = this.querySelector('.cert-name')?.textContent || 'Certificate preview';
       if (imageSrc) {
         e.preventDefault();
-        openCertModal(imageSrc);
+        openImageModal(imageSrc, altText);
       }
     });
   });
 
+  document.querySelectorAll('.project-image').forEach(img => {
+    img.addEventListener('click', function(e) {
+      e.preventDefault();
+      openImageModal(this.src, this.alt);
+    });
+  });
+
   if (certModalClose) {
-    certModalClose.addEventListener('click', closeCertModal);
+    certModalClose.addEventListener('click', closeImageModal);
   }
 
   if (certModalBackdrop) {
-    certModalBackdrop.addEventListener('click', closeCertModal);
+    certModalBackdrop.addEventListener('click', closeImageModal);
   }
 
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && certModal && certModal.classList.contains('active')) {
-      closeCertModal();
+      closeImageModal();
     }
   });
 });

@@ -1327,6 +1327,7 @@ footer {
   border-radius: 6px;
   border: 1px solid var(--border);
   transition: transform 0.2s, border-color 0.2s;
+  cursor: pointer;
 }
 .project-images img:hover {
   transform: scale(1.03);

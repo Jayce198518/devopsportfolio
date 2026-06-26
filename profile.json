@@ -105,7 +105,11 @@
       "github": "https://github.com/Jayce198518",
       "demo": null,
       "featured": true,
-      "images": []
+      "images": [
+        "static/images/projects/spring-petclinic-1.jpg",
+        "static/images/projects/spring-petclinic-2.jpg",
+        "static/images/projects/spring-petclinic-3.jpg"
+      ]
     },
     {
       "name": "Kubernetes Fundamentals Lab",
@@ -122,7 +126,11 @@
       ],
       "github": "https://github.com/Jayce198518",
       "demo": null,
-      "images": []
+      "images": [
+        "static/images/projects/kubernetes-lab-1.jpg",
+        "static/images/projects/kubernetes-lab-2.jpg",
+        "static/images/projects/kubernetes-lab-3.jpg"
+      ]
     },
     {
       "name": "EpicBook Azure DevOps Deployment",
@@ -139,7 +147,11 @@
       ],
       "github": "https://github.com/Jayce198518",
       "demo": null,
-      "images": []
+      "images": [
+        "static/images/projects/epicbook-azure-1.jpg",
+        "static/images/projects/epicbook-azure-2.jpg",
+        "static/images/projects/epicbook-azure-3.jpg"
+      ]
     }
   ],
   "blog_posts": [

@@ -423,13 +423,14 @@ html = f'''<!DOCTYPE html>
         <div class="cv-header">
           <div class="cv-title">{p['name']} — CV</div>
           <div class="cv-btns">
+            <a href="static/cv/devops-cv-ats.pdf" download class="cv-btn-dl">Download CV (PDF)</a>
             <a href="{p['social']['linkedin']}" target="_blank" class="cv-btn-li">View on LinkedIn ↗</a>
           </div>
         </div>
         <div class="cv-preview">
           <div class="icon">📄</div>
-          <p>Downloadable PDF coming soon</p>
-          <p style="font-size:0.7rem">For now, view full details on LinkedIn</p>
+          <p>Downloadable PDF available</p>
+          <p style="font-size:0.7rem">Click the button above to download</p>
         </div>
         <div class="cv-certs">
 {cv_certs}

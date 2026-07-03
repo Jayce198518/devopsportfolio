@@ -178,6 +178,35 @@ def cv_cert(cert):
 
 cv_certs = "\n".join(cv_cert(cert) for cert in p.get("certifications", []))
 
+# CV Experience
+experience_html = ""
+for exp in p.get("experience", []):
+    current = " (Current)" if exp.get("current") else ""
+    experience_html += f'''
+            <div class="cv-entry">
+              <div class="cv-entry-header">
+                <span class="cv-role">{exp["role"]}{current}</span>
+                <span class="cv-dates">{exp["dates"]}</span>
+              </div>
+              <div class="cv-company">{exp["company"]}</div>
+            </div>'''
+
+# CV Education
+education_html = ""
+for edu in p.get("education", []):
+    education_html += f'''
+            <div class="cv-entry">
+              <span class="cv-degree">{edu["degree"]}</span>
+              <span class="cv-school">{edu["institution"]}</span>
+              <span class="cv-year">{edu["year"]}</span>
+            </div>'''
+
+# CV Skills
+skill_tags = []
+for category, skills in p.get("skills", {}).items():
+    skill_tags.extend(skills[:3])
+skills_html = "\n".join(f'              <span class="cv-skill">{s}</span>' for s in skill_tags[:12])
+
 # Contact links
 contact_links = f'''<a class="contact-link" href="{p['social']['linkedin']}" target="_blank">
               <div><span class="link-label">LinkedIn</span><span class="link-val">linkedin.com/in/jacinta-ezennajiofoeze</span></div>
@@ -428,9 +457,25 @@ html = f'''<!DOCTYPE html>
           </div>
         </div>
         <div class="cv-preview">
-          <div class="icon">📄</div>
-          <p>Downloadable PDF available</p>
-          <p style="font-size:0.7rem">Click the button above to download</p>
+          <div class="cv-section">
+            <h3>Professional Summary</h3>
+            <p>{p.get('about', '')}</p>
+          </div>
+          <div class="cv-section">
+            <h3>Experience</h3>
+            {experience_html}
+          </div>
+          <div class="cv-section">
+            <h3>Education</h3>
+            {education_html}
+          </div>
+          <div class="cv-section">
+            <h3>Core Skills</h3>
+            <div class="cv-skills">
+              {skills_html}
+            </div>
+          </div>
+          <p style="font-size:0.75rem;color:var(--grey);margin-top:1rem;text-align:center;">Full PDF available via download button above</p>
         </div>
         <div class="cv-certs">
 {cv_certs}

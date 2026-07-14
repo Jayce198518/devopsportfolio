@@ -173,6 +173,30 @@
         "static/images/projects/book-review-site-2.png",
         "static/images/projects/book-review-site-3.png"
       ]
+    },
+    {
+      "name": "Agentic AI DevOps Automation",
+      "tagline": "AI-assisted infrastructure delivery with Claude and Kimchi",
+      "icon": "🤖",
+      "description": "Applied agentic AI assistants \u2014 Claude and Kimchi \u2014 to accelerate DevOps workflows including infrastructure provisioning, CI/CD pipeline authoring, security review, and automated troubleshooting. Used natural-language prompts to generate Terraform and Ansible code, refine deployment scripts, and surface operational insights across cloud environments.",
+      "impact": "Demonstrates how agentic AI can amplify platform engineering by reducing boilerplate, catching misconfigurations early, and shortening the path from design to production.",
+      "tags": [
+        "Agentic AI",
+        "Claude",
+        "Kimchi",
+        "AI-Assisted DevOps",
+        "Terraform",
+        "CI/CD"
+      ],
+      "github": "https://github.com/Jayce198518",
+      "demo": null,
+      "images": [
+        "static/images/projects/agentic-ai-1.png",
+        "static/images/projects/agentic-ai-2.png",
+        "static/images/projects/agentic-ai-3.png",
+        "static/images/projects/agentic-ai-4.png",
+        "static/images/projects/agentic-ai-5.png"
+      ]
     }
   ],
   "blog_posts": [

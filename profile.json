@@ -90,17 +90,19 @@
   "projects": [
     {
       "name": "Spring PetClinic Microservices",
-      "tagline": "Production-grade Docker stack with full observability",
+      "tagline": "Production-grade microservices with CI/CD, GitOps and observability",
       "icon": "\ud83d\udc33",
-      "description": "Engineered optimised Docker images for a polyglot microservices suite using multi-stage build patterns and Maven profile segregation. Orchestrated the complete runtime environment with Docker Compose, wiring Prometheus for metrics collection, Grafana for visualisation, and Zipkin for distributed request tracing across service boundaries.",
-      "impact": "Demonstrates end-to-end container strategy \u2014 build optimisation, service mesh telemetry, and local-to-cloud portability \u2014 using the same patterns required for enterprise service platforms.",
+      "description": "Engineered optimised Docker images for a polyglot microservices suite using multi-stage build patterns and Maven profile segregation. Orchestrated the runtime environment with Docker Compose, then automated CI/CD with GitHub Actions and enabled GitOps-style delivery to Kubernetes with ArgoCD. Wired Prometheus for metrics collection, Grafana for visualisation, and Zipkin for distributed request tracing across service boundaries.",
+      "impact": "Demonstrates end-to-end container strategy \u2014 build optimisation, GitHub Actions CI/CD, ArgoCD GitOps delivery, service telemetry, and local-to-cloud portability \u2014 using the same patterns required for enterprise service platforms.",
       "tags": [
         "Docker",
         "Docker Compose",
+        "GitHub Actions",
+        "ArgoCD",
+        "Microservices",
         "Prometheus",
         "Grafana",
-        "Zipkin",
-        "Microservices"
+        "Zipkin"
       ],
       "github": "https://github.com/Jayce198518",
       "demo": null,
@@ -175,7 +177,7 @@
       ]
     },
     {
-      "name": "Agentic AI DevOps Automation",
+      "name": "Agentic AI DevOps",
       "tagline": "AI-assisted infrastructure delivery with Claude and Kimchi",
       "icon": "🤖",
       "description": "Applied agentic AI assistants \u2014 Claude and Kimchi \u2014 to accelerate DevOps workflows including infrastructure provisioning, CI/CD pipeline authoring, security review, and automated troubleshooting. Used natural-language prompts to generate Terraform and Ansible code, refine deployment scripts, and surface operational insights across cloud environments.",

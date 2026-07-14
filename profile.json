@@ -106,9 +106,9 @@
       "demo": null,
       "featured": true,
       "images": [
-        "static/images/projects/spring-petclinic-1.jpg",
-        "static/images/projects/spring-petclinic-2.jpg",
-        "static/images/projects/spring-petclinic-3.jpg"
+        "static/images/projects/spring-petclinic-1.png",
+        "static/images/projects/spring-petclinic-2.png",
+        "static/images/projects/spring-petclinic-3.png"
       ]
     },
     {
@@ -127,9 +127,9 @@
       "github": "https://github.com/Jayce198518",
       "demo": null,
       "images": [
-        "static/images/projects/kubernetes-lab-1.jpg",
-        "static/images/projects/kubernetes-lab-2.jpg",
-        "static/images/projects/kubernetes-lab-3.jpg"
+        "static/images/projects/kubernetes-lab-1.png",
+        "static/images/projects/kubernetes-lab-2.png",
+        "static/images/projects/kubernetes-lab-3.png"
       ]
     },
     {
@@ -148,9 +148,30 @@
       "github": "https://github.com/Jayce198518",
       "demo": null,
       "images": [
-        "static/images/projects/epicbook-azure-1.jpg",
-        "static/images/projects/epicbook-azure-2.jpg",
-        "static/images/projects/epicbook-azure-3.jpg"
+        "static/images/projects/epicbook-azure-1.png",
+        "static/images/projects/epicbook-azure-2.png",
+        "static/images/projects/epicbook-azure-3.png"
+      ]
+    },
+    {
+      "name": "Book Review Site",
+      "tagline": "Azure DevOps deployment pipeline for a book review application",
+      "icon": "\ud83d\udcda",
+      "description": "Designed and deployed a book review web application using the same two-stage delivery approach as EpicBook. Terraform provisions Azure infrastructure \u2014 App Services, managed databases, and networking \u2014 while Ansible configures the Node.js runtime and injects secrets. Azure DevOps pipelines coordinate infrastructure and application releases end-to-end.",
+      "impact": "Shows repeatable, production-style delivery of a full-stack Node.js application on Azure, with infrastructure and configuration managed as code.",
+      "tags": [
+        "Azure DevOps",
+        "Terraform",
+        "Ansible",
+        "CI/CD",
+        "Node.js"
+      ],
+      "github": "https://github.com/Jayce198518",
+      "demo": null,
+      "images": [
+        "static/images/projects/book-review-site-1.png",
+        "static/images/projects/book-review-site-2.png",
+        "static/images/projects/book-review-site-3.png"
       ]
     }
   ],
